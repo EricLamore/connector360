@@ -1,0 +1,32 @@
+{
+	"dashboard": {
+		"overallSituation": {
+			"title": "Situation générale",
+			"customer-global-details": {
+				"mepDate": "Date de MEP",
+				"representatives": {
+					"title": "Interlocuteurs",
+					"trade": "Métier",
+					"project": "Projet",
+					"procurement": "Achat"
+				}
+			},
+			"projects": {
+				"title": "Projects"
+			}
+		},
+		"consumption": "Consommation",
+		"businessSituation": {
+			"title": "Situation commerciale",
+			"subscriptions": {
+				"monthly": "par mois"
+			}
+		},
+		"tickets": "Tickets",
+		"supportSatisfaction": {
+			"title": "Satisfaction Support",
+			"satisfied": "Satisfait",
+			"unsatisfied": "Insatisfait"
+		}
+	}
+}

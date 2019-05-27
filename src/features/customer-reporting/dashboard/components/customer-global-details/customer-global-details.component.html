@@ -1,0 +1,43 @@
+<ng-container *ngIf="dataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<div class="w-100 customer-global-details">
+		<div class="mepDateLabel" translate>
+			dashboard.overallSituation.customer-global-details.mepDate
+		</div>
+		<div class="mepDateValue">
+			{{ customerGlobalDetail.mepDate }}
+		</div>
+		<div class="mainRepresentativeLabel" translate>
+			{{ customerGlobalDetail.titleMainRepresentative }}
+		</div>
+		<div class="mainRepresentativeValue">
+			{{ customerGlobalDetail.mainRepresentativeName }}
+		</div>
+		<div class="representativesTitle" translate>
+			dashboard.overallSituation.customer-global-details.representatives.title
+		</div>
+		<div class="tradeRepresentativeLabel" translate>
+			dashboard.overallSituation.customer-global-details.representatives.trade
+		</div>
+		<div class="tradeRepresentativeValue">
+			{{ customerGlobalDetail.tradeRepresentativeNames }}
+		</div>
+		<div class="projectRepresentativeLabel" translate>
+			dashboard.overallSituation.customer-global-details.representatives.project
+		</div>
+		<div class="projectRepresentativeValue">
+			{{ customerGlobalDetail.projectRepresentativeNames }}
+		</div>
+		<div class="procurementRepresentativeLabel" translate>
+			dashboard.overallSituation.customer-global-details.representatives.procurement
+		</div>
+		<div class="procurementRepresentativeValue">
+			{{ customerGlobalDetail.procurementRepresentativeNames }}
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100" translate>category.noData</div>
+</ng-template>

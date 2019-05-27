@@ -1,0 +1,9 @@
+<ng-container *ngIf="dataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<app-smart-table [settings]="settings" [source]="source" [hasPager]="hasPager"></app-smart-table>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100" translate>category.noData</div>
+</ng-template>

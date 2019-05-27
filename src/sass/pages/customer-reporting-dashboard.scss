@@ -1,0 +1,170 @@
+.customer-reporting-dashboard {
+	min-width: 500px;
+	& .overview,
+	& .consumption,
+	& .business,
+	& .tickets {
+		min-width: 500px;
+	}
+
+	@media only screen and (min-width: 1100px) {
+		display: grid !important;
+		grid-template-columns: 50% 50% !important;
+		grid-gap: 0.5vh;
+
+        & .header {
+            grid-row-start: 1 !important;
+            grid-row-end: 2 !important;
+            grid-column-start: 1 !important;
+            grid-column-end: 3 !important;
+            height:50px;
+
+            & .title {
+                font-weight: bold;
+                font-size: 24px;
+            }
+        }
+
+		& .overview {
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+
+			& .overview_body {
+				display: grid !important;
+				grid-template-rows: auto auto !important;
+				grid-gap: 20px;
+
+				& .overview_global {
+					grid-row-start: 1 !important;
+					grid-row-end: 2 !important;
+				}
+
+				& .overview_projects {
+					grid-row-start: 2 !important;
+					grid-row-end: 3 !important;
+				}
+			}
+		}
+
+		& .consumption {
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
+			grid-column-start: 2 !important;
+			grid-column-end: 3 !important;
+
+			& .consumption_body {
+				display: grid !important;
+				grid-template-columns: 100% !important;
+			}
+		}
+
+		& .business {
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+
+			& .business_body {
+				display: grid !important;
+				grid-template-columns: 100% !important;
+				grid-template-rows: auto auto !important;
+				grid-gap: 20px;
+
+				& .business_subscriptions {
+					grid-row-start: 1 !important;
+					grid-row-end: 2 !important;
+				}
+
+				& .business_invoices {
+					grid-row-start: 2 !important;
+					grid-row-end: 3 !important;
+				}
+			}
+		}
+
+		& .tickets {
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+			grid-column-start: 2 !important;
+			grid-column-end: 3 !important;
+
+			& .tickets_body {
+				display: grid !important;
+				grid-template-columns: 40% 60% !important;
+
+				& .tickets_satisfaction {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+					text-align: center !important;
+				}
+
+				& .tickets_graph {
+					grid-column-start: 2 !important;
+					grid-column-end: 3 !important;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 1100px) {
+		display: grid !important;
+		grid-template-rows: auto auto auto auto auto !important;
+		grid-gap: 0.5vh;
+
+        & .header {
+            grid-row-start: 1 !important;
+            grid-row-end: 2 !important;
+            grid-column-start: 1 !important;
+            grid-column-end: 2 !important;
+            height:50px;
+
+            & .title {
+                font-weight: bold;
+                font-size: 24px;
+            }
+        }
+
+		& .overview {
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
+		}
+
+		& .consumption {
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+
+			& .consumption_body {
+				display: grid !important;
+				grid-template-columns: 100% !important;
+			}
+		}
+
+		& .business {
+			grid-row-start: 4 !important;
+			grid-row-end: 5 !important;
+		}
+
+		& .tickets {
+			grid-row-start: 5 !important;
+			grid-row-end: 6 !important;
+
+			& .tickets_body {
+				display: grid !important;
+				grid-template-columns: 40% 60% !important;
+
+				& .tickets_satisfaction {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+					text-align: center !important;
+				}
+
+				& .tickets_graph {
+					grid-column-start: 2 !important;
+					grid-column-end: 3 !important;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<ng-container *ngIf="dataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<div class="w-100 h-100">
+		<div *ngFor="let index of labels.keys(); trackBy: trackById">
+			<canvas
+				height="45%"
+				baseChart
+				[chartType]="chartType"
+				[legend]="legend"
+				[labels]="[labels[index].slice(0, 3)]"
+				[datasets]="datasets[index]"
+				[options]="options"
+			>
+			</canvas>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100" translate>category.noData</div>
+</ng-template>

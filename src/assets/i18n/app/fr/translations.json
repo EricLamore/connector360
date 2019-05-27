@@ -1,0 +1,103 @@
+{
+	"layout": {
+		"search": "Rechercher",
+		"logout": "Déconnexion"
+	},
+
+	"months": {
+		"january": "Janvier",
+		"february": "Février",
+		"march": "Mars",
+		"april": "Avril",
+		"may": "Mai",
+		"june": "Juin",
+		"july": "Juillet",
+		"august": "Août",
+		"september": "Septembre",
+		"october": "Octobre",
+		"november": "Novembre",
+		"december": "Décembre"
+	},
+
+	"category": {
+		"invoices": {
+			"columns": {
+				"customer": "Client",
+				"name": "Nom",
+				"date": "Emission",
+				"status": "Statut",
+				"price": "Montant"
+			}
+		},
+		"projects": {
+			"columns": {
+				"customer": "Client",
+				"name": "Nom",
+				"date": "Date de début",
+				"status": "Statut",
+				"state": "Météo"
+			}
+		},
+		"tickets": {
+			"columns": {
+				"customer": "Client",
+				"satisfaction": "Satisfaction",
+				"ticketsNumber": "Tickets",
+				"ticketsOpened": "Tickets ouverts",
+				"ticketsClosed": "Tickets clos",
+				"createdAt": "Date de création",
+				"closureDate": "Date de clôture",
+				"description": "Description",
+				"solvingTime": "Temps de résolution",
+				"status": "Statut",
+				"subject": "Sujet"
+			}
+		},
+		"noData": "Pas de données disponible"
+	},
+
+	"detailsButton": {
+		"label": "Details"
+	},
+
+	"four-oh-four": {
+		"title": "Page introuvable",
+		"content": "La page que vous cherchez a peut-être été supprimé ou est temporairement indisponible.",
+		"return": "Revenir à l'accueil"
+	},
+
+	"mrr": {
+		"provisional": "MRR prévisionnel",
+		"realized": "MRR réalisé"
+	},
+
+	"product": {
+		"type": {
+			"signature": "Signatures",
+			"timestamp": "Timestamps",
+			"seal": "Seals"
+		}
+	},
+
+	"project": {
+		"state": {
+			"staging": "Recette",
+			"prod": "Production",
+			"running": "En service",
+			"stopped": "Arrêté"
+		}
+	},
+
+	"smart_table": {
+		"pager": {
+			"title": "Afficher par page"
+		}
+	},
+
+	"ticket": {
+		"state": {
+			"notSolved": "Non résolus",
+			"solved": "Résolus"
+		}
+	}
+}

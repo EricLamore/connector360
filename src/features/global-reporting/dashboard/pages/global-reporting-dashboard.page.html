@@ -1,0 +1,84 @@
+<div class="global-reporting-dashboard w-100 h-100">
+	<div class="consumption">
+		<nb-card class="w-100 h-100">
+			<nb-card-header translate>dashboard.consumption</nb-card-header>
+			<nb-card-body>
+				<div class="consumption_body w-100 h-100">
+					<div class="consumption_mrr">
+						<app-mrr-chart> </app-mrr-chart>
+					</div>
+					<div class="consumption_products">
+						<app-products-chart> </app-products-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="projects">
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.projects</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/global-reporting', categories.PROJECTS]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div class="projects_body w-100 h-100 dflex">
+					<div class="projects_overview my-auto">
+						<app-projects-overview-chart> </app-projects-overview-chart>
+					</div>
+					<div class="projects_timeline">
+						<app-projects-timeline-chart> </app-projects-timeline-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="invoices">
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.bills</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/global-reporting', categories.INVOICES]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div>
+					<app-invoices-chart> </app-invoices-chart>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="tickets">
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.tickets</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/global-reporting', categories.TICKETS]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div class="tickets_body w-100 h-100 dflex">
+					<div class="tickets_satisfaction my-auto">
+						<app-satisfaction-chart> </app-satisfaction-chart>
+					</div>
+					<div class="tickets_graph">
+						<app-tickets-chart> </app-tickets-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

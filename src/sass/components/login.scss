@@ -1,0 +1,9 @@
+@import '~@nebular/theme/styles/global/breakpoints';
+
+.login {
+	& .logo {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

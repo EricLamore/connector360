@@ -1,0 +1,23 @@
+{
+	"login": {
+		"title": "Se connecter",
+		"mail": {
+			"label": "Adresse mail :",
+			"placeholder": "Adresse mail",
+			"required": "Adresse mail requis !",
+			"invalid": "Adresse mail invalide !"
+		},
+		"password": {
+			"label": "Mot de passe :",
+			"placeholder": "Mot de passe",
+			"required": "Mot de passe requis !",
+			"invalid": "Le mot de passe doit faire une longueur comprise {{minLength}} et {{maxLength}} caractères"
+		},
+		"remember": "Se souvenir de moi",
+		"connection": "Connexion"
+	},
+
+	"logout": {
+		"title": "Déconnexion en cours..."
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"paths": {
+			"@application/*": ["app/*"],
+			"@features/*": ["features/*"]
+		},
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"target": "es6",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"noImplicitAny": true,
+		"skipLibCheck": true,
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es7", "dom"]
+	}
+}

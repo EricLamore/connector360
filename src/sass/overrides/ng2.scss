@@ -1,0 +1,20 @@
+@import '../variables/variables';
+.nb-theme-universign ng2-smart-table {
+	& table tr.ng2-smart-titles th {
+		background-color: $universign-table-background-color !important;
+		text-align: center !important;
+	}
+
+	& table tr th a,
+	tr > td {
+		font-size: 10pt !important;
+	}
+
+	& ng2-smart-table-title > a {
+		color: white !important;
+	}
+
+	& ng2-smart-table-pager {
+		margin-top: -10px !important;
+	}
+}

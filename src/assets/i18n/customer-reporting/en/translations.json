@@ -1,0 +1,32 @@
+{
+	"dashboard": {
+		"overallSituation": {
+			"title": "Overall situation",
+			"customer-global-details": {
+				"mepDate": "MEP date",
+				"representatives": {
+					"title": "Representatives",
+					"trade": "Trade",
+					"project": "Project",
+					"procurement": "Procurement"
+				}
+			},
+			"projects": {
+				"title": "Projects"
+			}
+		},
+		"consumption": "Consumption",
+		"businessSituation": {
+			"title": "Business situation",
+			"subscriptions": {
+				"monthly": "monthly"
+			}
+		},
+		"tickets": "Tickets",
+		"supportSatisfaction": {
+			"title": "Support Satisfaction",
+			"satisfied": "Satisfied",
+			"unsatisfied": "Unsatisfied"
+		}
+	}
+}

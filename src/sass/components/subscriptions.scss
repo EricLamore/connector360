@@ -1,0 +1,46 @@
+@import '../variables/universign';
+
+.subscriptions {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto !important;
+
+	& .subscription {
+		display: flex !important;
+		min-width: 200px !important;
+		border-radius: 5px !important;
+		border: 1px solid $universign-subscription-border-color !important;
+		margin: 2px !important;
+		flex-direction: column !important;
+		font-size: 10px !important;
+		font-family: 'Cabin', sans-serif !important;
+        overflow: hidden !important;
+        background-color: #33AFFF;
+
+        & .subscription-name {
+          text-align: center;
+          background-color: #33AFFF;
+        }
+
+		& .subscription-steps {
+			display: flex;
+			flex-direction: column;
+			font-size: 10px;
+			justify-content: center;
+			align-items: center;
+			background-color: #f8f8f8;
+		}
+
+		& .subscription-base {
+			border-top: 1px solid $universign-subscription-border-color;
+			text-align: center;
+			background-color: #f0f0f0;
+		}
+
+		& .subscription-product {
+			border-top: 1px solid $universign-subscription-border-color;
+			text-align: center;
+			background-color: #f0f0f0;
+		}
+	}
+}

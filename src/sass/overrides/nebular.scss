@@ -1,0 +1,50 @@
+.nb-theme-universign nb-card {
+	margin-bottom: 0 !important;
+}
+
+.search {
+	top: -30vh !important;
+
+	& input {
+		width: 100% !important;
+	}
+
+	& button {
+		top: 10vh !important;
+	}
+}
+
+nb-search-field.rotate-layout.show {
+	opacity: 0.5 !important;
+}
+
+nb-layout.rotate-layout {
+	background-color: #222b45;
+}
+
+nb-layout.rotate-layout.with-search .scrollable-container {
+	transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, 0, 0, 30deg) !important;
+}
+
+nb-layout.untwist-rotate-layout.rotate-layout {
+	position: inherit !important;
+}
+
+nb-layout.untwist-rotate-layout.with-search .scrollable-container {
+	transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, 0, 0, 0) !important;
+}
+
+nb-card-header {
+    height: 50px !important;
+
+    & .headerWithDetails {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        align-self: center !important;
+    }
+
+    & .detailsButton {
+        margin-left: auto;
+    }
+}

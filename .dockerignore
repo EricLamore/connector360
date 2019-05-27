@@ -1,0 +1,11 @@
+Dockerfile
+
+node_modules
+
+unit-testing
+coverage
+.sonarcloud.properties
+
+.git
+.gitignore
+.gitlab-ci.yml

@@ -1,0 +1,52 @@
+@import '../../../node_modules/@nebular/theme/styles/global/breakpoints';
+
+.authentication {
+	$auth-layout-padding: 2.5rem;
+
+	& nb-card {
+		width: 400px;
+		border-radius: 0.5em;
+		box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.2);
+	}
+
+	& .navigation .link {
+		display: inline-block;
+		text-decoration: none;
+
+		& nb-icon {
+			font-size: 2rem;
+			vertical-align: middle;
+		}
+	}
+
+	& .links nb-icon {
+		font-size: 2.5rem;
+	}
+
+	& nb-card-body {
+		display: flex;
+		width: 100%;
+	}
+
+	& nb-auth-block {
+		margin: auto;
+	}
+
+	@include media-breakpoint-down(sm) {
+		& nb-card {
+			border-radius: 0.5em;
+			height: 100vh;
+		}
+	}
+
+	& nb-layout .layout .layout-container .content .columns nb-layout-column {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: white;
+
+		@include media-breakpoint-down(sm) {
+			padding: 0;
+		}
+	}
+}

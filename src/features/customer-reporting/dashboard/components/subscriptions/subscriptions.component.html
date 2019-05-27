@@ -1,0 +1,29 @@
+<ng-container *ngIf="dataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<div class="subscriptions w-100">
+		<div class="subscription" *ngFor="let subscription of subscriptions; trackBy: trackById">
+			<div class="subscription-name">
+				<span> {{ subscription.name }} </span>
+			</div>
+			<div class="subscription-steps">
+				<span *ngFor="let step of subscription.ratePlanCharges; trackBy: trackById">
+					{{ step.step }} - € {{ step.unitPrice }}
+				</span>
+			</div>
+			<div class="subscription-base">
+				<span>
+					€ {{ subscription.base }}
+					{{ 'dashboard.businessSituation.subscriptions.monthly' | translate }}</span
+				>
+			</div>
+			<div class="subscription-product">
+				<span> {{ subscription.productType }} </span>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100" translate>category.noData</div>
+</ng-template>

@@ -1,0 +1,20 @@
+<ng-container *ngIf="dataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<div class="w-100 h-100">
+		<canvas
+			baseChart
+			[chartType]="chartType"
+			[legend]="legend"
+			[labels]="labels"
+			[datasets]="datasets"
+			[colors]="colors"
+			[options]="options"
+		>
+		</canvas>
+	</div>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100" translate>category.noData</div>
+</ng-template>

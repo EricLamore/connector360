@@ -1,0 +1,109 @@
+<div class="customer-reporting-dashboard w-100 h-100">
+	<div class="header">
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<span class="title">{{customerName}}</span>
+			</nb-card-header>
+		</nb-card>
+	</div>
+	<div class="overview">
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.overallSituation.title</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/customer-reporting', customerName, categories.PROJECTS]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div class="overview_body w-100 h-100">
+					<div class="overview_global w-100">
+						<app-customer-global-details [customerName]="customerName"> </app-customer-global-details>
+					</div>
+					<div class="overview_projects w-100">
+						<span [ngStyle]="{'font-weight': ' bold'}" translate
+							>dashboard.overallSituation.projects.title</span
+						>
+						<app-category-table
+							[customerName]="customerName"
+							[category]="categories.PROJECTS"
+							[hasPager]="false"
+							[hideSubHeader]="true"
+							[perPage]="2"
+						></app-category-table>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="consumption">
+		<nb-card class="w-100 h-100">
+			<nb-card-header translate>dashboard.consumption</nb-card-header>
+			<nb-card-body>
+				<div class="consumption_body w-100 h-100 dflex">
+					<div class="my-auto">
+						<app-products-chart [customerName]="customerName"> </app-products-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="business">
+		<nb-card>
+			<nb-card-header>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.businessSituation.title</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/customer-reporting', customerName, categories.INVOICES]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body class="w-100">
+				<div class="business_body w-100 h-100 ">
+					<div class="business_subscriptions w-100">
+						<app-subscriptions [customerName]="customerName"> </app-subscriptions>
+					</div>
+					<div class="business_invoices w-100">
+						<app-category-table
+							[customerName]="customerName"
+							[category]="categories.INVOICES"
+							[hasPager]="false"
+							[hideSubHeader]="true"
+							[perPage]="2"
+						></app-category-table>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="tickets">
+		<nb-card class="w-100 h-100">
+			<nb-card-header translate>
+				<div fxFlex class="headerWithDetails">
+					<div translate>dashboard.tickets</div>
+					<div class="detailsButton">
+						<app-details-button
+							[routerLink]="['/customer-reporting', customerName, categories.TICKETS]"
+						></app-details-button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body>
+				<div class="tickets_body w-100 h-100 dflex">
+					<div class="tickets_satisfaction my-auto">
+						<span translate>dashboard.supportSatisfaction.title</span>
+						<app-satisfaction-chart [customerName]="customerName"> </app-satisfaction-chart>
+					</div>
+					<div class="tickets_graph">
+						<app-tickets-chart [customerName]="customerName"> </app-tickets-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

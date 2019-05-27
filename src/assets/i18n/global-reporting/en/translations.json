@@ -1,0 +1,8 @@
+{
+	"dashboard": {
+		"consumption": "Consumption",
+		"projects": "Projects",
+		"bills": "Bills",
+		"tickets": "Tickets"
+	}
+}

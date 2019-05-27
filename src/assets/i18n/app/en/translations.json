@@ -1,0 +1,103 @@
+{
+	"layout": {
+		"search": "Search",
+		"logout": "Logout"
+	},
+
+	"months": {
+		"january": "January",
+		"february": "February",
+		"march": "March",
+		"april": "April",
+		"may": "May",
+		"june": "June",
+		"july": "July",
+		"august": "August",
+		"september": "September",
+		"october": "October",
+		"november": "November",
+		"december": "December"
+	},
+
+	"category": {
+		"invoices": {
+			"columns": {
+				"customer": "Customer",
+				"name": "Name",
+				"date": "Sending date",
+				"status": "Status",
+				"price": "Amount"
+			}
+		},
+		"projects": {
+			"columns": {
+				"customer": "Customer",
+				"name": "Name",
+				"date": "Starting date",
+				"status": "Status",
+				"state": "State"
+			}
+		},
+		"tickets": {
+			"columns": {
+				"customer": "Customer",
+				"satisfaction": "Satisfaction",
+				"ticketsNumber": "Tickets",
+				"ticketsOpened": "Opened tickets",
+				"ticketsClosed": "Resolved tickets",
+				"createdAt": "Creation date",
+				"closureDate": "Closure date",
+				"description": "Description",
+				"solvingTime": "Solving time",
+				"status": "Status",
+				"subject": "Topic"
+			}
+		},
+		"noData": "No data available"
+	},
+
+	"detailsButton": {
+		"label": "Details"
+	},
+
+	"four-oh-four": {
+		"title": "Page not found",
+		"content": "The page you requested may have been removed or is temporary unavailable",
+		"return": "Back to home"
+	},
+
+	"mrr": {
+		"provisional": "Provisional MRR",
+		"realized": "Realized MRR"
+	},
+
+	"product": {
+		"type": {
+			"signature": "Signatures",
+			"timestamp": "Timestamps",
+			"seal": "Seals"
+		}
+	},
+
+	"project": {
+		"state": {
+			"staging": "Staging",
+			"prod": "Production",
+			"running": "Running",
+			"stopped": "Stopped"
+		}
+	},
+
+	"smart_table": {
+		"pager": {
+			"title": "Display per page"
+		}
+	},
+
+	"ticket": {
+		"state": {
+			"notSolved": "Not Solved",
+			"solved": "Solved"
+		}
+	}
+}

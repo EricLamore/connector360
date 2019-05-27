@@ -1,0 +1,23 @@
+{
+	"login": {
+		"title": "Login",
+		"mail": {
+			"label": "Email :",
+			"placeholder": "Email",
+			"required": "Email is required !",
+			"invalid": "Invalid email !"
+		},
+		"password": {
+			"label": "Password :",
+			"placeholder": "Password",
+			"required": "Password is required !",
+			"invalid": "Password must have a length between {{minLength}} and {{maxLength}} characters"
+		},
+		"remember": "Remember me",
+		"connection": "Login"
+	},
+
+	"logout": {
+		"title": "Logout in progress..."
+	}
+}
