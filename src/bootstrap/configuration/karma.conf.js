@@ -18,15 +18,13 @@ module.exports = function (config) {
 		},
 		coverageIstanbulReporter: {
 			dir: require('path').join(__dirname, '../../../coverage'),
-			reports: ['html', 'lcovonly'],
+			reports: ['json', 'html', 'text', 'lcovonly'],
 			fixWebpackSourcePaths: true
 		},
 		sonarQubeUnitReporter: {
-			// sonarQubeVersion: 'LATEST',
-			outputFile: '../../../ut_report.xml',
+			outputFile: '../../../unit-testing/ut_report.xml',
 			overrideTestDescription: true,
 			testPaths: ['./src'],
-			// testFilePattern: '.spec.js',
 			useBrowserName: false
 		},
 		reporters: ['progress', 'kjhtml', 'sonarqubeUnit'],
