@@ -23,7 +23,7 @@
 		"import-spacing": true,
 		"indent": [
 			true,
-			"spaces"
+			"tabs"
 		],
 		"interface-over-type-literal": true,
 		"label-position": true,
@@ -118,14 +118,19 @@
 			"check-type"
 		],
 		"no-output-on-prefix": true,
-		"use-input-property-decorator": true,
-		"use-output-property-decorator": true,
-		"use-host-property-decorator": true,
+		"no-inputs-metadata-property": true,
+		"no-outputs-metadata-property": true,
+		"no-host-metadata-property": true,
 		"no-input-rename": true,
 		"no-output-rename": true,
 		"use-life-cycle-interface": true,
 		"use-pipe-transform-interface": true,
-		"component-class-suffix": true,
+		"component-class-suffix": [
+			true,
+			"Component",
+			"Page",
+			"Layout"
+		],
 		"component-selector": [
 			true,
 			"element",

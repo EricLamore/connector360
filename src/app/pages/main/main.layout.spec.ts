@@ -16,7 +16,7 @@ describe('Main layout', () => {
 		fixture = TestBed.createComponent(MainLayout);
 		component = fixture.debugElement.componentInstance;
 	}));
-	
+
 	it('should create the app', async(() => {
 		expect(component).toBeTruthy();
 	}));
