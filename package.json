@@ -69,7 +69,6 @@
 		"jest-preset-angular": "^7.1.1",
 		"jest-sonar-reporter": "^2.0.0",
 		"jquery": "^3.4.1",
-		"lint-staged": "^8.1.7",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^1.17.1",
 		"pretty-quick": "^1.11.0",
@@ -90,12 +89,6 @@
 		"tsutils": "^3.0.0",
 		"typescript": "^3.4.5",
 		"vrsource-tslint-rules": "^6.0.0"
-	},
-	"lint-staged": {
-		"{,src/**/}*.{md,json,ts,css,scss,yml}": [
-			"prettier --write",
-			"git add"
-		]
 	},
 	"jestSonar": {
 		"reportPath": "./testing/",
