@@ -1,7 +1,7 @@
-@import "../../sass/components/components";
-@import "../../sass/fonts/fonts";
-@import "../../sass/overrides/overrides";
-@import "../../sass/variables/variables";
+@import '../../sass/components/components';
+@import '../../sass/fonts/fonts';
+@import '../../sass/overrides/overrides';
+@import '../../sass/variables/variables';
 
 // this is your created themes.scss file, make sure the path to the file is correct
 @import 'themes';
@@ -11,5 +11,5 @@
 
 // install the framework
 @include nb-install() {
-  @include nb-theme-global();
-};
+	@include nb-theme-global();
+}

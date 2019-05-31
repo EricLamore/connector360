@@ -1,16 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { MainLayout } from '@application/pages/main/main.layout';
 
 @NgModule({
-	declarations: [
-		MainLayout
-	],
-	imports: [
-		BrowserModule
-	],
-	providers: [],
-	bootstrap: [MainLayout]
+	bootstrap: [MainLayout],
+	declarations: [MainLayout],
+	imports: [BrowserModule],
+	providers: []
 })
-export class AppModule { }
+export class AppModule {}

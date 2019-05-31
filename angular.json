@@ -18,12 +18,8 @@
 						"main": "src/bootstrap/scripts/main.ts",
 						"polyfills": "src/bootstrap/scripts/polyfills.ts",
 						"tsConfig": "src/bootstrap/configuration/tsconfig.app.json",
-						"assets": [
-							"src/assets"
-						],
-						"styles": [
-							"src/bootstrap/styles/main.scss"
-						],
+						"assets": ["src/assets"],
+						"styles": ["src/bootstrap/styles/main.scss"],
 						"scripts": []
 					},
 					"configurations": {
@@ -43,7 +39,7 @@
 							"extractLicenses": true,
 							"vendorChunk": false,
 							"buildOptimizer": true
-							}
+						}
 					}
 				},
 				"serve": {
@@ -64,23 +60,10 @@
 					}
 				},
 				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
+					"builder": "@angular-builders/jest:run",
 					"options": {
-						"main": "src/bootstrap/scripts/test.ts",
-						"polyfills": "src/bootstrap/scripts/polyfills.ts",
-						"tsConfig": "src/bootstrap/configuration/tsconfig.spec.json",
-						"karmaConfig": "src/bootstrap/configuration/karma.conf.js",
-						"styles": [
-							"src/bootstrap/styles/main.scss"
-						],
-						"scripts": [],
-						"assets": [
-							"src/assets"
-						],
-						"codeCoverageExclude": [
-							"**/testing/**",
-							"**/*.module.ts"
-						]
+						"configPath": "./src/bootstrap/configuration/jest.config.js",
+						"no-cache": true
 					}
 				},
 				"lint": {
@@ -90,12 +73,10 @@
 							"src/bootstrap/configuration/tsconfig.app.json",
 							"src/bootstrap/configuration/tsconfig.spec.json"
 						],
-						"exclude": [
-							"**/node_modules/**"
-						]
+						"exclude": ["**/node_modules/**"]
 					}
 				}
-		 	}
+			}
 		},
 		"vision360-e2e": {
 			"root": "e2e/",
@@ -109,7 +90,7 @@
 					},
 					"configurations": {
 						"production": {
-						"devServerTarget": "vision360:serve:production"
+							"devServerTarget": "vision360:serve:production"
 						}
 					}
 				},
@@ -117,13 +98,11 @@
 					"builder": "@angular-devkit/build-angular:tslint",
 					"options": {
 						"tsConfig": "e2e/tsconfig.e2e.json",
-						"exclude": [
-							"**/node_modules/**"
-						]
+						"exclude": ["**/node_modules/**"]
 					}
 				}
 			}
 		}
 	},
-  "defaultProject": "vision360"
+	"defaultProject": "vision360"
 }

@@ -13,4 +13,3 @@ platformBrowserDynamic()
 	.catch((err: Error) => {
 		throw err;
 	});
-

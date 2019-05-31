@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
 	templateUrl: './main.layout.html'
 })
 export class MainLayout {
-	title = 'vision360';
+	public title: string = 'vision360';
 }
