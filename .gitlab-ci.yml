@@ -34,6 +34,8 @@ Build:
     allow_failure: false
     tags:
         - docker
+    only:
+        - develop
 
 #............................#
 # Stage: Lint                #
@@ -47,6 +49,8 @@ Lint:
     allow_failure: false
     tags:
         - docker
+    only:
+        - develop
 
 #............................#
 # Stage: Test                #
