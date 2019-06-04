@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router'; // we also need angular router for Nebular to function properly
-import { MainLayout } from '@application/pages/layouts/main/main.layout';
+import { RouterModule, Routes } from '@angular/router';
+import { MainLayout } from '@application/pages';
 
 const ROUTES: Routes = [
 	{

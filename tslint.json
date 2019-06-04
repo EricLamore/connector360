@@ -36,7 +36,7 @@
 					"private-static-method",
 					"private-instance-method"
 				],
-				"alphabetize": true
+				"alphabetize": false
 			}
 		],
 		"no-any": true,

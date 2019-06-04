@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BillsTableComponent } from '@features/global-reporting/bills/components/bills-table.component';
@@ -29,6 +29,7 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 		NbProgressBarModule,
 		NbTreeGridModule,
 		Ng2SmartTableModule
-	]
+	],
+	providers: [DatePipe]
 })
 export class GlobalReportingFeatureModule {}
