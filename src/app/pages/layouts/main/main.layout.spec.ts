@@ -42,11 +42,11 @@ describe('Main layout', () => {
 		component = fixture.debugElement.componentInstance;
 	}));
 
-	it('should create the app', async(() => {
+	test('should create the main layout', async(() => {
 		chai.expect(component).to.be.ok();
 	}));
 
-	it(`should have as title 'VISION360'`, async(() => {
+	test(`should have as title 'VISION360'`, async(() => {
 		chai.expect(component.title).to.equal('VISION360');
 	}));
 });
