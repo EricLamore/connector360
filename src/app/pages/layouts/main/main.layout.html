@@ -1,0 +1,13 @@
+<nb-layout>
+	<nb-layout-header fixed>{{title}}</nb-layout-header>
+	<nb-sidebar>
+		<nb-card>
+			<nb-card-body>
+				<nb-menu [items]="items"> </nb-menu>
+			</nb-card-body>
+		</nb-card>
+	</nb-sidebar>
+	<nb-layout-column>
+		<router-outlet></router-outlet>
+	</nb-layout-column>
+</nb-layout>

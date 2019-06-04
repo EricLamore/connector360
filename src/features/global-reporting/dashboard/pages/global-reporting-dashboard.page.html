@@ -1,0 +1,104 @@
+<nb-layout>
+	<nb-layout-header>Consommation</nb-layout-header>
+	<nb-layout-column>
+		Situation commerciale
+		<nb-card>
+			<nb-card-body>
+				<table [nbTreeGrid]="data1">
+					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
+					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
+
+					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+					</ng-container>
+				</table>
+			</nb-card-body>
+		</nb-card>
+		<nb-card>
+			<nb-card-body>
+				MRR : 300 000€
+			</nb-card-body>
+		</nb-card>
+		Par rapport au mois dernier
+		<nb-card>
+			<nb-card-body>
+				<nb-progress-bar [value]="50">+10% Low</nb-progress-bar>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+	<nb-layout-column>
+		Signatures
+	</nb-layout-column>
+</nb-layout>
+<nb-layout>
+	<nb-layout-header>Projets</nb-layout-header>
+	<nb-layout-column>
+		<nb-card>
+			<nb-card-body>
+				<table [nbTreeGrid]="data2">
+					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
+					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
+
+					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+					</ng-container>
+				</table>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+	<nb-layout-column>
+		<nb-card>
+			<nb-card-body>
+				<table [nbTreeGrid]="data3">
+					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns2"></tr>
+					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns2"></tr>
+
+					<ng-container *ngFor="let column of columns2; trackBy: trackById" [nbTreeGridColumnDef]="column">
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+					</ng-container>
+				</table>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+</nb-layout>
+<nb-layout>
+	<nb-layout-column>
+		<nb-layout-header>Factures</nb-layout-header>
+		<nb-card>
+			<nb-card-body>
+				<table [nbTreeGrid]="data2">
+					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
+					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
+
+					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+					</ng-container>
+				</table>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+	<nb-layout-column>
+		<nb-layout-header>Satisfaction</nb-layout-header>
+		<nb-card>
+			<nb-card-body>
+				<table [nbTreeGrid]="data3">
+					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns2"></tr>
+					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns2"></tr>
+
+					<ng-container *ngFor="let column of columns2; trackBy: trackById" [nbTreeGridColumnDef]="column">
+						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
+					</ng-container>
+				</table>
+			</nb-card-body>
+		</nb-card>
+	</nb-layout-column>
+</nb-layout>
+
+<a routerLink="/global-reporting/bills" routerLinkActive="active">
+	<span>Factures</span>
+</a>
