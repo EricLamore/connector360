@@ -1,104 +1,52 @@
-<nb-layout>
-	<nb-layout-header>Consommation</nb-layout-header>
-	<nb-layout-column>
-		Situation commerciale
-		<nb-card>
-			<nb-card-body>
-				<table [nbTreeGrid]="data1">
-					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
-					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
-
-					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
-						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-					</ng-container>
-				</table>
-			</nb-card-body>
-		</nb-card>
-		<nb-card>
-			<nb-card-body>
-				MRR : 300 000€
-			</nb-card-body>
-		</nb-card>
-		Par rapport au mois dernier
-		<nb-card>
-			<nb-card-body>
-				<nb-progress-bar [value]="50">+10% Low</nb-progress-bar>
-			</nb-card-body>
-		</nb-card>
-	</nb-layout-column>
-	<nb-layout-column>
-		Signatures
-	</nb-layout-column>
-</nb-layout>
-<nb-layout>
-	<nb-layout-header>Projets</nb-layout-header>
-	<nb-layout-column>
-		<nb-card>
-			<nb-card-body>
-				<table [nbTreeGrid]="data2">
-					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
-					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
-
-					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
-						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-					</ng-container>
-				</table>
-			</nb-card-body>
-		</nb-card>
-	</nb-layout-column>
-	<nb-layout-column>
-		<nb-card>
-			<nb-card-body>
-				<table [nbTreeGrid]="data3">
-					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns2"></tr>
-					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns2"></tr>
-
-					<ng-container *ngFor="let column of columns2; trackBy: trackById" [nbTreeGridColumnDef]="column">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
-						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-					</ng-container>
-				</table>
-			</nb-card-body>
-		</nb-card>
-	</nb-layout-column>
-</nb-layout>
-<nb-layout>
-	<nb-layout-column>
-		<nb-layout-header>Factures</nb-layout-header>
-		<nb-card>
-			<nb-card-body>
-				<table [nbTreeGrid]="data2">
-					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns1"></tr>
-					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns1"></tr>
-
-					<ng-container *ngFor="let column of columns1; trackBy: trackById" [nbTreeGridColumnDef]="column">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
-						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-					</ng-container>
-				</table>
-			</nb-card-body>
-		</nb-card>
-	</nb-layout-column>
-	<nb-layout-column>
-		<nb-layout-header>Satisfaction</nb-layout-header>
-		<nb-card>
-			<nb-card-body>
-				<table [nbTreeGrid]="data3">
-					<tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="columns2"></tr>
-					<tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: columns2"></tr>
-
-					<ng-container *ngFor="let column of columns2; trackBy: trackById" [nbTreeGridColumnDef]="column">
-						<th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
-						<td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column]}}</td>
-					</ng-container>
-				</table>
-			</nb-card-body>
-		</nb-card>
-	</nb-layout-column>
-</nb-layout>
-
+<div
+	fxFill
+	fxLayout="column"
+	[ngStyle]="{'min-width':'800px', 'max-width':'1200px', 'flex-basis':'auto', 'border-width':'2px', 'border-style':'dashed', 'border-color':'white'}"
+>
+	<div fxFlex="50" fxLayout="row">
+		<div fxFlex="40" fxLayout="column">
+			<div fxFlex="50" fxLayout="row">
+				<div fxFlex="70" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'blue'}">
+					<app-business-situation-table fxFlex="100"></app-business-situation-table>
+				</div>
+				<div fxFlex="30" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'purple'}">
+					<app-mrr-table fxFlex="100"></app-mrr-table>
+				</div>
+			</div>
+			<div fxFlex="50" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'orange'}">
+				<app-performance-gauge-chart fxFlex="50"></app-performance-gauge-chart>
+			</div>
+		</div>
+		<div fxFlex="60" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'brown'}">
+			<app-signature-line-chart fxFlex="100"></app-signature-line-chart>
+		</div>
+	</div>
+	<div fxFlex="25" fxLayout="row" [ngStyle]="{'border-width':'2px', 'border-style':'dashed', 'border-color':'white'}">
+		<div fxFlex="30" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'yellow'}">
+			<app-synthesis-projects-table fxFlex="100"></app-synthesis-projects-table>
+		</div>
+		<div fxFlex="70" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'grey'}">
+			<app-projects-simple-table fxFlex="100"></app-projects-simple-table>
+		</div>
+	</div>
+	<div fxFlex="25" fxLayout="row">
+		<div
+			fxFlex="50"
+			fxLayoutAlign="space-around center"
+			[ngStyle]="{'background-color':'teal', 'overflow':'hidden'}"
+		>
+			<app-bills-simple-table fxFlex="100"></app-bills-simple-table>
+		</div>
+		<div fxFlex="50">
+			<div fxFlex="20" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'pink'}">
+				<app-satisfaction-doughnut-chart fxFlex="100"></app-satisfaction-doughnut-chart>
+			</div>
+			<div fxFlex="80" fxLayoutAlign="space-around center" [ngStyle]="{'background-color':'coral'}">
+				<app-tickets-bar-chart fxFlex="100"></app-tickets-bar-chart>
+			</div>
+		</div>
+	</div>
+</div>
 <ul>
 	<li routerLink="/global-reporting/bills" routerLinkActive="active">
 		<a>Factures</a>

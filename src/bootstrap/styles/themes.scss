@@ -7,10 +7,8 @@
 // let's make it blue-ish instead of the default white color
 $nb-themes: nb-register-theme(
 	(
-		color-bg: #4ca6ff,
-		shadow: 0 1px 2px 0 #3780c0,
-		layout-bg: #ffffff,
-		color-fg: #222222
+		sidebar-width: 14em,
+		layout-min-height: 1000px
 	),
 	dark,
 	dark

@@ -5,7 +5,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
 	selector: 'app-smart-table',
-	templateUrl: './smart-table.component.html'
+	templateUrl: './smart-table.component.html',
+	styleUrls: ['smart-table.component.css']
 })
 export class SmartTableComponent<T> {
 	public readonly itemsNumbersPerPage: number[] = [1, 2, 5];

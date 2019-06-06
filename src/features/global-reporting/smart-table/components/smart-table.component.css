@@ -1,0 +1,11 @@
+:host /deep/ ng2-smart-table thead > tr > th {
+	background-color: grey;
+}
+
+:host /deep/ ng2-smart-table tr:nth-child(odd) {
+	background-color: darkcyan;
+}
+
+:host /deep/ ng2-smart-table tr:nth-child(even) {
+	background-color: lightseagreen;
+}
