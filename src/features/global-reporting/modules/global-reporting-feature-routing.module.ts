@@ -11,6 +11,10 @@ const GLOBAL_REPORTING_ROUTES: Routes = [
 	{
 		component: GlobalReportingBillsPage,
 		path: 'bills'
+	},
+	{
+		component: GlobalReportingBillsPage,
+		path: 'bills/:client'
 	}
 ];
 

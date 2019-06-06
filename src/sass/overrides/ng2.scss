@@ -1,0 +1,9 @@
+.nb-theme-dark ng2-smart-table {
+	& input {
+		color: black !important;
+	}
+
+	table tr:nth-child(even) td {
+		color: black !important;
+	}
+}
