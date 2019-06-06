@@ -1,78 +1,78 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { IBills } from '@features/global-reporting/bills/models/i-bills';
+import { IProjects } from '@features/global-reporting/projects/models/i-projects';
 import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
 import { NbSearchService } from '@nebular/theme';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
-	selector: 'app-bills-table-client',
-	templateUrl: './bills-table-client.component.html'
+	selector: 'app-projects-table-client',
+	templateUrl: './projects-table-client.component.html'
 })
-export class BillsTableClientComponent implements OnInit {
+export class ProjectsTableClientComponent implements OnInit {
 	@Input() public client: string;
 	public readonly dateFormat: string = 'dd/MM/yyyy';
 
-	public readonly data: IBills[] = [
+	public readonly data: IProjects[] = [
 		{
 			client: 'Mutuelle Bleue',
 			date: this._DATEPIPE.transform('2019-01-20', this.dateFormat),
-			name: 'UNV_DEC',
-			price: '500,80€',
-			status: 'En attente'
+			name: 'Mutuelle_Risk_Business',
+			state: 'OK',
+			status: 'Production'
 		},
 		{
 			client: 'AFTA',
 			date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
-			name: 'UNV_DEC',
-			price: '80000,56€',
-			status: 'Payée'
+			name: 'AFTA_ITALY',
+			state: 'Warning',
+			status: 'A lancer'
 		},
 		{
 			client: 'Fin. Brousouf',
 			date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
-			name: 'UNIV_DEC',
-			price: '5589,18€',
-			status: 'Payée'
+			name: 'Fin.Brousouf_sous_VIE',
+			state: 'Danger',
+			status: 'Pilote'
 		},
 		{
 			client: 'Assurance Rouge',
 			date: this._DATEPIPE.transform('2018-12-10', this.dateFormat),
-			name: 'UNIV_NOV',
-			price: '500,72€',
-			status: 'Annulée'
+			name: 'Assurance_rouge_IARD',
+			state: 'OK',
+			status: 'Recette'
 		},
 		{
 			client: 'xxx',
 			date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
-			name: 'xxx',
-			price: '500€',
-			status: 'Annulée'
+			name: 'xxx_xx',
+			state: 'OK',
+			status: 'Production'
 		},
 		{
 			client: 'yyy',
 			date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
-			name: 'yyy',
-			price: '1000€',
-			status: 'Payée'
+			name: 'yyy_yy',
+			state: 'Warning',
+			status: 'Recette'
 		}
 	];
 	public source: LocalDataSource = new LocalDataSource(this.data);
 
-	public readonly settings: INg2Settings<IBills> = {
+	public readonly settings: INg2Settings<IProjects> = {
 		actions: false,
 		columns: {
 			name: {
 				title: 'Nom'
 			},
 			date: {
-				title: 'Emission'
+				title: 'Date de début'
 			},
 			status: {
 				title: 'Statut'
 			},
-			price: {
-				title: 'Montant'
+			state: {
+				title: 'Météo'
 			}
 		},
 		hideSubHeader: true,

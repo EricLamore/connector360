@@ -1,0 +1,8 @@
+<ng-container *ngIf="hasClient(); then displayClientProjects; else displayAllProjects"> </ng-container>
+
+<ng-template #displayClientProjects>
+	<app-projects-table-client [client]="client"></app-projects-table-client>
+</ng-template>
+<ng-template #displayAllProjects>
+	<app-projects-table></app-projects-table>
+</ng-template>
