@@ -5,6 +5,9 @@ import { BillsTableClientComponent } from '@features/global-reporting/bills/comp
 import { BillsTableComponent } from '@features/global-reporting/bills/components/bills-table/bills-table.component';
 import { GlobalReportingBillsPage } from '@features/global-reporting/bills/pages/global-reporting-bills.page';
 import { GlobalReportingDashboardPage } from '@features/global-reporting/dashboard/pages/global-reporting-dashboard.page';
+import { ProjectsTableClientComponent } from '@features/global-reporting/projects/components/projects-table-client/projects-table-client.component';
+import { ProjectsTableComponent } from '@features/global-reporting/projects/components/projects-table/projects-table.component';
+import { GlobalReportingProjectsPage } from '@features/global-reporting/projects/pages/global-reporting-projects.page';
 import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
 import { NbCardModule, NbLayoutModule, NbProgressBarModule, NbSearchModule, NbTreeGridModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
@@ -16,6 +19,9 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 		BillsTableComponent,
 		GlobalReportingBillsPage,
 		GlobalReportingDashboardPage,
+		GlobalReportingProjectsPage,
+		ProjectsTableClientComponent,
+		ProjectsTableComponent,
 		SmartTableComponent
 	],
 	imports: [
