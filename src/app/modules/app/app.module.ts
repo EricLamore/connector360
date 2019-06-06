@@ -25,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 		NbMenuModule.forRoot(),
 		NbSidebarModule,
 		NbSidebarModule.forRoot(),
-		NbThemeModule.forRoot({ name: 'corporate' })
+		NbThemeModule.forRoot({ name: 'dark' })
 	],
 	providers: [NbSidebarService]
 })

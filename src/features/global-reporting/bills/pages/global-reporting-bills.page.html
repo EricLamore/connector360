@@ -1,1 +1,8 @@
-<app-bills-table></app-bills-table>
+<ng-container *ngIf="hasClient(); then displayClientBills; else displayAllBills"> </ng-container>
+
+<ng-template #displayClientBills>
+	<app-bills-table-client [client]="client"></app-bills-table-client>
+</ng-template>
+<ng-template #displayAllBills>
+	<app-bills-table></app-bills-table>
+</ng-template>

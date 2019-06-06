@@ -1,6 +1,6 @@
 // import Nebular Theme System and the default theme
 @import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/corporate';
+@import '~@nebular/theme/styles/themes/dark';
 
 // and change the variables you need,
 // or simply leave the map empty to use the default values
@@ -12,6 +12,6 @@ $nb-themes: nb-register-theme(
 		layout-bg: #ffffff,
 		color-fg: #222222
 	),
-	default,
-	default
+	dark,
+	dark
 ); // let's leave it as default

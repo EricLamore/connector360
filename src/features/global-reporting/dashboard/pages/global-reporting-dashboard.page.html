@@ -99,6 +99,12 @@
 	</nb-layout-column>
 </nb-layout>
 
-<a routerLink="/global-reporting/bills" routerLinkActive="active">
-	<span>Factures</span>
-</a>
+<ul>
+	<li routerLink="/global-reporting/bills" routerLinkActive="active">
+		<a>Factures</a>
+	</li>
+
+	<li [routerLink]="['/global-reporting/bills', 1]" routerLinkActive="active">
+		<a>Factures par client</a>
+	</li>
+</ul>

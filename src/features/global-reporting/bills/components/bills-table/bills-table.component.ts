@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { IBillDataModel } from '@features/global-reporting/bills/models/i-bill-data-model';
 import { IBillSettingsModel } from '@features/global-reporting/bills/models/i-bill-settings-model';
+import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
 	selector: 'app-bills-table',
@@ -9,7 +10,7 @@ import { IBillSettingsModel } from '@features/global-reporting/bills/models/i-bi
 })
 export class BillsTableComponent {
 	public readonly dateFormat: string = 'dd/MM/yyyy';
-	public data: IBillDataModel[] = [
+	public readonly data: IBillDataModel[] = [
 		{
 			client: 'Mutuelle Bleue',
 			name: 'UNV_DEC',
@@ -53,8 +54,9 @@ export class BillsTableComponent {
 			price: '1000€'
 		}
 	];
+	public readonly source: LocalDataSource = new LocalDataSource(this.data);
 
-	public settings: IBillSettingsModel = {
+	public readonly settings: IBillSettingsModel = {
 		actions: false,
 		columns: {
 			client: {

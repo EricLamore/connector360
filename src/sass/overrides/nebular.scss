@@ -1,0 +1,43 @@
+.nb-theme-dark a {
+	color: white !important;
+}
+
+.nb-theme-dark [nbButton].appearance-ghost.status-primary {
+	color: white !important;
+}
+
+.nb-theme-dark nb-search-field .search input {
+	border-bottom: 1px solid white !important;
+}
+
+.search {
+	top: -30vh !important;
+}
+
+.search input {
+	width: 100% !important;
+}
+
+.search button {
+	top: 10vh !important;
+}
+
+nb-search-field.rotate-layout.show {
+	opacity: 0.5 !important;
+}
+
+nb-layout.rotate-layout {
+	background-color: #222b45;
+}
+
+nb-layout.rotate-layout.with-search .scrollable-container {
+	transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, 0, 0, 30deg) !important;
+}
+
+nb-layout.untwist-rotate-layout.rotate-layout {
+	position: inherit !important;
+}
+
+nb-layout.untwist-rotate-layout.with-search .scrollable-container {
+	transform: perspective(1000px) translate3d(0, 0, 0) rotate3d(1, 0, 0, 0) !important;
+}
