@@ -5,6 +5,7 @@ import { ISimpleTableSettingsPagerModel } from '@features/global-reporting/simpl
 export class IMRRSettingsModel implements ISimpleTableSettingsModel {
 	public actions: boolean;
 	public columns: IMRRSettingsColumnsModel;
+	public hideHeader: boolean;
 	public hideSubHeader: boolean;
 	public noDataMessage: string;
 	public pager: ISimpleTableSettingsPagerModel;

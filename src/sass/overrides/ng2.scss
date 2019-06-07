@@ -6,4 +6,12 @@
 	table tr:nth-child(even) td {
 		color: black !important;
 	}
+
+	table tr th a {
+		font-size: 10pt !important;
+	}
+
+	table tr > td {
+		font-size: 9pt !important;
+	}
 }

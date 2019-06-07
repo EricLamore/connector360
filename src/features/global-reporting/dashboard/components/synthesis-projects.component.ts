@@ -36,6 +36,7 @@ export class SynthesisProjectsComponent {
 				title: 'Valeur'
 			}
 		},
+		hideHeader: false,
 		hideSubHeader: true,
 		noDataMessage: 'Pas de données',
 		pager: {

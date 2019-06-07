@@ -1,7 +1,0 @@
-:host /deep/ ng2-smart-table thead > tr > th {
-	background-color: grey;
-}
-
-:host /deep/ ng2-smart-table td {
-	background-color: darkcyan;
-}

@@ -33,6 +33,7 @@ export class BusinessSituationComponent {
 			}
 		},
 		hideSubHeader: true,
+		hideHeader: true,
 		noDataMessage: 'Pas de données',
 		pager: {
 			display: true,

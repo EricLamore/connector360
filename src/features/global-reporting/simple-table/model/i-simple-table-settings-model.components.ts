@@ -4,6 +4,7 @@ import { ISimpleTableSettingsPagerModel } from '@features/global-reporting/simpl
 export interface ISimpleTableSettingsModel {
 	actions: boolean;
 	columns: ISimpleTableSettingsColumnsModel;
+	hideHeader: boolean;
 	hideSubHeader: boolean;
 	noDataMessage: string;
 	pager: ISimpleTableSettingsPagerModel;

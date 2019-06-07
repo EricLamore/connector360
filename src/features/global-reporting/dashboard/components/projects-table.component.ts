@@ -38,6 +38,7 @@ export class ProjectsSimpleTableComponent {
 				title: 'Montant'
 			}
 		},
+		hideHeader: false,
 		hideSubHeader: true,
 		noDataMessage: 'Pas de données',
 		pager: {

@@ -5,8 +5,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
 	selector: 'app-simple-table',
-	templateUrl: './simple-table.component.html',
-	styleUrls: ['simple-table.component.css']
+	templateUrl: './simple-table.component.html'
 })
 export class SimpleTableComponent implements OnInit {
 	@Input() public data: ISimpleTableDataModel[];

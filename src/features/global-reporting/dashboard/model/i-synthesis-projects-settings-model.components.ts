@@ -5,6 +5,7 @@ import { ISimpleTableSettingsPagerModel } from '@features/global-reporting/simpl
 export class ISynthesisProjectsSettingsModel implements ISimpleTableSettingsModel {
 	public actions: boolean;
 	public columns: ISynthesisProjectsSettingsColumnsModel;
+	public hideHeader: boolean;
 	public hideSubHeader: boolean;
 	public noDataMessage: string;
 	public pager: ISimpleTableSettingsPagerModel;

@@ -9,6 +9,7 @@ import { IMRRSettingsModel } from '@features/global-reporting/dashboard/model/i-
 export class MRRComponent {
 	public data: IMRRDataModel[] = [
 		{
+			name: 'MRR',
 			value: '300000 €'
 		}
 	];
@@ -16,10 +17,14 @@ export class MRRComponent {
 	public settings: IMRRSettingsModel = {
 		actions: false,
 		columns: {
+			name: {
+				title: 'Nom'
+			},
 			value: {
-				title: 'MRR'
+				title: 'Montant'
 			}
 		},
+		hideHeader: true,
 		hideSubHeader: true,
 		noDataMessage: 'Pas de données',
 		pager: {

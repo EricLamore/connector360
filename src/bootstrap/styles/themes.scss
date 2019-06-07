@@ -1,6 +1,7 @@
 // import Nebular Theme System and the default theme
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/dark';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 // and change the variables you need,
 // or simply leave the map empty to use the default values
@@ -8,8 +9,41 @@
 $nb-themes: nb-register-theme(
 	(
 		sidebar-width: 14em,
-		layout-min-height: 1000px
+		layout-min-width: 1000px,
+		card-margin-bottom: 0
 	),
 	dark,
 	dark
 ); // let's leave it as default
+
+@include nb-install-component() {
+	.show-grid {
+		.row {
+			margin: -0.5rem;
+		}
+
+		div[class^='col-'] {
+			padding: 0.5rem;
+			box-sizing: border-box;
+
+			div {
+				text-align: center;
+				background-color: nb-theme(color-bg-active);
+				padding: 0.75rem 0.25rem;
+				border-radius: 0.25rem;
+			}
+		}
+	}
+
+	.grid-h {
+		margin-top: 1.5rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.table-responsive {
+		margin-top: 1rem;
+	}
+}
