@@ -14,10 +14,10 @@ import { SignatureLineChartComponent } from '@features/global-reporting/dashboar
 import { SynthesisProjectsComponent } from '@features/global-reporting/dashboard/components/synthesis-projects.component';
 import { TicketsBarChartComponent } from '@features/global-reporting/dashboard/components/tickets-bar-chart.component';
 import { GlobalReportingDashboardPage } from '@features/global-reporting/dashboard/pages/global-reporting-dashboard.page';
-import { SimpleTableComponent } from '@features/global-reporting/simple-table/components/simple-table.component';
 import { ProjectsTableClientComponent } from '@features/global-reporting/projects/components/projects-table-client/projects-table-client.component';
 import { ProjectsTableComponent } from '@features/global-reporting/projects/components/projects-table/projects-table.component';
 import { GlobalReportingProjectsPage } from '@features/global-reporting/projects/pages/global-reporting-projects.page';
+import { SimpleTableComponent } from '@features/global-reporting/simple-table/components/simple-table.component';
 import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
 import {
 	NbCardModule,
@@ -34,24 +34,24 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 
 @NgModule({
 	declarations: [
+		BillsSimpleTableComponent,
+		BillsTableClientComponent,
 		BillsTableComponent,
+		BusinessSituationComponent,
 		GlobalReportingBillsPage,
 		GlobalReportingDashboardPage,
+		GlobalReportingProjectsPage,
+		MRRComponent,
+		PerformanceGaugeChartComponent,
+		ProjectsSimpleTableComponent,
+		ProjectsTableClientComponent,
+		ProjectsTableComponent,
+		SatisfactionDoughnutChartComponent,
+		SignatureLineChartComponent,
 		SimpleTableComponent,
 		SmartTableComponent,
-		SignatureLineChartComponent,
-		SatisfactionDoughnutChartComponent,
-		BusinessSituationComponent,
-		MRRComponent,
 		SynthesisProjectsComponent,
-		BillsSimpleTableComponent,
-		ProjectsSimpleTableComponent,
-		TicketsBarChartComponent,
-		PerformanceGaugeChartComponent,
-		BillsTableClientComponent,
-		GlobalReportingProjectsPage,
-		ProjectsTableClientComponent,
-		ProjectsTableComponent
+		TicketsBarChartComponent
 	],
 	imports: [
 		CommonModule,
