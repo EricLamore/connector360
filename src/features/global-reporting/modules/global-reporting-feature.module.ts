@@ -17,7 +17,6 @@ import {
 	NbMenuModule,
 	NbProgressBarModule,
 	NbSearchModule,
-	NbSidebarModule,
 	NbTreeGridModule
 } from '@nebular/theme';
 import { ChartsModule } from 'ng2-charts';
