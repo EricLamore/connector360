@@ -11,6 +11,7 @@ export class SmartTableComponent<T> {
 	public readonly itemsNumbersPerPage: number[] = [1, 2, 5];
 	@Input() public settings: INg2Settings<T>;
 	@Input() public source: LocalDataSource;
+	@Input() public hasPager: boolean;
 
 	public setItemsNumberPerPage(itemsNumber: number): void {
 		this.source.setPaging(1, itemsNumber, true);

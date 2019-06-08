@@ -1,30 +1,43 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BillsTableClientComponent } from '@features/global-reporting/bills/components/bills-table-client/bills-table-client.component';
-import { BillsTableComponent } from '@features/global-reporting/bills/components/bills-table/bills-table.component';
-import { GlobalReportingBillsPage } from '@features/global-reporting/bills/pages/global-reporting-bills.page';
+import { CategoryTableClientComponent } from '@features/global-reporting/category/components/category-table-client/category-table-client.component';
+import { CategoryTableComponent } from '@features/global-reporting/category/components/category-table/category-table.component';
+import { GlobalReportingCategoryPage } from '@features/global-reporting/category/pages/global-reporting-category.page';
+import { PerformanceGaugeChartComponent } from '@features/global-reporting/dashboard/components/performance-gauge-chart/performance-gauge-chart.component';
+import { SatisfactionDoughnutChartComponent } from '@features/global-reporting/dashboard/components/satisfaction-doughnut-chart/satisfaction-doughnut-chart.component';
+import { SignaturesLineChartComponent } from '@features/global-reporting/dashboard/components/signatures-line-chart/signatures-line-chart.component';
+import { TicketsBarChartComponent } from '@features/global-reporting/dashboard/components/tickets-bar-chart/tickets-bar-chart.component';
 import { GlobalReportingDashboardPage } from '@features/global-reporting/dashboard/pages/global-reporting-dashboard.page';
-import { ProjectsTableClientComponent } from '@features/global-reporting/projects/components/projects-table-client/projects-table-client.component';
-import { ProjectsTableComponent } from '@features/global-reporting/projects/components/projects-table/projects-table.component';
-import { GlobalReportingProjectsPage } from '@features/global-reporting/projects/pages/global-reporting-projects.page';
 import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
-import { NbCardModule, NbLayoutModule, NbProgressBarModule, NbSearchModule, NbTreeGridModule } from '@nebular/theme';
+
+import {
+	NbCardModule,
+	NbLayoutModule,
+	NbMenuModule,
+	NbProgressBarModule,
+	NbSearchModule,
+	NbSidebarModule,
+	NbTreeGridModule
+} from '@nebular/theme';
+import { ChartsModule } from 'ng2-charts';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-routing.module';
 
 @NgModule({
 	declarations: [
-		BillsTableClientComponent,
-		BillsTableComponent,
-		GlobalReportingBillsPage,
+		CategoryTableClientComponent,
+		CategoryTableComponent,
+		GlobalReportingCategoryPage,
 		GlobalReportingDashboardPage,
-		GlobalReportingProjectsPage,
-		ProjectsTableClientComponent,
-		ProjectsTableComponent,
-		SmartTableComponent
+		PerformanceGaugeChartComponent,
+		SatisfactionDoughnutChartComponent,
+		SignaturesLineChartComponent,
+		SmartTableComponent,
+		TicketsBarChartComponent
 	],
 	imports: [
+		ChartsModule,
 		CommonModule,
 		FlexLayoutModule,
 		GlobalReportingFeatureRoutingModule,

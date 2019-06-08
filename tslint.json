@@ -207,7 +207,7 @@
 		"no-output-native": true,
 		"no-output-on-prefix": true,
 		"no-output-rename": false,
-		"no-unused-css": true,
+		//"no-unused-css": true,
 		"use-life-cycle-interface": true,
 		"use-pipe-decorator": true,
 		"use-pipe-transform-interface": true,
