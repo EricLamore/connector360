@@ -2,9 +2,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { IBills } from '@features/global-reporting/category/models/i-bills';
 import { ICategory } from '@features/global-reporting/category/models/i-category';
-import { IProjects } from '@features/global-reporting/category/models/i-projects';
 import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
 
 @Component({
@@ -26,11 +24,11 @@ export class GlobalReportingCategoryPage implements OnInit {
 		}
 		switch (this._ROUTE.snapshot.paramMap.get('category')) {
 			case 'bills': {
-				this.buildBillsData();
+				this.buildInvoices();
 				break;
 			}
 			case 'projects': {
-				this.buildProjectsData();
+				this.buildProjects();
 				break;
 			}
 			default: {
@@ -39,7 +37,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 		}
 	}
 
-	public buildBillsData(): void {
+	public buildInvoices(): void {
 		this.data = [
 			{
 				client: 'Mutuelle Bleue',
@@ -111,7 +109,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 		if (!this.hasClient()) this.settings.columns = { client: { title: 'Client' }, ...this.settings.columns };
 	}
 
-	public buildProjectsData(): void {
+	public buildProjects(): void {
 		this.data = [
 			{
 				client: 'Mutuelle Bleue',

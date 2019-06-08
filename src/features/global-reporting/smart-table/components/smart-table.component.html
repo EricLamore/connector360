@@ -1,5 +1,5 @@
 <div gdAreas="pager | table" gdGap="20px">
-	<div gdArea="pager">
+	<div *ngIf="hasPager" gdArea="pager">
 		<div class="container" fxLayout="row wrap" fxLayoutGap="20px">
 			<span fxFlex></span>
 			<div fxFlex="120px">Afficher par page</div>

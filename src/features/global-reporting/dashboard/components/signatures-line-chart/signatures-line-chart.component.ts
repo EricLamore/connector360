@@ -3,12 +3,12 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
 @Component({
-	selector: 'app-signature-line-chart',
-	templateUrl: './signature-line-chart.component.html'
+	selector: 'app-signatures-line-chart',
+	templateUrl: './signatures-line-chart.component.html'
 })
 
 // tslint:disable:no-magic-numbers
-export class SignatureLineChartComponent {
+export class SignaturesLineChartComponent {
 	public lineChartData: ChartDataSets[] = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
 
 	public lineChartLabels: Label[] = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];

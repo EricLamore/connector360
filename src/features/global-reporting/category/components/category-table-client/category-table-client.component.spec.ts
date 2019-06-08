@@ -1,6 +1,6 @@
-// tslint:disable:no-any
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ICategory } from '@features/global-reporting/category/models/i-category';
 import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
 import { NbLayoutModule, NbSearchModule, NbThemeModule } from '@nebular/theme';
 import chai from 'chai';
@@ -10,8 +10,8 @@ import { CategoryTableClientComponent } from './category-table-client.component'
 chai.use(dirtyChai);
 
 describe('Category table client component', () => {
-	let component: CategoryTableClientComponent<any>;
-	let fixture: ComponentFixture<CategoryTableClientComponent<any>>;
+	let component: CategoryTableClientComponent<ICategory>;
+	let fixture: ComponentFixture<CategoryTableClientComponent<ICategory>>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({

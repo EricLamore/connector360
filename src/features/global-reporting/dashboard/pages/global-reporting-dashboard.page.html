@@ -12,14 +12,22 @@
 									<div class="col-6">
 										<nb-card fxFlexFill fxLayout="column">
 											<nb-card-body>
-												<app-business-situation-table></app-business-situation-table>
+												<app-smart-table
+													[settings]="businessStateSettings"
+													[source]="businessState"
+													[hasPager]="false"
+												></app-smart-table>
 											</nb-card-body>
 										</nb-card>
 									</div>
 									<div class="col-6">
 										<nb-card fxFlexFill fxLayout="column">
 											<nb-card-body>
-												<app-mrr-table></app-mrr-table>
+												<app-smart-table
+													[settings]="mrrSettings"
+													[source]="mrr"
+													[hasPager]="false"
+												></app-smart-table>
 											</nb-card-body>
 										</nb-card>
 									</div>
@@ -40,7 +48,7 @@
 						<nb-card accent="info" fxFlexFill fxLayout="column">
 							<nb-card-header>Signatures</nb-card-header>
 							<nb-card-body>
-								<app-signature-line-chart></app-signature-line-chart>
+								<app-signatures-line-chart></app-signatures-line-chart>
 							</nb-card-body>
 						</nb-card>
 					</div>
@@ -57,7 +65,11 @@
 						<nb-card accent="info" fxFlexFill fxLayout="column">
 							<nb-card-header>Synthèse</nb-card-header>
 							<nb-card-body>
-								<app-synthesis-projects-table></app-synthesis-projects-table>
+								<app-smart-table
+									[settings]="projectsSynthesisSettings"
+									[source]="projectsSynthesis"
+									[hasPager]="false"
+								></app-smart-table>
 							</nb-card-body>
 						</nb-card>
 					</div>
@@ -65,7 +77,11 @@
 						<nb-card accent="info" fxFlexFill fxLayout="column">
 							<nb-card-header>Détails des projets</nb-card-header>
 							<nb-card-body>
-								<app-projects-simple-table></app-projects-simple-table>
+								<app-smart-table
+									[settings]="projectSettings"
+									[source]="projects"
+									[hasPager]="false"
+								></app-smart-table>
 							</nb-card-body>
 						</nb-card>
 					</div>
@@ -78,7 +94,11 @@
 			<nb-card accent="info" fxFlexFill fxLayout="column">
 				<nb-card-header>Facture</nb-card-header>
 				<nb-card-body>
-					<app-bills-simple-table></app-bills-simple-table>
+					<app-smart-table
+						[settings]="invoiceSettings"
+						[source]="invoices"
+						[hasPager]="false"
+					></app-smart-table>
 				</nb-card-body>
 			</nb-card>
 		</div>
