@@ -106,19 +106,19 @@
 </div>
 
 <ul>
-	<li routerLink="/global-reporting/bills" routerLinkActive="active">
+	<li [routerLink]="['/global-reporting', 'bills']" routerLinkActive="active">
 		<a>Factures</a>
 	</li>
 
-	<li [routerLink]="['/global-reporting/bills', 1]" routerLinkActive="active">
+	<li [routerLink]="['/global-reporting', 'bills', 1]" routerLinkActive="active">
 		<a>Factures par client</a>
 	</li>
 
-	<li routerLink="/global-reporting/projects" routerLinkActive="active">
+	<li [routerLink]="['/global-reporting', 'projects']" routerLinkActive="active">
 		<a>Projets</a>
 	</li>
 
-	<li [routerLink]="['/global-reporting/projects', 1]" routerLinkActive="active">
+	<li [routerLink]="['/global-reporting', 'projects', 2]" routerLinkActive="active">
 		<a>Projets par client</a>
 	</li>
 </ul>

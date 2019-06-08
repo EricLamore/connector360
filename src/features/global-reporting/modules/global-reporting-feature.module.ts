@@ -1,24 +1,21 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BillsTableClientComponent } from '@features/global-reporting/bills/components/bills-table-client/bills-table-client.component';
-import { BillsTableComponent } from '@features/global-reporting/bills/components/bills-table/bills-table.component';
-import { GlobalReportingBillsPage } from '@features/global-reporting/bills/pages/global-reporting-bills.page';
-import { BillsSimpleTableComponent } from '@features/global-reporting/dashboard/components/bills-table.component';
-import { BusinessSituationComponent } from '@features/global-reporting/dashboard/components/business-situation.component';
-import { MRRComponent } from '@features/global-reporting/dashboard/components/mrr.component';
+import { CategoryTableClientComponent } from '@features/global-reporting/category/components/category-table-client/category-table-client.component';
+import { CategoryTableComponent } from '@features/global-reporting/category/components/category-table/category-table.component';
+import { GlobalReportingCategoryPage } from '@features/global-reporting/category/pages/global-reporting-category.page';
+import { BillsSimpleTableComponent } from '@features/global-reporting/dashboard/components/bills-table/bills-table.component';
+import { BusinessSituationComponent } from '@features/global-reporting/dashboard/components/business-situation-table/business-situation-table.component';
+import { MRRComponent } from '@features/global-reporting/dashboard/components/mrr-table/mrr-table.component';
 import { PerformanceGaugeChartComponent } from '@features/global-reporting/dashboard/components/performance-gauge-chart.component';
-import { ProjectsSimpleTableComponent } from '@features/global-reporting/dashboard/components/projects-table.component';
+import { ProjectsSimpleTableComponent } from '@features/global-reporting/dashboard/components/projects-table/projects-table.component';
 import { SatisfactionDoughnutChartComponent } from '@features/global-reporting/dashboard/components/satisfaction-doughnut-chart.component';
 import { SignatureLineChartComponent } from '@features/global-reporting/dashboard/components/signature-line-chart.component';
-import { SynthesisProjectsComponent } from '@features/global-reporting/dashboard/components/synthesis-projects.component';
+import { SynthesisProjectsComponent } from '@features/global-reporting/dashboard/components/synthesis-projects-table/synthesis-projects-table.component';
 import { TicketsBarChartComponent } from '@features/global-reporting/dashboard/components/tickets-bar-chart.component';
 import { GlobalReportingDashboardPage } from '@features/global-reporting/dashboard/pages/global-reporting-dashboard.page';
-import { ProjectsTableClientComponent } from '@features/global-reporting/projects/components/projects-table-client/projects-table-client.component';
-import { ProjectsTableComponent } from '@features/global-reporting/projects/components/projects-table/projects-table.component';
-import { GlobalReportingProjectsPage } from '@features/global-reporting/projects/pages/global-reporting-projects.page';
-import { SimpleTableComponent } from '@features/global-reporting/simple-table/components/simple-table.component';
 import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
+
 import {
 	NbCardModule,
 	NbLayoutModule,
@@ -35,25 +32,22 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 @NgModule({
 	declarations: [
 		BillsSimpleTableComponent,
-		BillsTableClientComponent,
-		BillsTableComponent,
 		BusinessSituationComponent,
-		GlobalReportingBillsPage,
+		CategoryTableClientComponent,
+		CategoryTableComponent,
+		GlobalReportingCategoryPage,
 		GlobalReportingDashboardPage,
-		GlobalReportingProjectsPage,
 		MRRComponent,
 		PerformanceGaugeChartComponent,
 		ProjectsSimpleTableComponent,
-		ProjectsTableClientComponent,
-		ProjectsTableComponent,
 		SatisfactionDoughnutChartComponent,
 		SignatureLineChartComponent,
-		SimpleTableComponent,
 		SmartTableComponent,
 		SynthesisProjectsComponent,
 		TicketsBarChartComponent
 	],
 	imports: [
+		ChartsModule,
 		CommonModule,
 		FlexLayoutModule,
 		GlobalReportingFeatureRoutingModule,
@@ -62,8 +56,7 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 		NbSearchModule,
 		NbProgressBarModule,
 		NbTreeGridModule,
-		Ng2SmartTableModule,
-		ChartsModule
+		Ng2SmartTableModule
 	],
 	providers: [DatePipe]
 })
