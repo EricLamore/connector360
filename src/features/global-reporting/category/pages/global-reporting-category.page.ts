@@ -1,4 +1,4 @@
-// tslint:disable:no-big-function
+// tslint:disable:max-file-line-count no-big-function no-duplicate-string
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -31,6 +31,14 @@ export class GlobalReportingCategoryPage implements OnInit {
 				this.buildProjects();
 				break;
 			}
+			case 'tickets': {
+				if (!this.hasClient()) {
+					this.buildTickets();
+				} else {
+					this.buildClientTickets();
+				}
+				break;
+			}
 			default: {
 				break;
 			}
@@ -55,7 +63,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 			},
 			{
 				client: 'Fin. Brousouf',
-				date: this._DATEPIPE.transform('2018-12-16', this.dateFormat),
+				date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
 				name: 'UNIV_DEC',
 				price: '5589,18€',
 				status: 'Payée'
@@ -76,7 +84,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 			},
 			{
 				client: 'yyy',
-				date: this._DATEPIPE.transform('2019-01-02', this.dateFormat),
+				date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
 				name: 'yyy',
 				price: '1000€',
 				status: 'Payée'
@@ -127,7 +135,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 			},
 			{
 				client: 'Fin. Brousouf',
-				date: this._DATEPIPE.transform('2018-12-16', this.dateFormat),
+				date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
 				name: 'Fin.Brousouf_sous_VIE',
 				state: 'Danger',
 				status: 'Pilote'
@@ -148,7 +156,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 			},
 			{
 				client: 'yyy',
-				date: this._DATEPIPE.transform('2019-01-02', this.dateFormat),
+				date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
 				name: 'yyy_yy',
 				state: 'Warning',
 				status: 'Recette'
@@ -179,6 +187,151 @@ export class GlobalReportingCategoryPage implements OnInit {
 			}
 		};
 		if (!this.hasClient()) this.settings.columns = { client: { title: 'Client' }, ...this.settings.columns };
+	}
+
+	public buildTickets(): void {
+		this.data = [
+			{
+				client: 'Mutuelle Bleue',
+				satisfaction: '75%',
+				ticketsClosed: 19,
+				ticketsNumber: 19,
+				ticketsOpened: 0
+			},
+			{
+				client: 'AFTA',
+				satisfaction: '50%',
+				ticketsClosed: 2,
+				ticketsNumber: 2,
+				ticketsOpened: 0
+			},
+			{
+				client: 'Fin. Brousouf',
+				satisfaction: '90%',
+				ticketsClosed: 42,
+				ticketsNumber: 45,
+				ticketsOpened: 3
+			},
+			{
+				client: 'Assurance Rouge',
+				satisfaction: '78%',
+				ticketsClosed: 17,
+				ticketsNumber: 18,
+				ticketsOpened: 1
+			},
+			{
+				client: 'xxx',
+				satisfaction: '100%',
+				ticketsClosed: 10,
+				ticketsNumber: 10,
+				ticketsOpened: 0
+			},
+			{
+				client: 'yyy',
+				satisfaction: '50%',
+				ticketsClosed: 2,
+				ticketsNumber: 5,
+				ticketsOpened: 3
+			}
+		];
+		this.settings = {
+			actions: false,
+			columns: {
+				client: {
+					title: 'Client'
+				},
+				satisfaction: {
+					title: 'Satisfaction'
+				},
+				ticketsNumber: {
+					title: 'Tickets'
+				},
+				ticketsOpened: {
+					title: 'Tickets ouverts'
+				},
+				ticketsClosed: {
+					title: 'Tickets clos'
+				}
+			},
+			hideHeader: false,
+			hideSubHeader: false,
+			noDataMessage: 'Pas de données',
+			pager: {
+				display: true,
+				perPage: 5
+			}
+		};
+	}
+
+	public buildClientTickets(): void {
+		this.data = [
+			{
+				client: 'Mutuelle Bleue',
+				closureDate: this._DATEPIPE.transform('2018-08-12', this.dateFormat),
+				creationDate: this._DATEPIPE.transform('2018-08-11', this.dateFormat),
+				description: 'On the other hand, [...]',
+				solvingTime: '2 heures',
+				status: 'Clos',
+				topic: `CR-20301 La demande LegalPlace (autonome) vient d'être ajoutée`
+			},
+			{
+				client: 'Mutuelle Bleue',
+				closureDate: this._DATEPIPE.transform('', this.dateFormat),
+				creationDate: this._DATEPIPE.transform('2018-09-19', this.dateFormat),
+				description: 'and equal blame belongs to those who fail in their duty [...]',
+				solvingTime: 'N/A',
+				status: 'Open',
+				topic: 'Anomalie Page de signature'
+			},
+			{
+				client: 'Mutuelle Bleue',
+				closureDate: this._DATEPIPE.transform('', this.dateFormat),
+				creationDate: this._DATEPIPE.transform('2019-06-06', this.dateFormat),
+				description: '[...]',
+				solvingTime: 'N/A',
+				status: 'Open',
+				topic: 'Anomalie Page de signature'
+			},
+			{
+				client: 'Mutuelle Bleue',
+				closureDate: this._DATEPIPE.transform('2019-01-02', this.dateFormat),
+				creationDate: this._DATEPIPE.transform('2018-12-31', this.dateFormat),
+				description: '[...]',
+				solvingTime: '1 heure',
+				status: 'Clos',
+				topic: 'Anomalie Page de signature'
+			}
+		];
+		this.settings = {
+			actions: false,
+			columns: {
+				creationDate: {
+					title: 'Date de création'
+				},
+				closureDate: {
+					title: 'Date de clôture'
+				},
+				topic: {
+					title: 'Sujet'
+				},
+				status: {
+					title: 'Statut'
+				},
+				description: {
+					title: 'Description'
+				},
+				solvingTime: {
+					title: 'Temps de résolution'
+				}
+			},
+			hideHeader: false,
+			hideSubHeader: false,
+			noDataMessage: 'Pas de données',
+			pager: {
+				display: true,
+				perPage: 5
+			}
+		};
 	}
 
 	public hasClient(): boolean {
