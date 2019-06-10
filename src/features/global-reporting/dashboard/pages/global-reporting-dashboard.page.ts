@@ -1,6 +1,7 @@
 // tslint:disable:max-file-line-count no-big-function
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
 import { IProject } from '@features/global-reporting/category/models/i-project';
 import { IBusinessState } from '@features/global-reporting/dashboard/models/i-business-state';
@@ -25,7 +26,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public projectSettings: INg2Settings<IProject>;
 	public readonly noData: string = 'Pas de données';
 
-	public constructor(private readonly _DATEPIPE: DatePipe) {}
+	public constructor(private readonly _DATEPIPE: DatePipe, private readonly _ROUTER: Router) {}
 
 	public ngOnInit(): void {
 		this.buildBusinessState();
@@ -278,5 +279,13 @@ export class GlobalReportingDashboardPage implements OnInit {
 			}
 		};
 		this.projectSettings.columns = { client: { title: 'Client' }, ...this.projectSettings.columns };
+	}
+
+	public goToClientInvoices(client: string): void {
+		this._ROUTER.navigate([`/global-reporting/invoices/${client}`]);
+	}
+
+	public goToClientProjects(client: string): void {
+		this._ROUTER.navigate([`/global-reporting/projects/${client}`]);
 	}
 }

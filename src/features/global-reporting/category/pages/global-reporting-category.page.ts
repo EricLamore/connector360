@@ -23,7 +23,7 @@ export class GlobalReportingCategoryPage implements OnInit {
 			this.client = this._ROUTE.snapshot.paramMap.get('client');
 		}
 		switch (this._ROUTE.snapshot.paramMap.get('category')) {
-			case 'bills': {
+			case 'invoices': {
 				this.buildInvoices();
 				break;
 			}

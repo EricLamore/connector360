@@ -75,12 +75,26 @@
 					</div>
 					<div class="col-12 col-md-8">
 						<nb-card accent="info" fxFlexFill fxLayout="column">
-							<nb-card-header>Détails des projets</nb-card-header>
+							<nb-card-header>
+								<div class="row">
+									<div class="col-md-4">Détails des projets</div>
+									<div class="col-md-4 offset-md-4">
+										<button
+											type="button"
+											class="btn btn-info btn-sm float-right"
+											[routerLink]="['/global-reporting', 'projects']"
+										>
+											Détails
+										</button>
+									</div>
+								</div>
+							</nb-card-header>
 							<nb-card-body>
 								<app-smart-table
 									[settings]="projectSettings"
 									[source]="projects"
 									[hasPager]="false"
+									(onClientClick)="goToClientProjects($event)"
 								></app-smart-table>
 							</nb-card-body>
 						</nb-card>
@@ -90,63 +104,60 @@
 		</nb-card>
 	</div>
 	<div class="row mt-3">
-		<div class="col-6 mt-3" [ngStyle]="{'min-width':'600px'}">
+		<div class="col-5" [ngStyle]="{'min-width':'200px'}">
 			<nb-card accent="info" fxFlexFill fxLayout="column">
-				<nb-card-header>Facture</nb-card-header>
+				<nb-card-header>
+					<div class="row">
+						<div class="col-md-4">Factures</div>
+						<div class="col-md-4 offset-md-4">
+							<button
+								type="button"
+								class="btn btn-info btn-sm float-right"
+								[routerLink]="['/global-reporting', 'invoices']"
+							>
+								Détails
+							</button>
+						</div>
+					</div>
+				</nb-card-header>
 				<nb-card-body>
 					<app-smart-table
 						[settings]="invoiceSettings"
 						[source]="invoices"
 						[hasPager]="false"
+						(onClientClick)="goToClientInvoices($event)"
 					></app-smart-table>
 				</nb-card-body>
 			</nb-card>
 		</div>
-		<div class="col-6" [ngStyle]="{'min-width':'600px'}">
-			<div class="row mt-3">
-				<div class="col-6 col-md-4">
-					<nb-card accent="info" fxFlexFill fxLayout="column">
-						<nb-card-header>Satisfaction</nb-card-header>
-						<nb-card-body>
-							<app-satisfaction-doughnut-chart></app-satisfaction-doughnut-chart>
-						</nb-card-body>
-					</nb-card>
-				</div>
-				<div class="col-12 col-md-8">
-					<nb-card accent="info" fxFlexFill fxLayout="column">
-						<nb-card-header>Tickets</nb-card-header>
-						<nb-card-body>
-							<app-tickets-bar-chart></app-tickets-bar-chart>
-						</nb-card-body>
-					</nb-card>
-				</div>
-			</div>
+		<div class="col-2" [ngStyle]="{'min-width':'200px'}">
+			<nb-card accent="info" fxFlexFill fxLayout="column">
+				<nb-card-header>Satisfaction</nb-card-header>
+				<nb-card-body fxLayoutAlign="center center">
+					<app-satisfaction-doughnut-chart></app-satisfaction-doughnut-chart>
+				</nb-card-body>
+			</nb-card>
+		</div>
+		<div class="col-5">
+			<nb-card accent="info" fxFlexFill fxLayout="column">
+				<nb-card-header>
+					<div class="row">
+						<div class="col-md-4">Tickets</div>
+						<div class="col-md-4 offset-md-4">
+							<button
+								type="button"
+								class="btn btn-info btn-sm float-right"
+								[routerLink]="['/global-reporting', 'tickets']"
+							>
+								Détails
+							</button>
+						</div>
+					</div>
+				</nb-card-header>
+				<nb-card-body fxLayoutAlign="center center">
+					<app-tickets-bar-chart></app-tickets-bar-chart>
+				</nb-card-body>
+			</nb-card>
 		</div>
 	</div>
 </div>
-
-<ul>
-	<li [routerLink]="['/global-reporting', 'bills']" routerLinkActive="active">
-		<a>Factures</a>
-	</li>
-
-	<li [routerLink]="['/global-reporting', 'bills', 1]" routerLinkActive="active">
-		<a>Factures par client</a>
-	</li>
-
-	<li [routerLink]="['/global-reporting', 'projects']" routerLinkActive="active">
-		<a>Projets</a>
-	</li>
-
-	<li [routerLink]="['/global-reporting', 'projects', 2]" routerLinkActive="active">
-		<a>Projets par client</a>
-	</li>
-
-	<li [routerLink]="['/global-reporting', 'tickets']" routerLinkActive="active">
-		<a>Support</a>
-	</li>
-
-	<li [routerLink]="['/global-reporting', 'tickets', 3]" routerLinkActive="active">
-		<a>Support par client</a>
-	</li>
-</ul>

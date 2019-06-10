@@ -1,5 +1,5 @@
 // tslint:disable: no-magic-numbers
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
 import { LocalDataSource } from 'ng2-smart-table';
 
@@ -12,6 +12,7 @@ export class SmartTableComponent<T> {
 	@Input() public settings: INg2Settings<T>;
 	@Input() public source: LocalDataSource;
 	@Input() public hasPager: boolean;
+	@Output() public onClientClick: EventEmitter<string> = new EventEmitter<string>();
 
 	public setItemsNumberPerPage(itemsNumber: number): void {
 		this.source.setPaging(1, itemsNumber, true);
@@ -19,5 +20,9 @@ export class SmartTableComponent<T> {
 
 	public trackById(index: number, item: number): number {
 		return index;
+	}
+
+	public onRowSelect({ data: { client } }: { data: { client: string } }): void {
+		this.onClientClick.emit(client);
 	}
 }
