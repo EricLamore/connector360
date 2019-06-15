@@ -9,6 +9,11 @@ const ROUTES: Routes = [
 				loadChildren:
 					'@features/global-reporting/modules/global-reporting-feature.module#GlobalReportingFeatureModule',
 				path: 'global-reporting'
+			},
+			{
+				loadChildren:
+					'@features/customer-reporting/modules/customer-reporting-feature.module#CustomerReportingFeatureModule',
+				path: 'customer-reporting'
 			}
 		],
 		component: MainLayout,
