@@ -1,3 +1,319 @@
-<div>
-	Customer reporting
+<div
+	class="customer-reporting w-100 h-100 overflow-hidden"
+	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'7% 45% 15% 30%', 'grid-gap': '1%'}"
+>
+	<div
+		[ngClass]="header"
+		[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'3',
+						'grid-row-start':'1', 'grid-row-end':'2'}"
+	>
+		header
+	</div>
+
+	<div
+		class="overview"
+		[ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2',
+						'grid-row-start':'2', 'grid-row-end':'3'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>Commercial : Jean Trim</nb-card-header>
+			<nb-card-body class="pt-0 overflow-hidden">
+				<div
+					class="w-100"
+					[ngStyle]="{'height':'40%', 'display':'grid', 'grid-template-columns':'25% 75%', 'grid-template-rows':'16% 10% 16% 16% 16% 16%'}"
+				>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'1', 'grid-row-end':'2'}"
+					>
+						Date de MEP
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'1', 'grid-row-end':'2'}"
+					>
+						Mai 2017
+					</div>
+
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'3',
+								'grid-row-start':'3', 'grid-row-end':'4'}"
+					>
+						Interlocuteurs
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'4', 'grid-row-end':'5'}"
+					>
+						Métier
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'4', 'grid-row-end':'5'}"
+					>
+						Noémie Casme
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'5', 'grid-row-end':'6'}"
+					>
+						Projet
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'5', 'grid-row-end':'6'}"
+					>
+						Samuel Bourdenoff, Noémie Casme
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					>
+						Achat
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					></div>
+				</div>
+				<div class="w-100" [ngStyle]="{'height':'60%'}">
+					<app-smart-table
+						[settings]="projectSettings"
+						[source]="projects"
+						[hasPager]="false"
+					></app-smart-table>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="project"
+		[ngStyle]="{'min-width':'500px', 'grid-column-start':'2', 'grid-column-end':'3',
+						'grid-row-start':'2', 'grid-row-end':'4'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>Consommation - Projet : MGC_IARD</nb-card-header>
+			<nb-card-body class="overflow-hidden">
+				<div class="w-100 h-50">
+					<canvas
+						baseChart
+						[chartType]="lineChartType"
+						[legend]="lineChartLegend"
+						[labels]="lineChartLabels"
+						[datasets]="lineChartData"
+						[options]="lineChartOptions"
+					>
+					</canvas>
+				</div>
+				<div class="row w-100 h-50 mt-4">
+					<div class="col-md-4 h-100" [ngStyle]="{'width':'33%'}">
+						<div><span>Par rapport au mois dernier</span></div>
+						<div class="mt-2">
+							<canvas
+								baseChart
+								[chartType]="performanceChartType"
+								[legend]="performanceChartLegend"
+								[labels]="performanceChartLabels"
+								[data]="performanceChartData"
+								[options]="performanceChartOptions"
+								[plugins]="performanceChartPlugins"
+								[colors]="colors"
+							>
+							</canvas>
+						</div>
+					</div>
+					<div class="col-md-4 offset-md-4 h-100" [ngStyle]="{'width':'33%'}">
+						<div><span>Déploiement</span></div>
+						<div class="mt-4">
+							<canvas
+								baseChart
+								[chartType]="performanceChartType"
+								[legend]="performanceChartLegend"
+								[labels]="performanceChartLabels"
+								[data]="performanceChartData"
+								[options]="performanceChartOptions"
+								[plugins]="performanceChartPlugins"
+								[colors]="colors"
+							>
+							</canvas>
+						</div>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="business"
+		[ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2',
+						'grid-row-start':'3', 'grid-row-end':'5'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header [ngStyle]="{'height':'15%'}">Situation commerciale</nb-card-header>
+			<nb-card-body class="pt-0 overflow-hidden">
+				<div
+					class="w-100"
+					[ngStyle]="{'height':'40%', 'display':'grid', 'grid-template-columns':'20% 30% 20% 30%', 'grid-template-rows':'16% 16% 16% 4% 16% 16% 16%'}"
+				>
+					<div
+						class="d-flex justify-content-center"
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'5',
+								'grid-row-start':'1', 'grid-row-end':'2'}"
+					>
+						Souscription : Signature
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'2', 'grid-row-end':'3'}"
+					>
+						Mode
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'2', 'grid-row-end':'3'}"
+					>
+						Consommation
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'3', 'grid-column-end':'4',
+								'grid-row-start':'2', 'grid-row-end':'3'}"
+					>
+						Pallier
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'4', 'grid-column-end':'5',
+								'grid-row-start':'2', 'grid-row-end':'3'}"
+					>
+						0 - 1000 : 70 cts
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'3', 'grid-row-end':'4'}"
+					>
+						Abonnement
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'3', 'grid-row-end':'4'}"
+					>
+						100€/mois
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'3', 'grid-column-end':'4',
+								'grid-row-start':'3', 'grid-row-end':'4'}"
+					>
+						MRR
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'4', 'grid-column-end':'5',
+								'grid-row-start':'3', 'grid-row-end':'4'}"
+					>
+						350€
+					</div>
+
+					<div
+						class="d-flex justify-content-center"
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'5',
+								'grid-row-start':'5', 'grid-row-end':'6'}"
+					>
+						Souscription : Horodatage
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					>
+						Mode
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					>
+						Consommation
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'3', 'grid-column-end':'4',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					>
+						Pallier
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'4', 'grid-column-end':'5',
+								'grid-row-start':'6', 'grid-row-end':'7'}"
+					>
+						0 - 1000 : 10 cts
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+								'grid-row-start':'7', 'grid-row-end':'8'}"
+					>
+						Abonnement
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+								'grid-row-start':'7', 'grid-row-end':'8'}"
+					>
+						90€/mois
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'3', 'grid-column-end':'4',
+								'grid-row-start':'7', 'grid-row-end':'8'}"
+					>
+						MRR
+					</div>
+					<div
+						[ngStyle]="{'grid-column-start':'4', 'grid-column-end':'5',
+								'grid-row-start':'7', 'grid-row-end':'8'}"
+					>
+						100€
+					</div>
+				</div>
+
+				<div class="w-100" [ngStyle]="{'height':'60%'}">
+					<app-smart-table [settings]="invoiceSettings" [source]="invoices" [hasPager]="false">
+					</app-smart-table>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="ticketing"
+		[ngStyle]="{'min-width':'450px', 'grid-column-start':'2', 'grid-column-end':'3',
+						'grid-row-start':'4', 'grid-row-end':'5'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>Tickets</nb-card-header>
+			<nb-card-body class="overflow-hidden">
+				<div class="row w-100 h-100">
+					<div class="col-6 col-md-4 h-100">
+						<div><span>Satisfaction Support</span></div>
+						<div class="mt-2">
+							<canvas
+								baseChart
+								[chartType]="doughnutChartType"
+								[legend]="dougnnutChartLegend"
+								[labels]="doughnutChartLabels"
+								[data]="doughnutChartData"
+								[options]="doughnutChartOptions"
+								[plugins]="doughnutChartPlugins"
+							>
+							</canvas>
+						</div>
+					</div>
+					<div class="col-12 col-md-8 h-100">
+						<canvas
+							baseChart
+							[chartType]="barChartType"
+							[legend]="barChartLegend"
+							[labels]="barChartLabels"
+							[datasets]="barChartData"
+							[options]="barChartOptions"
+						>
+						</canvas>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
 </div>
