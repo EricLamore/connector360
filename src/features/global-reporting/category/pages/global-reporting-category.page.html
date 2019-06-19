@@ -1,7 +1,7 @@
 <ng-container *ngIf="hasClient(); then displayOneClient; else displayAllClients"> </ng-container>
 
 <ng-template #displayOneClient>
-	<app-category-table-client [settings]="settings" [data]="data" [client]="client"></app-category-table-client>
+	<app-customer-category-table [settings]="settings" [data]="data" [client]="client"></app-customer-category-table>
 </ng-template>
 
 <ng-template #displayAllClients>

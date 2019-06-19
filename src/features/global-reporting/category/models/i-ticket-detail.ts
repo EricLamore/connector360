@@ -1,5 +1,5 @@
-import { INg2Column } from '@features/global-reporting/smart-table/models/i-ng2-st-column';
-import { ICategory } from './i-category';
+import { ICategory } from '@application/models/i-category';
+import { INg2Column } from '@application/models/i-ng2-st-column';
 
 export interface ITicketDetail extends ICategory {
 	client?: INg2Column | string;

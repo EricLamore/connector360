@@ -2,7 +2,6 @@
 	@media only screen and (max-width: 1275px) {
 		grid-template-columns: 100% !important;
 		grid-template-rows: auto auto auto auto auto !important;
-		overflow: auto;
 
 		& .overview {
 			grid-column-start: 1 !important;

@@ -1,30 +1,25 @@
 import { DatePipe } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { CategoryTableClientComponent } from '@features/global-reporting/category/components/category-table-client/category-table-client.component';
-import { CategoryTableComponent } from '@features/global-reporting/category/components/category-table/category-table.component';
-import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
-import { NbLayoutModule, NbSearchModule } from '@nebular/theme';
+import { MainLayout } from '@application/pages';
+import { MainStubLayout } from '@application/testing/main.layout.stub';
+import { CategoryTableStubComponent } from '@features/global-reporting/category/testing/category-table.component.stub';
+import { CustomerCategoryTableStubComponent } from '@features/global-reporting/category/testing/customer-category-table.component.stub';
+
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { GlobalReportingCategoryPage } from './global-reporting-category.page';
 chai.use(dirtyChai);
 
-describe('Category page', () => {
+describe('Global Reporting - Category page', () => {
 	let component: GlobalReportingCategoryPage;
 	let fixture: ComponentFixture<GlobalReportingCategoryPage>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [
-				CategoryTableClientComponent,
-				CategoryTableComponent,
-				GlobalReportingCategoryPage,
-				SmartTableComponent
-			],
-			imports: [Ng2SmartTableModule, NbLayoutModule, NbSearchModule, RouterTestingModule],
-			providers: [DatePipe]
+			declarations: [CategoryTableStubComponent, CustomerCategoryTableStubComponent, GlobalReportingCategoryPage],
+			imports: [RouterTestingModule],
+			providers: [{ provide: MainLayout, useClass: MainStubLayout }, DatePipe]
 		})
 			.compileComponents()
 			.catch(() => {

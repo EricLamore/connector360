@@ -1,4 +1,4 @@
-import { INg2Column } from '@features/global-reporting/smart-table/models/i-ng2-st-column';
+import { INg2Column } from '@application/models/i-ng2-st-column';
 
 export class IMRR {
 	public name: INg2Column | string;

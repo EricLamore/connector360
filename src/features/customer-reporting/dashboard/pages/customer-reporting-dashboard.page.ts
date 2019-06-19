@@ -1,36 +1,56 @@
-/* tslint:disable */
-import { Component } from '@angular/core';
-
+// tslint:disable:no-big-function no-magic-numbers
 import { DatePipe } from '@angular/common';
-
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
-
-import { ChartColor, ChartOptions, ChartType } from 'chart.js';
-import { Label, MultiDataSet } from 'ng2-charts';
-
-import { Chart, ChartType } from 'chart.js';
-import { Label, MultiDataSet, PluginServiceGlobalRegistrationAndOptions } from 'ng2-charts';
-
-import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
-import { IProject } from '@features/global-reporting/category/models/i-project';
+import { Component, OnInit } from '@angular/core';
+import { INg2Settings } from '@application/models/i-ng2-st-settings';
+import { IInvoice } from '@features/customer-reporting/dashboard/models/i-invoice';
+import { IProject } from '@features/customer-reporting/dashboard/models/i-project';
+import { Chart, ChartColor, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Color, Label, MultiDataSet, PluginServiceGlobalRegistrationAndOptions } from 'ng2-charts';
 
 @Component({
 	templateUrl: './customer-reporting-dashboard.page.html'
 })
-export class CustomerReportingDashboardPage {
+export class CustomerReportingDashboardPage implements OnInit {
 	public readonly dateFormat: string = 'dd/MM/yyyy';
+	public readonly noData: string = 'Pas de données';
 	public invoices: IInvoice[];
 	public invoiceSettings: INg2Settings<IInvoice>;
+	public performanceChartDataLastMonth: MultiDataSet;
+	public performanceChartMiddleTextLastMonth: string;
+	public performanceChartDataDeployment: MultiDataSet;
+	public performanceChartMiddleTextDeployment: string;
 	public projects: IProject[];
 	public projectSettings: INg2Settings<IProject>;
-	public readonly noData: string = 'Pas de données';
-	constructor(private readonly _DATEPIPE: DatePipe) {
-		this.buildInvoices();
-		this.buildProjects();
+	public satisfactionChartData: MultiDataSet;
+	public satisfactionChartMiddleText: string;
+	public signaturesChartLabels: Label[];
+	public signaturesChartData: ChartDataSets[];
+	public ticketsChartLabels: Label[];
+	public ticketsChartData: ChartDataSets[];
+
+	public constructor(private readonly _DATEPIPE: DatePipe) {}
+
+	public ngOnInit(): void {
+		this.performanceChartDataLastMonth = [[25, 75]];
+		this.performanceChartMiddleTextLastMonth = '-10%';
+		this.performanceChartDataDeployment = [[25, 75]];
+		this.performanceChartMiddleTextDeployment = '-20%';
+		this.satisfactionChartData = [[90, 10]];
+		this.satisfactionChartMiddleText = '90%';
+		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
+		this.signaturesChartData = [{ data: [1200, 1300, 2200, 1000], label: 'Signatures' }];
+		this.ticketsChartLabels = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
+		this.ticketsChartData = [
+			{ data: [0, 0, 0, 0, 1], label: 'Ouvert' },
+			{ data: [0, 0, 0, 0, 2], label: 'En attente' },
+			{ data: [2, 0, 0, 1, 1], label: 'Résolus' }
+		];
+
+		this.fetchInvoices();
+		this.fetchProjects();
 	}
 
-	public buildInvoices(): void {
+	public fetchInvoices(): void {
 		this.invoices = [
 			{
 				client: 'Mutuelle Bleue',
@@ -101,7 +121,7 @@ export class CustomerReportingDashboardPage {
 		};
 	}
 
-	public buildProjects(): void {
+	public fetchProjects(): void {
 		this.projects = [
 			{
 				client: 'Mutuelle Bleue',
@@ -171,142 +191,4 @@ export class CustomerReportingDashboardPage {
 			}
 		};
 	}
-
-	public lineChartType: string = 'line';
-	public lineChartLegend: boolean = true;
-	public lineChartLabels: Label[] = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
-	public lineChartData: ChartDataSets[] = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
-	public lineChartOptions: ChartOptions = {
-		responsive: true,
-		maintainAspectRatio: false,
-		scales: {
-			yAxes: [
-				{
-					ticks: {
-						beginAtZero: true
-					}
-				}
-			]
-		}
-	};
-
-	public performanceChartType: ChartType = 'doughnut';
-	public performanceChartLegend: boolean = false;
-	public performanceChartLabels: Label[] = ['', ''];
-	public performanceChartData: MultiDataSet = [[20, 80]];
-	public performanceChartMiddleText: string = '-10%';
-	public performanceChartOptions: ChartOptions = {
-		rotation: Math.PI * 1,
-		circumference: Math.PI * 1,
-		elements: {
-			center: {
-				text: this.performanceChartMiddleText,
-				fontColor: 'white',
-				fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-				fontSize: 14,
-				fontStyle: 'normal'
-			}
-		}
-	};
-	public performanceChartPlugins: PluginServiceGlobalRegistrationAndOptions[] = [
-		{
-			afterDraw(chart) {
-				var center = chart.config.options.elements.center;
-				if (center) {
-					var helpers = Chart.helpers;
-					var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-					var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 1.2;
-
-					// @ts-ignore
-					var ctx = chart.chart.ctx;
-					ctx.save();
-					var fontSize = helpers.getValueOrDefault(center.fontSize, Chart.defaults.global.defaultFontSize);
-					var fontStyle = helpers.getValueOrDefault(center.fontStyle, Chart.defaults.global.defaultFontStyle);
-					var fontFamily = helpers.getValueOrDefault(
-						center.fontFamily,
-						Chart.defaults.global.defaultFontFamily
-					);
-					var font = helpers.fontString(fontSize, fontStyle, fontFamily);
-					ctx.font = font;
-					ctx.fillStyle = helpers.getValueOrDefault(center.fontColor, Chart.defaults.global.defaultFontColor);
-					ctx.textAlign = 'center';
-					ctx.textBaseline = 'middle';
-					ctx.fillText(center.text, centerX, centerY);
-					ctx.restore();
-				}
-			}
-		}
-	];
-	public colors: any = [
-		{
-			borderColor: 'black',
-			backgroundColor: ['purple', 'white']
-		}
-	];
-
-	public doughnutChartType: ChartType = 'doughnut';
-	public dougnnutChartLegend: boolean = false;
-	public doughnutChartLabels: Label[] = ['Satisfaction', 'Non satisfaction'];
-	public doughnutChartData: MultiDataSet = [[90, 10]];
-	public doughnutChartMiddleText: string = '90%';
-	public doughnutChartOptions: ChartOptions = {
-		elements: {
-			center: {
-				text: this.doughnutChartMiddleText,
-				fontColor: 'white',
-				fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-				fontSize: 12,
-				fontStyle: 'normal'
-			}
-		}
-	};
-	public doughnutChartPlugins: PluginServiceGlobalRegistrationAndOptions[] = [
-		{
-			afterDraw(chart) {
-				var center = chart.config.options.elements.center;
-				if (center) {
-					var helpers = Chart.helpers;
-					var centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
-					var centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
-
-					// @ts-ignore
-					var ctx = chart.chart.ctx;
-					ctx.save();
-					var fontSize = helpers.getValueOrDefault(center.fontSize, Chart.defaults.global.defaultFontSize);
-					var fontStyle = helpers.getValueOrDefault(center.fontStyle, Chart.defaults.global.defaultFontStyle);
-					var fontFamily = helpers.getValueOrDefault(
-						center.fontFamily,
-						Chart.defaults.global.defaultFontFamily
-					);
-					var font = helpers.fontString(fontSize, fontStyle, fontFamily);
-					ctx.font = font;
-					ctx.fillStyle = helpers.getValueOrDefault(center.fontColor, Chart.defaults.global.defaultFontColor);
-					ctx.textAlign = 'center';
-					ctx.textBaseline = 'middle';
-					ctx.fillText(center.text, centerX, centerY);
-					ctx.restore();
-				}
-			}
-		}
-	];
-
-	public barChartType: ChartType = 'bar';
-	public barChartLegend: boolean = false;
-	public barChartLabels: Label[] = ['Septembre', 'Octobre', 'Novembre', 'Decembre', 'Janvier'];
-	public barChartData: ChartDataSets[] = [
-		{ data: [2, 2, 10, 1, 11], label: 'Negatif' },
-		{ data: [70, 56, 80, 34, 89], label: 'Positif' }
-	];
-	public barChartOptions: ChartOptions = {
-		maintainAspectRatio: false,
-		responsive: true,
-		// We use these empty structures as placeholders for dynamic theming.
-		scales: { xAxes: [{ stacked: true }], yAxes: [{ stacked: true }] },
-		plugins: {
-			datalabels: {
-				anchor: 'end',
-				align: 'end'
-			}
-		}
-	};
 }

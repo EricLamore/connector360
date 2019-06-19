@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
+import { INg2Settings } from '@application/models/i-ng2-st-settings';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({

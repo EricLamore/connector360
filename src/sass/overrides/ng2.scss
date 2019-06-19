@@ -7,11 +7,18 @@
 		color: black !important;
 	}
 
-	table tr th a {
+	table tr.ng2-smart-titles th {
 		font-size: 10pt !important;
+		padding: 0.5rem 1.25rem !important;
 	}
 
-	table tr > td {
-		font-size: 9pt !important;
+	table tr th a,
+	tr > td {
+		font-size: 10pt !important;
+		line-height: 0.8rem !important;
+	}
+
+	ng2-smart-table-pager {
+		margin-top: -10px !important;
 	}
 }

@@ -1,13 +1,15 @@
-// tslint:disable:max-file-line-count no-big-function
+// tslint:disable:max-file-line-count no-big-function no-magic-numbers
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { INg2Settings } from '@application/models/i-ng2-st-settings';
 import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
 import { IProject } from '@features/global-reporting/category/models/i-project';
 import { IBusinessState } from '@features/global-reporting/dashboard/models/i-business-state';
 import { IMRR } from '@features/global-reporting/dashboard/models/i-mrr';
 import { IProjectSynthesis } from '@features/global-reporting/dashboard/models/i-project-synthesis';
-import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
+import { ChartDataSets } from 'chart.js';
+import { Label, MultiDataSet } from 'ng2-charts';
 
 @Component({
 	templateUrl: './global-reporting-dashboard.page.html'
@@ -26,9 +28,30 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public projectSettings: INg2Settings<IProject>;
 	public readonly noData: string = 'Pas de données';
 
+	public performanceChartData: MultiDataSet;
+	public performanceChartMiddleText: string;
+	public satisfactionChartData: MultiDataSet;
+	public satisfactionChartMiddleText: string;
+	public signaturesChartLabels: Label[];
+	public signaturesChartData: ChartDataSets[];
+	public ticketsChartLabels: Label[];
+	public ticketsChartData: ChartDataSets[];
+
 	public constructor(private readonly _DATEPIPE: DatePipe, private readonly _ROUTER: Router) {}
 
 	public ngOnInit(): void {
+		this.performanceChartData = [[25, 75]];
+		this.performanceChartMiddleText = '-10%';
+		this.satisfactionChartData = [[90, 10]];
+		this.satisfactionChartMiddleText = '90%';
+		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
+		this.signaturesChartData = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
+		this.ticketsChartLabels = ['Sept.', 'Oct.', 'Nov.', 'Déc.', 'Janv.'];
+		this.ticketsChartData = [
+			{ data: [20, 5, 0, 20, 10], label: 'Non résolus' },
+			{ data: [300, 250, 100, 280, 100], label: 'Résolus' }
+		];
+
 		this.buildBusinessState();
 		this.buildMRR();
 		this.buildInvoices();
@@ -164,7 +187,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 			noDataMessage: this.noData,
 			pager: {
 				display: true,
-				perPage: 2
+				perPage: 1
 			}
 		};
 		this.invoiceSettings.columns = { client: { title: 'Client' }, ...this.invoiceSettings.columns };
@@ -261,7 +284,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 					title: 'Nom'
 				},
 				date: {
-					title: 'Date de début'
+					title: 'Début'
 				},
 				status: {
 					title: 'Statut'
@@ -275,7 +298,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 			noDataMessage: this.noData,
 			pager: {
 				display: true,
-				perPage: 2
+				perPage: 1
 			}
 		};
 		this.projectSettings.columns = { client: { title: 'Client' }, ...this.projectSettings.columns };

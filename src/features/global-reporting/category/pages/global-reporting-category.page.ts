@@ -2,8 +2,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ICategory } from '@features/global-reporting/category/models/i-category';
-import { INg2Settings } from '@features/global-reporting/smart-table/models/i-ng2-st-settings';
+import { ICategory } from '@application/models/i-category';
+import { INg2Settings } from '@application/models/i-ng2-st-settings';
 
 @Component({
 	templateUrl: './global-reporting-category.page.html'

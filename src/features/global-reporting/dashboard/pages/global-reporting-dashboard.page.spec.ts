@@ -1,35 +1,46 @@
 import { DatePipe } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { PerformanceGaugeChartComponent } from '@features/global-reporting/dashboard/components/performance-gauge-chart/performance-gauge-chart.component';
-import { SatisfactionDoughnutChartComponent } from '@features/global-reporting/dashboard/components/satisfaction-doughnut-chart/satisfaction-doughnut-chart.component';
-import { SignaturesLineChartComponent } from '@features/global-reporting/dashboard/components/signatures-line-chart/signatures-line-chart.component';
-import { TicketsBarChartComponent } from '@features/global-reporting/dashboard/components/tickets-bar-chart/tickets-bar-chart.component';
-import { SmartTableComponent } from '@features/global-reporting/smart-table/components/smart-table.component';
-import { NbCardModule } from '@nebular/theme';
+import { GlobalModule } from '@application/modules/utilities/global.module';
+import { MainLayout } from '@application/pages';
+import { MainStubLayout } from '@application/testing/main.layout.stub';
+import { PerformanceChartStubComponent } from '@application/testing/performance-chart.component.stub';
+import { SatisfactionChartStubComponent } from '@application/testing/satisfaction-chart.component.stub';
+import { SignaturesChartStubComponent } from '@application/testing/signatures-chart.component.stub';
+import { SmartTableStubComponent } from '@application/testing/smart-table.component.stub';
+import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
+
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
-import { ChartsModule } from 'ng2-charts';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { GlobalReportingDashboardPage } from './global-reporting-dashboard.page';
 chai.use(dirtyChai);
 
-describe('Dashboard page', () => {
+describe('Global Reporting - Dashboard page', () => {
 	let component: GlobalReportingDashboardPage;
 	let fixture: ComponentFixture<GlobalReportingDashboardPage>;
+
+	beforeAll(() => {
+		Object.defineProperty(window, 'matchMedia', {
+			value: jest.fn(() => {
+				return {
+					matches: true
+				};
+			})
+		});
+	});
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [
 				GlobalReportingDashboardPage,
-				PerformanceGaugeChartComponent,
-				SatisfactionDoughnutChartComponent,
-				SignaturesLineChartComponent,
-				SmartTableComponent,
-				TicketsBarChartComponent
+				PerformanceChartStubComponent,
+				SatisfactionChartStubComponent,
+				SignaturesChartStubComponent,
+				SmartTableStubComponent,
+				TicketsChartStubComponent
 			],
-			imports: [ChartsModule, NbCardModule, Ng2SmartTableModule, RouterTestingModule],
-			providers: [DatePipe]
+			imports: [GlobalModule, RouterTestingModule],
+			providers: [{ provide: MainLayout, useClass: MainStubLayout }, DatePipe]
 		})
 			.compileComponents()
 			.catch(() => {
