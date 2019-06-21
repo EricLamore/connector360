@@ -12,11 +12,6 @@ const ROUTES: Routes = [
 			},
 			{
 				loadChildren:
-					'@features/customer-reporting/modules/customer-reporting-feature.module#CustomerReportingFeatureModule',
-				path: 'customer-reporting'
-			},
-			{
-				loadChildren:
 					'@features/search-customers/modules/search-customers-feature.module#SearchCustomersFeatureModule',
 				path: 'search-customers'
 			}
