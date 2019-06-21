@@ -36,7 +36,7 @@
 					"private-static-method",
 					"private-instance-method"
 				],
-				"alphabetize": true
+				"alphabetize": false
 			}
 		],
 		"no-any": true,
@@ -88,7 +88,7 @@
 		"no-dynamic-delete": false,
 		"no-empty": true,
 		"no-eval": true,
-		"no-floating-promises": true,
+		"no-floating-promises": false,
 		"no-for-in-array": true,
 		"no-inferred-empty-object-type": true,
 		"no-invalid-template-strings": true,
@@ -133,7 +133,7 @@
 		"no-duplicate-imports": true,
 		"no-mergeable-namespace": true,
 		"no-require-imports": true,
-		"object-literal-sort-keys": true,
+		"object-literal-sort-keys": false,
 		"prefer-const": true,
 		"prefer-readonly": true,
 		"array-type": [true, "array"],
@@ -205,9 +205,9 @@
 		"no-forward-ref": true,
 		"no-input-rename": false,
 		"no-output-native": true,
-		"no-output-on-prefix": true,
+		"no-output-on-prefix": false,
 		"no-output-rename": false,
-		"no-unused-css": true,
+		//"no-unused-css": true,
 		"use-life-cycle-interface": true,
 		"use-pipe-decorator": true,
 		"use-pipe-transform-interface": true,

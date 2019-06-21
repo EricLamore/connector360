@@ -1,0 +1,166 @@
+<nb-card>
+	<nb-card-header>Rechercher des clients</nb-card-header>
+	<nb-card-body>
+		<form class="row" [formGroup]="searchCustormersForm" (ngSubmit)="onSubmit()">
+			<div class="col-6" [ngStyle]="{ 'min-width': '300px' }">
+				<div class="form-group row">
+					<label for="customer" class="col-sm-3 col-form-label">Client:</label>
+					<div class="col-sm-9">
+						<input id="customer" type="text" nbInput fieldSize="small" formControlName="customer" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="am" class="col-sm-3 col-form-label">A.M:</label>
+					<div class="col-sm-9">
+						<nb-select id="am" formControlName="am" size="small" placeholder="Undefined">
+							<nb-option [value]="undefined">Indéfini</nb-option>
+							<nb-option *ngFor="let e of amList; trackBy: trackById" [value]="e"> {{ e }}</nb-option>
+						</nb-select>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="activityArea" class="col-sm-3 col-form-label">Zone d'activité:</label>
+					<div class="col-sm-9">
+						<nb-select
+							id="activityArea"
+							formControlName="activityArea"
+							size="small"
+							placeholder="Undefined"
+						>
+							<nb-option [value]="undefined">Indéfini</nb-option>
+							<nb-option *ngFor="let e of activityAreaList; trackBy: trackById" [value]="e">
+								{{ e }}</nb-option
+							>
+						</nb-select>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="wayOfConsuming" class="col-sm-3 col-form-label">Mode de consommation</label>
+					<div class="col-sm-9">
+						<nb-select
+							id="wayOfConsuming"
+							formControlName="wayOfConsuming"
+							size="small"
+							placeholder="Undefined"
+						>
+							<nb-option [value]="undefined">Indéfini</nb-option>
+							<nb-option *ngFor="let e of wayOfConsumingList; trackBy: trackById" [value]="e">
+								{{ e }}</nb-option
+							>
+						</nb-select>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="indicator" class="col-sm-3 col-form-label">Indicateurs:</label>
+					<div class="col-sm-9">
+						<nb-select id="indicator" formControlName="indicator" size="small" placeholder="Undefined">
+							<nb-option [value]="undefined">Indéfini</nb-option>
+							<nb-option *ngFor="let e of indicatorList; trackBy: trackById" [value]="e">
+								{{ e }}</nb-option
+							>
+						</nb-select>
+					</div>
+				</div>
+			</div>
+			<div class="row col-6" fxLayoutAlign="start center">
+				<form formGroupName="mepDateInterval">
+					<div class="form-group row">
+						<label for="date" class="col-sm-3 col-form-label">Date MEP:</label>
+						<div class="col-sm-9">
+							<input
+								id="date"
+								nbInput
+								fieldSize="small"
+								placeholder="From"
+								[nbDatepicker]="formControlMinDate"
+								formControlName="minDate"
+							/>
+							<nb-datepicker #formControlMinDate [max]="_DATESERVICE.today()"></nb-datepicker>
+							<div
+								*ngIf="minDate.errors?.dateInvalid && (minDate.touched || minDate.dirty)"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								Le format de la date est invalide
+							</div>
+							<input
+								nbInput
+								fieldSize="small"
+								placeholder="To"
+								[nbDatepicker]="formControlMaxDate"
+								formControlName="maxDate"
+							/>
+							<nb-datepicker #formControlMaxDate [max]="_DATESERVICE.today()"></nb-datepicker>
+							<div
+								*ngIf="maxDate.errors?.dateInvalid && (maxDate.touched || maxDate.dirty)"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								Le format de la date est invalide
+							</div>
+							<div
+								*ngIf="
+									mepDateInterval.errors?.dateRangeInvalid &&
+									(mepDateInterval.touched || mepDateInterval.dirty)
+								"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								La date de début doit être avant la date de fin
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<form formGroupName="mrrInterval">
+					<div class="form-group row">
+						<label for="mrr" class="col-sm-3 col-form-label">MRR:</label>
+						<div class="col-sm-9">
+							<input
+								id="mrr"
+								type="number"
+								nbInput
+								fieldSize="small"
+								placeholder="Higher than"
+								min="0"
+								formControlName="minMRR"
+							/>
+							<div
+								*ngIf="minMRR.errors?.min && (minMRR.touched || minMRR.dirty)"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								Le MRR minimum doit être positif
+							</div>
+							<input
+								type="number"
+								nbInput
+								fieldSize="small"
+								placeholder="Lower than"
+								min="0"
+								formControlName="maxMRR"
+							/>
+							<div
+								*ngIf="maxMRR.errors?.min && (maxMRR.touched || maxMRR.dirty)"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								Le MRR maximum doit être positif
+							</div>
+							<div
+								*ngIf="
+									mrrInterval.errors?.mrrRangeInvalid && (mrrInterval.touched || mrrInterval.dirty)
+								"
+								class="cross-validation-error-message alert alert-danger"
+							>
+								Le MRR minimum doit être supérieur au MRR maximum
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-3 offset-md-5">
+				<button type="submit" nbButton [disabled]="!searchCustormersForm.valid">Rechercher</button>
+			</div>
+		</form>
+	</nb-card-body>
+</nb-card>

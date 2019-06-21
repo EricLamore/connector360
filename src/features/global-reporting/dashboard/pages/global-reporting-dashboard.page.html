@@ -1,0 +1,290 @@
+<div
+	class="global-reporting w-100 h-100 overflow-hidden"
+	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'33% 33% 33%', 'grid-gap': '0.5vh 0.5vw'}"
+>
+	<div
+		class="overview"
+		[ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3',
+						'grid-row-start':'1', 'grid-row-end':'2'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>Consommation</nb-card-header>
+			<nb-card-body class="overflow-hidden">
+				<div
+					class="overview_body w-100 h-100"
+					[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'50% 50%'}"
+				>
+					<div
+						class="business"
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'1', 'grid-row-end':'2'}"
+					>
+						<div class="row w-100 h-100">
+							<div class="col-6 h-100">
+								<div
+									class="w-100 h-100"
+									[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto auto auto'}"
+								>
+									<div
+										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+												'grid-row-start':'1', 'grid-row-end':'2'}"
+									>
+										Consommation
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+												'grid-row-start':'1', 'grid-row-end':'2'}"
+									>
+										300
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+												'grid-row-start':'2', 'grid-row-end':'3'}"
+									>
+										Pack
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+												'grid-row-start':'2', 'grid-row-end':'3'}"
+									>
+										70
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+												'grid-row-start':'3', 'grid-row-end':'4'}"
+									>
+										Special
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+												'grid-row-start':'3', 'grid-row-end':'4'}"
+									>
+										10
+									</div>
+								</div>
+							</div>
+							<div class="col-6 h-100">
+								<div
+									class="w-100 h-100"
+									[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto'}"
+								>
+									<div
+										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+														'grid-row-start':'1', 'grid-row-end':'2'}"
+									>
+										MRR
+									</div>
+									<div
+										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+														'grid-row-start':'1', 'grid-row-end':'2'}"
+									>
+										300 000 €
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="lastMonth"
+						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'2', 'grid-row-end':'3'}"
+					>
+						<div class="col-md-6 offset-md-3 h-100">
+							<div class="row w-100 h-100">
+								<div class="col-6 h-100">
+									<div><span>Par rapport au mois dernier</span></div>
+								</div>
+								<div class="col-6 h-100">
+									<app-performance-chart
+										[performanceChartMiddleText]="performanceChartMiddleText"
+										[performanceChartData]="performanceChartData"
+									>
+									</app-performance-chart>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="overview_signatures"
+						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+									'grid-row-start':'1', 'grid-row-end':'3'}"
+					>
+						<app-signatures-chart
+							[signaturesChartLabels]="signaturesChartLabels"
+							[signaturesChartData]="signaturesChartData"
+						>
+						</app-signatures-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="projects"
+		[ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3',
+						'grid-row-start':'2', 'grid-row-end':'3'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div class="row">
+					<div class="col-md-4">Projets</div>
+					<div class="col-md-4 offset-md-4">
+						<button
+							type="button"
+							class="btn btn-info btn-sm float-right"
+							[routerLink]="['/global-reporting', 'projects']"
+						>
+							Détails
+						</button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body class="overflow-hidden pt-0 pb-0">
+				<div class="row w-100 h-100 projects_body">
+					<div class="col-6 col-md-4 h-100">
+						<div
+							class="w-100 h-100"
+							[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto auto auto auto'}"
+						>
+							<div
+								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'1', 'grid-row-end':'2'}"
+							>
+								Recette
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+										'grid-row-start':'1', 'grid-row-end':'2'}"
+							>
+								15
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'2', 'grid-row-end':'3'}"
+							>
+								Production
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+										'grid-row-start':'2', 'grid-row-end':'3'}"
+							>
+								30
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'3', 'grid-row-end':'4'}"
+							>
+								En service
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+										'grid-row-start':'3', 'grid-row-end':'4'}"
+							>
+								300
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
+										'grid-row-start':'4', 'grid-row-end':'5'}"
+							>
+								Arrêté
+							</div>
+							<div
+								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+										'grid-row-start':'4', 'grid-row-end':'5'}"
+							>
+								20
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-8 h-100">
+						<app-smart-table
+							[settings]="projectSettings"
+							[source]="projects"
+							[hasPager]="false"
+							(onClientClick)="goToClientProjects($event)"
+						></app-smart-table>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="invoices"
+		[ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2',
+						'grid-row-start':'3', 'grid-row-end':'4'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div class="row">
+					<div class="col-md-4">Factures</div>
+					<div class="col-md-4 offset-md-4">
+						<button
+							type="button"
+							class="btn btn-info btn-sm float-right"
+							[routerLink]="['/global-reporting', 'invoices']"
+						>
+							Détails
+						</button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body class="overflow-hidden p-0">
+				<app-smart-table
+					[settings]="invoiceSettings"
+					[source]="invoices"
+					[hasPager]="false"
+					(onClientClick)="goToClientInvoices($event)"
+				>
+				</app-smart-table>
+			</nb-card-body>
+		</nb-card>
+	</div>
+
+	<div
+		class="ticketing"
+		[ngStyle]="{'min-width':'500px', 'grid-column-start':'2', 'grid-column-end':'3',
+						'grid-row-start':'3', 'grid-row-end':'4'}"
+	>
+		<nb-card class="w-100 h-100">
+			<nb-card-header>
+				<div class="row">
+					<div class="col-md-4">Tickets</div>
+					<div class="col-md-4 offset-md-4">
+						<button
+							type="button"
+							class="btn btn-info btn-sm float-right"
+							[routerLink]="['/global-reporting', 'tickets']"
+						>
+							Détails
+						</button>
+					</div>
+				</div>
+			</nb-card-header>
+			<nb-card-body class="overflow-hidden">
+				<div class="row w-100 h-100">
+					<div class="col-6 col-md-4 h-100">
+						<div><span>Satisfaction</span></div>
+						<div class="mt-2">
+							<app-satisfaction-chart
+								[satisfactionChartMiddleText]="satisfactionChartMiddleText"
+								[satisfactionChartData]="satisfactionChartData"
+							>
+							</app-satisfaction-chart>
+						</div>
+					</div>
+					<div class="col-12 col-md-8 h-100">
+						<app-tickets-chart
+							[ticketsChartLabels]="ticketsChartLabels"
+							[ticketsChartData]="ticketsChartData"
+						>
+						</app-tickets-chart>
+					</div>
+				</div>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

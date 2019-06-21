@@ -1,0 +1,20 @@
+<div gdAreas="pager | table" gdGap="20px">
+	<div *ngIf="hasPager" gdArea="pager">
+		<div class="container" fxLayout="row wrap" fxLayoutGap="20px">
+			<span fxFlex></span>
+			<div fxFlex="120px">Afficher par page</div>
+
+			<div fxFlex="10px" *ngFor="let itemsNumber of itemsNumbersPerPage; trackBy: trackById">
+				<a (click)="setItemsNumberPerPage(itemsNumber)"> {{ itemsNumber }}</a>
+			</div>
+		</div>
+	</div>
+
+	<div gdArea="table">
+		<ng2-smart-table
+			[settings]="settings"
+			[source]="source"
+			(userRowSelect)="onRowSelect($event)"
+		></ng2-smart-table>
+	</div>
+</div>

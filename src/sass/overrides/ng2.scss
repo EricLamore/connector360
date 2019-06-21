@@ -1,0 +1,24 @@
+.nb-theme-dark ng2-smart-table {
+	& input {
+		color: black !important;
+	}
+
+	table tr:nth-child(even) td {
+		color: black !important;
+	}
+
+	table tr.ng2-smart-titles th {
+		font-size: 10pt !important;
+		padding: 0.5rem 1.25rem !important;
+	}
+
+	table tr th a,
+	tr > td {
+		font-size: 10pt !important;
+		line-height: 0.8rem !important;
+	}
+
+	ng2-smart-table-pager {
+		margin-top: -10px !important;
+	}
+}

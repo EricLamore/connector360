@@ -1,0 +1,34 @@
+.customer-reporting {
+	@media only screen and (max-width: 1275px) {
+		grid-template-columns: 100% !important;
+		grid-template-rows: auto auto auto auto auto !important;
+
+		& .overview {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
+		}
+
+		& .project {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+		}
+
+		& .business {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 4 !important;
+			grid-row-end: 5 !important;
+		}
+
+		& .ticketing {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 5 !important;
+			grid-row-end: 6 !important;
+		}
+	}
+}

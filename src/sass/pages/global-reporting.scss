@@ -1,0 +1,38 @@
+.global-reporting {
+	@media only screen and (max-width: 1275px) {
+		grid-template-columns: 100% !important;
+		grid-template-rows: auto auto auto auto !important;
+
+		@media only screen and (max-width: 1175px) {
+			& .overview_body {
+				grid-template-columns: 100% !important;
+				grid-template-rows: auto auto auto !important;
+
+				& .overview_signatures {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+					grid-row-start: 3 !important;
+					grid-row-end: 4 !important;
+				}
+			}
+
+			& .projects_body {
+				display: block !important;
+			}
+		}
+
+		& .invoices {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+		}
+
+		& .ticketing {
+			grid-column-start: 1 !important;
+			grid-column-end: 2 !important;
+			grid-row-start: 4 !important;
+			grid-row-end: 5 !important;
+		}
+	}
+}

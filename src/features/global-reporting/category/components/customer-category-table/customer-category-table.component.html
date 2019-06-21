@@ -1,0 +1,9 @@
+<nb-layout class="untwist-rotate-layout">
+	<nb-layout-header>
+		<nb-search type="rotate-layout" hint="" placeholder="Client"></nb-search> <span>{{ client }}</span>
+	</nb-layout-header>
+
+	<nb-layout-column>
+		<app-smart-table [settings]="settings" [source]="source" [hasPager]="true"></app-smart-table>
+	</nb-layout-column>
+</nb-layout>
