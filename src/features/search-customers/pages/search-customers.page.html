@@ -1,0 +1,6 @@
+<div *ngIf="isSearchPage; else elseBlock">
+	<app-search-customers-form (onSearchClick)="onSubmitSearchPageClick($event)"></app-search-customers-form>
+</div>
+<ng-template #elseBlock>
+	<app-search-customers-results (onNewSearchClick)="onSubmitResultPageClick()"></app-search-customers-results>
+</ng-template>

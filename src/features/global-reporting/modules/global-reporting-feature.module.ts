@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@application/modules/utilities/shared.module';
 import { CategoryTableComponent } from '@features/global-reporting/category/components/category-table/category-table.component';
@@ -15,6 +14,6 @@ import { GlobalReportingFeatureRoutingModule } from './global-reporting-feature-
 		GlobalReportingDashboardPage
 	],
 	imports: [GlobalReportingFeatureRoutingModule, SharedModule],
-	providers: [DatePipe]
+	providers: []
 })
 export class GlobalReportingFeatureModule {}

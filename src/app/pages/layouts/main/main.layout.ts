@@ -15,7 +15,7 @@ export class MainLayout {
 			title: 'Reporting global'
 		},
 		{
-			link: ['/research'],
+			link: ['/search-customers'],
 			title: 'Rechercher'
 		}
 	];

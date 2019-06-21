@@ -54,42 +54,42 @@ export class CustomerReportingDashboardPage implements OnInit {
 		this.invoices = [
 			{
 				client: 'Mutuelle Bleue',
-				date: this._DATEPIPE.transform('2019-01-20', this.dateFormat),
+				date: new Date('2019-01-20'),
 				name: 'UNV_DEC',
 				price: '500,80€',
 				status: 'En attente'
 			},
 			{
 				client: 'AFTA',
-				date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
+				date: new Date('2018-12-15'),
 				name: 'UNV_DEC',
 				price: '80000,56€',
 				status: 'Payée'
 			},
 			{
 				client: 'Fin. Brousouf',
-				date: this._DATEPIPE.transform('2018-12-16', this.dateFormat),
+				date: new Date('2018-12-16'),
 				name: 'UNIV_DEC',
 				price: '5589,18€',
 				status: 'Payée'
 			},
 			{
 				client: 'Assurance Rouge',
-				date: this._DATEPIPE.transform('2018-12-10', this.dateFormat),
+				date: new Date('2018-12-10'),
 				name: 'UNIV_NOV',
 				price: '500,72€',
 				status: 'Annulée'
 			},
 			{
 				client: 'xxx',
-				date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
+				date: new Date('2019-01-01'),
 				name: 'xxx',
 				price: '500€',
 				status: 'Annulée'
 			},
 			{
 				client: 'yyy',
-				date: this._DATEPIPE.transform('2019-01-02', this.dateFormat),
+				date: new Date('2019-01-02'),
 				name: 'yyy',
 				price: '1000€',
 				status: 'Payée'
@@ -102,7 +102,10 @@ export class CustomerReportingDashboardPage implements OnInit {
 					title: 'Nom'
 				},
 				date: {
-					title: 'Emission'
+					title: 'Emission',
+					valuePrepareFunction: (date: Date): string => {
+						return this._DATEPIPE.transform(date, this.dateFormat);
+					}
 				},
 				status: {
 					title: 'Statut'
@@ -125,42 +128,42 @@ export class CustomerReportingDashboardPage implements OnInit {
 		this.projects = [
 			{
 				client: 'Mutuelle Bleue',
-				date: this._DATEPIPE.transform('2019-01-20', this.dateFormat),
+				date: new Date('2019-01-20'),
 				name: 'Mutuelle_Risk_Business',
 				state: 'OK',
 				status: 'Production'
 			},
 			{
 				client: 'AFTA',
-				date: this._DATEPIPE.transform('2018-12-15', this.dateFormat),
+				date: new Date('2018-12-15'),
 				name: 'AFTA_ITALY',
 				state: 'Warning',
 				status: 'A lancer'
 			},
 			{
 				client: 'Fin. Brousouf',
-				date: this._DATEPIPE.transform('2018-12-16', this.dateFormat),
+				date: new Date('2018-12-16'),
 				name: 'Fin.Brousouf_sous_VIE',
 				state: 'Danger',
 				status: 'Pilote'
 			},
 			{
 				client: 'Assurance Rouge',
-				date: this._DATEPIPE.transform('2018-12-10', this.dateFormat),
+				date: new Date('2018-12-10'),
 				name: 'Assurance_rouge_IARD',
 				state: 'OK',
 				status: 'Recette'
 			},
 			{
 				client: 'xxx',
-				date: this._DATEPIPE.transform('2019-01-01', this.dateFormat),
+				date: new Date('2019-01-01'),
 				name: 'xxx_xx',
 				state: 'OK',
 				status: 'Production'
 			},
 			{
 				client: 'yyy',
-				date: this._DATEPIPE.transform('2019-01-02', this.dateFormat),
+				date: new Date('2019-01-02'),
 				name: 'yyy_yy',
 				state: 'Warning',
 				status: 'Recette'
@@ -173,7 +176,10 @@ export class CustomerReportingDashboardPage implements OnInit {
 					title: 'Nom'
 				},
 				date: {
-					title: 'Début'
+					title: 'Début',
+					valuePrepareFunction: (date: Date): string => {
+						return this._DATEPIPE.transform(date, this.dateFormat);
+					}
 				},
 				status: {
 					title: 'Statut'
