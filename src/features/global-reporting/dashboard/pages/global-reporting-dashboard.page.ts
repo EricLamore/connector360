@@ -5,11 +5,16 @@ import { Router } from '@angular/router';
 import { INg2Settings } from '@application/models/i-ng2-st-settings';
 import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
 import { IProject } from '@features/global-reporting/category/models/i-project';
+import ProjectsTimelineStates from '@features/global-reporting/dashboard/enums/projects-timeline-states';
 import { IBusinessState } from '@features/global-reporting/dashboard/models/i-business-state';
 import { IMRR } from '@features/global-reporting/dashboard/models/i-mrr';
 import { IProjectSynthesis } from '@features/global-reporting/dashboard/models/i-project-synthesis';
 import { ChartDataSets } from 'chart.js';
+import * as Highcharts from 'highcharts';
+import Timeline from 'highcharts/modules/timeline';
 import { Label, MultiDataSet } from 'ng2-charts';
+
+Timeline(Highcharts);
 
 @Component({
 	templateUrl: './global-reporting-dashboard.page.html'
@@ -18,14 +23,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public readonly dateFormat: string = 'dd/MM/yyyy';
 	public invoices: IInvoice[];
 	public invoiceSettings: INg2Settings<IInvoice>;
-	public businessState: IBusinessState[];
-	public businessStateSettings: INg2Settings<IBusinessState>;
-	public mrr: IMRR[];
-	public mrrSettings: INg2Settings<IMRR>;
-	public projectsSynthesis: IProjectSynthesis[];
-	public projectsSynthesisSettings: INg2Settings<IProjectSynthesis>;
-	public projects: IProject[];
-	public projectSettings: INg2Settings<IProject>;
 	public readonly noData: string = 'Pas de données';
 
 	public performanceChartData: MultiDataSet;
@@ -132,78 +129,139 @@ export class GlobalReportingDashboardPage implements OnInit {
 	}
 
 	public buildProjects(): void {
-		this.projects = [
-			{
-				client: 'Mutuelle Bleue',
-				date: new Date('2019-01-20'),
-				name: 'Mutuelle_Risk_Business',
-				state: 'OK',
-				status: 'Production'
-			},
-			{
-				client: 'AFTA',
-				date: new Date('2018-12-15'),
-				name: 'AFTA_ITALY',
-				state: 'Warning',
-				status: 'A lancer'
-			},
-			{
-				client: 'Fin. Brousouf',
-				date: new Date('2018-12-16'),
-				name: 'Fin.Brousouf_sous_VIE',
-				state: 'Danger',
-				status: 'Pilote'
-			},
-			{
-				client: 'Assurance Rouge',
-				date: new Date('2018-12-10'),
-				name: 'Assurance_rouge_IARD',
-				state: 'OK',
-				status: 'Recette'
-			},
-			{
-				client: 'xxx',
-				date: new Date('2019-01-01'),
-				name: 'xxx_xx',
-				state: 'OK',
-				status: 'Production'
-			},
-			{
-				client: 'yyy',
-				date: new Date('2019-01-02'),
-				name: 'yyy_yy',
-				state: 'Warning',
-				status: 'Recette'
-			}
-		];
-		this.projectSettings = {
-			actions: false,
-			columns: {
-				name: {
-					title: 'Nom'
+		Highcharts.chart('projectsTimeline', {
+			chart: {
+				zoomType: 'x',
+				type: 'timeline',
+				scrollablePlotArea: {
+					minWidth: 800,
+					scrollPositionX: 1
 				},
-				date: {
-					title: 'Début',
-					valuePrepareFunction: (date: Date): string => {
-						return this._DATEPIPE.transform(date, this.dateFormat);
-					}
-				},
-				status: {
-					title: 'Statut'
-				},
-				state: {
-					title: 'Météo'
+				marginRight: 0,
+				marginLeft: 10
+			},
+			xAxis: {
+				type: 'datetime',
+				visible: true
+			},
+			yAxis: {
+				gridLineWidth: 1,
+				title: null,
+				labels: {
+					enabled: false
 				}
 			},
-			hideHeader: false,
-			hideSubHeader: true,
-			noDataMessage: this.noData,
-			pager: {
-				display: true,
-				perPage: 1
-			}
-		};
-		this.projectSettings.columns = { client: { title: 'Client' }, ...this.projectSettings.columns };
+			title: {
+				text: 'Timeline'
+			},
+			tooltip: {
+				style: {
+					width: 300
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [
+				{
+					dataLabels: {
+						allowOverlap: false,
+						width: 50,
+						format: '<span style="font-weight: bold;" > {point.x:%d %b %Y}</span><br/>{point.label}'
+					},
+					type: undefined,
+					marker: {
+						symbol: 'circle'
+					},
+					data: [
+						{
+							x: Date.UTC(2018, 11, 10),
+							name: 'Assurance rouge IARD',
+							label: 'Assurance rouge IARD',
+							description: 'Assurance Rouge',
+							color: ProjectsTimelineStates.RISKS,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.RISKS,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.RISKS
+							}
+						},
+						{
+							x: Date.UTC(2018, 11, 15),
+							name: 'AFTA ITALY',
+							label: 'AFTA ITALY',
+							description: 'AFTA',
+							color: ProjectsTimelineStates.WARNING,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.WARNING,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.WARNING
+							}
+						},
+						{
+							x: Date.UTC(2018, 11, 16),
+							name: 'Fin.Brousouf sous VIE',
+							label: 'Fin.Brousouf sous VIE',
+							description: 'Fin. Brousouf',
+							color: ProjectsTimelineStates.RISKS,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.RISKS,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.RISKS
+							}
+						},
+						{
+							x: Date.UTC(2019, 0, 1),
+							name: 'xxx xx',
+							label: 'xxx xx',
+							description: 'xxx',
+							color: ProjectsTimelineStates.OK,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.OK,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.OK
+							}
+						},
+						{
+							x: Date.UTC(2019, 0, 2),
+							name: 'yyy yy',
+							label: 'yyy yy',
+							description: 'yyy',
+							color: ProjectsTimelineStates.DIFFICULTIES,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.DIFFICULTIES,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.DIFFICULTIES
+							}
+						},
+						{
+							x: Date.UTC(2019, 0, 20),
+							name: 'Mutuelle Risk Business',
+							label: 'Mutuelle Risk Business',
+							description: 'Mutuelle Bleue',
+							color: ProjectsTimelineStates.OK,
+							dataLabels: {
+								color: 'black',
+								borderColor: 'black',
+								backgroundColor: ProjectsTimelineStates.OK,
+								connectorWidth: 2,
+								connectorColor: ProjectsTimelineStates.OK
+							}
+						}
+					]
+				}
+			]
+		});
 	}
 
 	public goToClientInvoices(client: string): void {
