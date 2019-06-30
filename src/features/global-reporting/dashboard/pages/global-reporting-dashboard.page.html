@@ -1,12 +1,8 @@
 <div
 	class="global-reporting w-100 h-100 overflow-hidden"
-	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'33% 33% 33%', 'grid-gap': '0.5vh 0.5vw'}"
+	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-gap': '0.5vw'}"
 >
-	<div
-		class="overview"
-		[ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3',
-						'grid-row-start':'1', 'grid-row-end':'2'}"
-	>
+	<div class="overview" [ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>Consommation</nb-card-header>
 			<nb-card-body class="overflow-hidden">
@@ -84,7 +80,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div
 						class="lastMonth"
 						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
@@ -105,7 +100,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div
 						class="overview_signatures"
 						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
@@ -121,12 +115,7 @@
 			</nb-card-body>
 		</nb-card>
 	</div>
-
-	<div
-		class="projects"
-		[ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3',
-						'grid-row-start':'2', 'grid-row-end':'3'}"
-	>
+	<div class="projects" [ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -200,23 +189,16 @@
 						</div>
 					</div>
 					<div class="col-12 col-md-8 h-100">
-						<app-smart-table
-							[settings]="projectSettings"
-							[source]="projects"
-							[hasPager]="false"
-							(onClientClick)="goToClientProjects($event)"
-						></app-smart-table>
+						<div
+							id="projectsTimeline"
+							[ngStyle]="{'min-width': '400px', 'max-width': '600px', 'margin': '0 auto'}"
+						></div>
 					</div>
 				</div>
 			</nb-card-body>
 		</nb-card>
 	</div>
-
-	<div
-		class="invoices"
-		[ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2',
-						'grid-row-start':'3', 'grid-row-end':'4'}"
-	>
+	<div class="invoices" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -243,12 +225,7 @@
 			</nb-card-body>
 		</nb-card>
 	</div>
-
-	<div
-		class="ticketing"
-		[ngStyle]="{'min-width':'500px', 'grid-column-start':'2', 'grid-column-end':'3',
-						'grid-row-start':'3', 'grid-row-end':'4'}"
-	>
+	<div class="ticketing" [ngStyle]="{'min-width':'500px', 'grid-column-start':'2', 'grid-column-end':'3'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">

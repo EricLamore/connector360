@@ -39,6 +39,7 @@
 		"bootstrap": "^4.3.1",
 		"chart.js": "^2.8.0",
 		"core-js": "^2.6.9",
+		"highcharts": "^7.1.2",
 		"nebular-icons": "^1.1.0",
 		"ng2-charts": "^2.3.0",
 		"ng2-completer": "^2.0.8",
