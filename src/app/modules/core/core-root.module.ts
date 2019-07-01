@@ -13,7 +13,7 @@ import { CorePublicModule } from './core-public.module';
 		NbDatepickerModule.forRoot(),
 		NbMenuModule.forRoot(),
 		NbSidebarModule.forRoot(),
-		NbThemeModule.forRoot({ name: 'dark' })
+		NbThemeModule.forRoot({ name: 'corporate' })
 	],
 	providers: []
 })
