@@ -11,9 +11,11 @@ import { IMRR } from '@features/global-reporting/dashboard/models/i-mrr';
 import { IProjectSynthesis } from '@features/global-reporting/dashboard/models/i-project-synthesis';
 import { ChartDataSets } from 'chart.js';
 import * as Highcharts from 'highcharts';
+import factory from 'highcharts/modules/bullet';
 import Timeline from 'highcharts/modules/timeline';
 import { Label, MultiDataSet } from 'ng2-charts';
 
+factory(Highcharts);
 Timeline(Highcharts);
 
 @Component({
@@ -27,8 +29,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
-	public satisfactionChartData: MultiDataSet;
-	public satisfactionChartMiddleText: string;
 	public signaturesChartLabels: Label[];
 	public signaturesChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
@@ -39,8 +39,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public ngOnInit(): void {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
-		this.satisfactionChartData = [[90, 10]];
-		this.satisfactionChartMiddleText = '90%';
 		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
 		this.signaturesChartData = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
 		this.ticketsChartLabels = ['Sept.', 'Oct.', 'Nov.', 'Déc.', 'Janv.'];
@@ -51,6 +49,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 
 		this.buildInvoices();
 		this.buildProjects();
+		this.buildSatisfactions();
 	}
 
 	public buildInvoices(): void {
@@ -129,7 +128,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 	}
 
 	public buildProjects(): void {
-		Highcharts.chart('projectsTimeline', {
+		Highcharts.chart('app-projects-chart', {
 			chart: {
 				zoomType: 'x',
 				type: 'timeline',
@@ -139,6 +138,9 @@ export class GlobalReportingDashboardPage implements OnInit {
 				},
 				marginRight: 0,
 				marginLeft: 10
+			},
+			title: {
+				text: 'Timeline'
 			},
 			xAxis: {
 				type: 'datetime',
@@ -150,9 +152,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 				labels: {
 					enabled: false
 				}
-			},
-			title: {
-				text: 'Timeline'
 			},
 			tooltip: {
 				style: {
@@ -257,6 +256,82 @@ export class GlobalReportingDashboardPage implements OnInit {
 								connectorWidth: 2,
 								connectorColor: ProjectsTimelineStates.OK
 							}
+						}
+					]
+				}
+			]
+		});
+	}
+
+	public buildSatisfactions(): void {
+		Highcharts.chart('app-satisfaction-chart', {
+			chart: {
+				inverted: true,
+				type: 'bullet',
+				height: 115
+			},
+			title: {
+				text: null
+			},
+			legend: {
+				enabled: false
+			},
+			xAxis: {
+				categories: ['<span class="hc-cat-title"></span><br/>']
+			},
+			plotOptions: {
+				series: {
+					borderWidth: 0,
+					color: '#000'
+				},
+				bullet: {
+					pointPadding: 0.25,
+					targetOptions: {
+						width: '200%'
+					}
+				}
+			},
+			yAxis: {
+				gridLineWidth: 1,
+				plotBands: [
+					{
+						from: 0,
+						to: 50,
+						color: ProjectsTimelineStates.RISKS
+					},
+					{
+						from: 50,
+						to: 75,
+						color: ProjectsTimelineStates.DIFFICULTIES
+					},
+					{
+						from: 75,
+						to: 90,
+						color: ProjectsTimelineStates.WARNING
+					},
+					{
+						from: 90,
+						to: 100,
+						color: ProjectsTimelineStates.OK
+					}
+				],
+				title: {
+					text: 'Satisfaction'
+				}
+			},
+			tooltip: {
+				pointFormat: '<b>{point.y}</b> (with target at {point.target})'
+			},
+			credits: {
+				enabled: false
+			},
+			series: [
+				{
+					type: undefined,
+					data: [
+						{
+							y: 90,
+							target: 95
 						}
 					]
 				}

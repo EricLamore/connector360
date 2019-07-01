@@ -190,7 +190,7 @@
 					</div>
 					<div class="col-12 col-md-8 h-100">
 						<div
-							id="projectsTimeline"
+							id="app-projects-chart"
 							[ngStyle]="{'min-width': '400px', 'max-width': '600px', 'margin': '0 auto'}"
 						></div>
 					</div>
@@ -198,7 +198,7 @@
 			</nb-card-body>
 		</nb-card>
 	</div>
-	<div class="invoices" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'2'}">
+	<div class="invoices" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'3'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -225,7 +225,7 @@
 			</nb-card-body>
 		</nb-card>
 	</div>
-	<div class="ticketing" [ngStyle]="{'min-width':'500px', 'grid-column-start':'2', 'grid-column-end':'3'}">
+	<div class="ticketing" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'3'}">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -244,14 +244,7 @@
 			<nb-card-body class="overflow-hidden">
 				<div class="row w-100 h-100">
 					<div class="col-6 col-md-4 h-100">
-						<div><span>Satisfaction</span></div>
-						<div class="mt-2">
-							<app-satisfaction-chart
-								[satisfactionChartMiddleText]="satisfactionChartMiddleText"
-								[satisfactionChartData]="satisfactionChartData"
-							>
-							</app-satisfaction-chart>
-						</div>
+						<div id="app-satisfaction-chart" [ngStyle]="{'height': '115px', 'margin': '1em auto'}"></div>
 					</div>
 					<div class="col-12 col-md-8 h-100">
 						<app-tickets-chart
