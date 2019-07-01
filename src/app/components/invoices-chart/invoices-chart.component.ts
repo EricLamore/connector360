@@ -21,20 +21,20 @@ export class InvoicesChartComponent implements OnInit {
 			// We use these empty structures as placeholders for dynamic theming.
 			scales: {
 				xAxes: [{}],
-				yAxes: [
-					{
-						type: 'time',
-						time: {
-							unit: 'month'
-						}
-					}
-				]
+				yAxes: [{}]
 			},
 			plugins: {
 				datalabels: {
 					anchor: 'end',
 					align: 'end'
 				}
+			},
+			tooltips: {
+				mode: 'nearest'
+			},
+			hover: {
+				mode: 'nearest',
+				intersect: true
 			}
 		};
 	}

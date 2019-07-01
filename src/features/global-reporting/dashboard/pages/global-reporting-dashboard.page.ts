@@ -1,8 +1,7 @@
 // tslint:disable:max-file-line-count no-big-function no-magic-numbers
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { INg2Settings } from '@application/models/i-ng2-st-settings';
-import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
+import InvoicesBarChartColor from '@features/global-reporting/dashboard/enums/invoices-bar-chart-color';
 import ProjectsTimelineStates from '@features/global-reporting/dashboard/enums/projects-timeline-states';
 import { ChartDataSets } from 'chart.js';
 import * as Highcharts from 'highcharts';
@@ -17,8 +16,6 @@ Timeline(Highcharts);
 	templateUrl: './global-reporting-dashboard.page.html'
 })
 export class GlobalReportingDashboardPage implements OnInit {
-	public invoices: IInvoice[];
-
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
 	public signaturesChartLabels: Label[];
@@ -55,56 +52,38 @@ export class GlobalReportingDashboardPage implements OnInit {
 	}
 
 	public buildInvoices(): void {
-		this.invoices = [
-			{
-				client: 'Mutuelle Bleue',
-				date: new Date('2019-01-20'),
-				name: 'UNV_DEC',
-				price: '500,80€',
-				status: 'En attente'
-			},
-			{
-				client: 'AFTA',
-				date: new Date('2018-12-15'),
-				name: 'UNV_DEC',
-				price: '80000,56€',
-				status: 'Payée'
-			},
-			{
-				client: 'Fin. Brousouf',
-				date: new Date('2018-12-16'),
-				name: 'UNIV_DEC',
-				price: '5589,18€',
-				status: 'Payée'
-			},
-			{
-				client: 'Assurance Rouge',
-				date: new Date('2018-12-10'),
-				name: 'UNIV_NOV',
-				price: '500,72€',
-				status: 'Annulée'
-			},
-			{
-				client: 'xxx',
-				date: new Date('2019-01-01'),
-				name: 'xxx',
-				price: '500€',
-				status: 'Annulée'
-			},
-			{
-				client: 'yyy',
-				date: new Date('2019-01-02'),
-				name: 'yyy',
-				price: '1000€',
-				status: 'Payée'
-			}
-		];
-
-		this.invoicesChartLabels = ['01', '12', '12', '12', '01', '01'];
+		this.invoicesChartLabels = ['Décembre 2018'];
 		this.invoicesChartData = [
-			{ data: [0, 80000.56, 5589.18, 0, 0, 1000], label: 'Payé', backgroundColor: '#C7D100' },
-			{ data: [500.8, 0, 0, 0, 0, 0], label: 'Non payé', backgroundColor: '#E85911' },
-			{ data: [0, 0, 0, 500.72, 500, 0], label: 'Autre', backgroundColor: '#FFFF00' }
+			{
+				data: [500.8],
+				backgroundColor: InvoicesBarChartColor.NOTPAID,
+				label: 'Client: Mutuelle Bleue | Nom: UNV_DEC | Date: 20-12-18 | Prix: 500.80 € | Status: En attente'
+			},
+			{
+				data: [10000.56],
+				backgroundColor: InvoicesBarChartColor.PAID,
+				label: 'Client: AFTA | Nom: UNV_DEC | Date: 16-12-18 | Prix: 10000.56 € | Status: Payée'
+			},
+			{
+				data: [5589.18],
+				backgroundColor: InvoicesBarChartColor.PAID,
+				label: 'Client: Fin. Brousouf | Nom: UNV_DEC | Date: 15-12-18 | Prix: 5589.18 € | Status: Payée'
+			},
+			{
+				data: [500.72],
+				backgroundColor: InvoicesBarChartColor.OTHERS,
+				label: 'Assurance Rouge | Nom: UNV_DEC | Date: 10-12-18 | Prix: 500.72 € | Status: Annulée'
+			},
+			{
+				data: [500],
+				backgroundColor: InvoicesBarChartColor.OTHERS,
+				label: 'xxx | Nom: UNV_DEC | Date: 02-12-18 | Prix: 500 € | Status: Annulée'
+			},
+			{
+				data: [1000],
+				backgroundColor: InvoicesBarChartColor.PAID,
+				label: 'yyy | Nom: UNV_DEC | Date: 01-12-18 | Prix: 1000 € | Status: Payée'
+			}
 		];
 	}
 
