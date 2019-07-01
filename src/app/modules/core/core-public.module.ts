@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MrrChartComponent } from '@application/components/mrr-chart/mrr-chart.component';
 import { PerformanceChartComponent } from '@application/components/performance-chart/performance-chart.component';
 import { ProjectsOverviewChartComponent } from '@application/components/projects-overview-chart/projects-overview-chart.component';
 import { SatisfactionChartComponent } from '@application/components/satisfaction-chart/satisfaction-chart.component';
@@ -12,6 +13,7 @@ import { GlobalModule } from '../utilities/global.module';
 	declarations: [
 		BlankLayout,
 		MainLayout,
+		MrrChartComponent,
 		PerformanceChartComponent,
 		ProjectsOverviewChartComponent,
 		SatisfactionChartComponent,
@@ -23,6 +25,7 @@ import { GlobalModule } from '../utilities/global.module';
 		BlankLayout,
 		GlobalModule,
 		MainLayout,
+		MrrChartComponent,
 		PerformanceChartComponent,
 		ProjectsOverviewChartComponent,
 		SatisfactionChartComponent,
