@@ -11,6 +11,7 @@ import { SignaturesChartStubComponent } from '@application/testing/signatures-ch
 import { SmartTableStubComponent } from '@application/testing/smart-table.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
+import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
 import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
@@ -35,6 +36,7 @@ describe('Global Reporting - Dashboard page', () => {
 		TestBed.configureTestingModule({
 			declarations: [
 				GlobalReportingDashboardPage,
+				InvoicesChartStubComponent,
 				MrrChartStubComponent,
 				PerformanceChartStubComponent,
 				ProjectsOverviewChartStubComponent,

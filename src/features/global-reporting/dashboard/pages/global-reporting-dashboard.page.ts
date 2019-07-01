@@ -1,14 +1,9 @@
 // tslint:disable:max-file-line-count no-big-function no-magic-numbers
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { INg2Settings } from '@application/models/i-ng2-st-settings';
 import { IInvoice } from '@features/global-reporting/category/models/i-invoice';
-import { IProject } from '@features/global-reporting/category/models/i-project';
 import ProjectsTimelineStates from '@features/global-reporting/dashboard/enums/projects-timeline-states';
-import { IBusinessState } from '@features/global-reporting/dashboard/models/i-business-state';
-import { IMRR } from '@features/global-reporting/dashboard/models/i-mrr';
-import { IProjectSynthesis } from '@features/global-reporting/dashboard/models/i-project-synthesis';
 import { ChartDataSets } from 'chart.js';
 import * as Highcharts from 'highcharts';
 import factory from 'highcharts/modules/bullet';
@@ -22,28 +17,36 @@ Timeline(Highcharts);
 	templateUrl: './global-reporting-dashboard.page.html'
 })
 export class GlobalReportingDashboardPage implements OnInit {
-	public readonly dateFormat: string = 'dd/MM/yyyy';
 	public invoices: IInvoice[];
-	public invoiceSettings: INg2Settings<IInvoice>;
-	public readonly noData: string = 'Pas de données';
 
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
 	public signaturesChartLabels: Label[];
 	public signaturesChartData: ChartDataSets[];
+	public invoicesChartLabels: Label[];
+	public invoicesChartData: ChartDataSets[];
 	public mrrChartLabels: Label[];
 	public mrrChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
 	public projectsOverviewChartData: ChartDataSets[];
 
-	public constructor(private readonly _DATEPIPE: DatePipe, private readonly _ROUTER: Router) {}
+	public constructor(private readonly _ROUTER: Router) {}
 
 	public ngOnInit(): void {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
-		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
-		this.signaturesChartData = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
+
+		this.buildMrr();
+		this.buildSignatures();
+		this.buildProjectsOverview();
+		this.buildInvoices();
+		this.buildProjects();
+		this.buildSatisfactions();
+		this.buildTickets();
+	}
+
+	public buildMrr(): void {
 		this.mrrChartLabels = [
 			'Janvier',
 			'Février',
@@ -85,16 +88,15 @@ export class GlobalReportingDashboardPage implements OnInit {
 			{ data: DATA_MRR_PROJECTED, pointRadius: POINT_RADIUS_MRR_PROJECTED, label: 'MRR prévisionnel' },
 			{ data: DATA_MRR_REALISED, label: 'MRR réalisé' }
 		];
-		this.ticketsChartLabels = ['Sept.', 'Oct.', 'Nov.', 'Déc.', 'Janv.'];
-		this.ticketsChartData = [
-			{ data: [20, 5, 0, 20, 10], label: 'Non résolus' },
-			{ data: [300, 250, 100, 280, 100], label: 'Résolus' }
-		];
-		this.projectsOverviewChartData = [{ data: [15, 30, 300, 20] }];
+	}
 
-		this.buildInvoices();
-		this.buildProjects();
-		this.buildSatisfactions();
+	public buildSignatures(): void {
+		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
+		this.signaturesChartData = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
+	}
+
+	public buildProjectsOverview(): void {
+		this.projectsOverviewChartData = [{ data: [15, 30, 300, 20] }];
 	}
 
 	public buildInvoices(): void {
@@ -142,34 +144,13 @@ export class GlobalReportingDashboardPage implements OnInit {
 				status: 'Payée'
 			}
 		];
-		this.invoiceSettings = {
-			actions: false,
-			columns: {
-				name: {
-					title: 'Nom'
-				},
-				date: {
-					title: 'Emission',
-					valuePrepareFunction: (date: Date): string => {
-						return this._DATEPIPE.transform(date, this.dateFormat);
-					}
-				},
-				status: {
-					title: 'Statut'
-				},
-				price: {
-					title: 'Montant'
-				}
-			},
-			hideHeader: false,
-			hideSubHeader: true,
-			noDataMessage: this.noData,
-			pager: {
-				display: true,
-				perPage: 1
-			}
-		};
-		this.invoiceSettings.columns = { client: { title: 'Client' }, ...this.invoiceSettings.columns };
+
+		this.invoicesChartLabels = ['01', '12', '12', '12', '01', '01'];
+		this.invoicesChartData = [
+			{ data: [0, 80000.56, 5589.18, 0, 0, 1000], label: 'Payé', backgroundColor: '#C7D100' },
+			{ data: [500.8, 0, 0, 0, 0, 0], label: 'Non payé', backgroundColor: '#E85911' },
+			{ data: [0, 0, 0, 500.72, 500, 0], label: 'Autre', backgroundColor: '#FFFF00' }
+		];
 	}
 
 	public buildProjects(): void {
@@ -382,6 +363,14 @@ export class GlobalReportingDashboardPage implements OnInit {
 				}
 			]
 		});
+	}
+
+	public buildTickets(): void {
+		this.ticketsChartLabels = ['Sept.', 'Oct.', 'Nov.', 'Déc.', 'Janv.'];
+		this.ticketsChartData = [
+			{ data: [20, 5, 0, 20, 10], label: 'Non résolus' },
+			{ data: [300, 250, 100, 280, 100], label: 'Résolus' }
+		];
 	}
 
 	public goToClientInvoices(client: string): void {
