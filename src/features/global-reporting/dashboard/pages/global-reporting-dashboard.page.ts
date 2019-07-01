@@ -33,6 +33,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public signaturesChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
+	public projectsOverviewChartData: ChartDataSets[];
 
 	public constructor(private readonly _DATEPIPE: DatePipe, private readonly _ROUTER: Router) {}
 
@@ -46,6 +47,7 @@ export class GlobalReportingDashboardPage implements OnInit {
 			{ data: [20, 5, 0, 20, 10], label: 'Non résolus' },
 			{ data: [300, 250, 100, 280, 100], label: 'Résolus' }
 		];
+		this.projectsOverviewChartData = [{ data: [15, 30, 300, 20] }];
 
 		this.buildInvoices();
 		this.buildProjects();

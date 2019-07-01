@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PerformanceChartComponent } from '@application/components/performance-chart/performance-chart.component';
+import { ProjectsOverviewChartComponent } from '@application/components/projects-overview-chart/projects-overview-chart.component';
 import { SatisfactionChartComponent } from '@application/components/satisfaction-chart/satisfaction-chart.component';
 import { SignaturesChartComponent } from '@application/components/signatures-chart/signatures-chart.component';
 import { SmartTableComponent } from '@application/components/smart-table/smart-table.component';
@@ -12,6 +13,7 @@ import { GlobalModule } from '../utilities/global.module';
 		BlankLayout,
 		MainLayout,
 		PerformanceChartComponent,
+		ProjectsOverviewChartComponent,
 		SatisfactionChartComponent,
 		SmartTableComponent,
 		SignaturesChartComponent,
@@ -22,6 +24,7 @@ import { GlobalModule } from '../utilities/global.module';
 		GlobalModule,
 		MainLayout,
 		PerformanceChartComponent,
+		ProjectsOverviewChartComponent,
 		SatisfactionChartComponent,
 		SmartTableComponent,
 		SignaturesChartComponent,

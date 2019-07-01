@@ -134,59 +134,8 @@
 			<nb-card-body class="overflow-hidden pt-0 pb-0">
 				<div class="row w-100 h-100 projects_body">
 					<div class="col-6 col-md-4 h-100">
-						<div
-							class="w-100 h-100"
-							[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto auto auto auto'}"
-						>
-							<div
-								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'1', 'grid-row-end':'2'}"
-							>
-								Recette
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-										'grid-row-start':'1', 'grid-row-end':'2'}"
-							>
-								15
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'2', 'grid-row-end':'3'}"
-							>
-								Production
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-										'grid-row-start':'2', 'grid-row-end':'3'}"
-							>
-								30
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'3', 'grid-row-end':'4'}"
-							>
-								En service
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-										'grid-row-start':'3', 'grid-row-end':'4'}"
-							>
-								300
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'4', 'grid-row-end':'5'}"
-							>
-								Arrêté
-							</div>
-							<div
-								[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-										'grid-row-start':'4', 'grid-row-end':'5'}"
-							>
-								20
-							</div>
-						</div>
+						<app-projects-overview-chart [projectsOverviewChartData]="projectsOverviewChartData">
+						</app-projects-overview-chart>
 					</div>
 					<div class="col-12 col-md-8 h-100">
 						<div

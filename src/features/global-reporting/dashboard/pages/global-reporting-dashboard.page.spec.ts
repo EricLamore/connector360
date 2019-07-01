@@ -5,6 +5,7 @@ import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
 import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { PerformanceChartStubComponent } from '@application/testing/performance-chart.component.stub';
+import { ProjectsOverviewChartStubComponent } from '@application/testing/projects-overview-chart.component.stub';
 import { SatisfactionChartStubComponent } from '@application/testing/satisfaction-chart.component.stub';
 import { SignaturesChartStubComponent } from '@application/testing/signatures-chart.component.stub';
 import { SmartTableStubComponent } from '@application/testing/smart-table.component.stub';
@@ -34,6 +35,7 @@ describe('Global Reporting - Dashboard page', () => {
 			declarations: [
 				GlobalReportingDashboardPage,
 				PerformanceChartStubComponent,
+				ProjectsOverviewChartStubComponent,
 				SatisfactionChartStubComponent,
 				SignaturesChartStubComponent,
 				SmartTableStubComponent,
