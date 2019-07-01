@@ -174,13 +174,13 @@
 				</div>
 			</nb-card-header>
 			<nb-card-body class="overflow-hidden p-0">
-				<app-smart-table
-					[settings]="invoiceSettings"
-					[source]="invoices"
-					[hasPager]="false"
-					(onClientClick)="goToClientInvoices($event)"
-				>
-				</app-smart-table>
+				<div>
+					<app-invoices-chart
+						[invoicesChartLabels]="invoicesChartLabels"
+						[invoicesChartData]="invoicesChartData"
+					>
+					</app-invoices-chart>
+				</div>
 			</nb-card-body>
 		</nb-card>
 	</div>
