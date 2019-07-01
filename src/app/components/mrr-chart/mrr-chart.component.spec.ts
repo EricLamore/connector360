@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MrrService } from '@application/services/mrr.service';
 
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
@@ -13,7 +15,8 @@ describe('Mrr chart component', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [MrrChartComponent],
-			imports: [ChartsModule]
+			imports: [ChartsModule],
+			providers: [MrrService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {

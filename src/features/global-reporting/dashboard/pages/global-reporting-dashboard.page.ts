@@ -37,57 +37,12 @@ export class GlobalReportingDashboardPage implements OnInit {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
 
-		this.buildMrr();
 		this.buildSignatures();
 		this.buildProjectsOverview();
 		this.buildInvoices();
 		this.buildProjects();
 		this.buildSatisfactions();
 		this.buildTickets();
-	}
-
-	public buildMrr(): void {
-		this.mrrChartLabels = [
-			'Janvier',
-			'Février',
-			'Mars',
-			'Avril',
-			'Mai',
-			'Juin',
-			'Juillet',
-			'Août',
-			'Septembre',
-			'Octobre',
-			'Novembre',
-			'Décembre'
-		];
-		const DATA_MRR_PROJECTED: number[] = [];
-		const POINT_RADIUS_MRR_PROJECTED: number[] = [];
-		for (let i: number = 0; i <= 12; i++) {
-			DATA_MRR_PROJECTED.push(300000);
-			POINT_RADIUS_MRR_PROJECTED.push(0);
-		}
-		POINT_RADIUS_MRR_PROJECTED[11] = 3;
-
-		const DATA_MRR_REALISED: number[] = [
-			10000,
-			20000,
-			40000,
-			50000,
-			70000,
-			100000,
-			110000,
-			160000,
-			200000,
-			220000,
-			250000,
-			270000
-		];
-
-		this.mrrChartData = [
-			{ data: DATA_MRR_PROJECTED, pointRadius: POINT_RADIUS_MRR_PROJECTED, label: 'MRR prévisionnel' },
-			{ data: DATA_MRR_REALISED, label: 'MRR réalisé' }
-		];
 	}
 
 	public buildSignatures(): void {

@@ -1,38 +1,77 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import UniversignColorStates from '@application/enums/universign-color-states';
+import { IMrrModel } from '@application/models/i-mrr';
+import { MrrService } from '@application/services/mrr.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
 	selector: 'app-mrr-chart',
 	templateUrl: './mrr-chart.component.html'
 })
 export class MrrChartComponent implements OnInit {
-	@Input() public mrrChartData: ChartDataSets[];
-	@Input() public mrrChartLabels: Label[];
-	public mrrChartLegend: boolean;
-	public mrrChartOptions: ChartOptions;
-	public mrrChartType: string;
+	public areDataAvailable: boolean;
+	public chartType: string;
+	public legend: boolean;
+	public labels: Label[];
+	public datasets: ChartDataSets[];
+	public colors: Color[];
+	public options: ChartOptions;
+
+	public constructor(private readonly _REF: ChangeDetectorRef, private readonly _MRR_SERVICE: MrrService) {}
 
 	public ngOnInit(): void {
-		this.mrrChartType = 'line';
-		this.mrrChartLegend = true;
-		this.mrrChartOptions = {
-			responsive: true,
-			scales: {
-				yAxes: [
+		this.areDataAvailable = false;
+		this._MRR_SERVICE
+			.get()
+			.then((res: IMrrModel) => {
+				this.labels = res.labels;
+				this.datasets = res.datasets;
+				this.chartType = 'line';
+				this.legend = true;
+				this.colors = [
 					{
-						ticks: {
-							beginAtZero: true
+						backgroundColor: UniversignColorStates.PLANIFIED,
+						borderColor: UniversignColorStates.PLANIFIED,
+						pointBackgroundColor: UniversignColorStates.PLANIFIED,
+						pointBorderColor: '#ffffff',
+						pointHoverBackgroundColor: '#ffffff',
+						pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+					},
+					{
+						backgroundColor: UniversignColorStates.REALISED,
+						borderColor: UniversignColorStates.REALISED,
+						pointBackgroundColor: UniversignColorStates.REALISED,
+						pointBorderColor: '#ffffff',
+						pointHoverBackgroundColor: '#ffffff',
+						pointHoverBorderColor: 'rgba(77,83,96,1)'
+					}
+				];
+				this.options = {
+					responsive: true,
+					scales: {
+						yAxes: [
+							{
+								ticks: {
+									beginAtZero: true
+								}
+							}
+						]
+					},
+					elements: {
+						line: {
+							tension: 0,
+							fill: false
 						}
 					}
-				]
-			},
-			elements: {
-				line: {
-					tension: 0,
-					fill: false
+				};
+				this.areDataAvailable = true;
+				this._REF.detectChanges();
+			})
+			.catch(
+				(err: Error): void => {
+					throw err;
 				}
-			}
-		};
+			);
 	}
 }
