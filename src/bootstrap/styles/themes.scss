@@ -1,25 +1,24 @@
-// import Nebular Theme System and the default theme
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/corporate';
 @import '~bootstrap/dist/css/bootstrap.css';
 
-// and change the variables you need,
-// or simply leave the map empty to use the default values
-// let's make it blue-ish instead of the default white color
 $nb-themes: nb-register-theme(
 	(
-		sidebar-width: 14em,
-		layout-min-width: 1000px,
-		card-margin-bottom: 0,
-		sidebar-background-color: #00467f,
-		menu-background-color: #00467f,
-		font-main: Roboto,
-		font-secondary: Exo,
-		menu-item-hover-background-color: #00465a
+		layout-min-width: $universign-min-width,
+		layout-text-font-family: $universign-font-family,
+		menu-text-color: $universign-menu-color,
+		menu-text-font-family: $universign-font-family,
+		menu-text-font-size: $universign-menu-font-size,
+		menu-background-color: $universign-menu-background-color,
+		menu-item-hover-background-color: $universign-menu-hover,
+		sidebar-background-color: $universign-menu-background-color,
+		sidebar-width: $universign-menu-width,
+		card-header-text-font-family: $universign-font-family,
+		card-header-text-font-size: $universign-card-font-size
 	),
-	corporate,
+	universign,
 	corporate
-); // let's leave it as default
+);
 
 @include nb-install-component() {
 	.show-grid {

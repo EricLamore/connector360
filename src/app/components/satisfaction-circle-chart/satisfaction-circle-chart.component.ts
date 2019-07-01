@@ -4,26 +4,26 @@ import { Chart, ChartType } from 'chart.js';
 import { Label, MultiDataSet, PluginServiceGlobalRegistrationAndOptions } from 'ng2-charts';
 
 @Component({
-	selector: 'app-satisfaction-chart',
-	templateUrl: './satisfaction-chart.component.html'
+	selector: 'app-satisfaction-circle-chart',
+	templateUrl: './satisfaction-circle-chart.component.html'
 })
-export class SatisfactionChartComponent implements OnInit {
-	@Input() public satisfactionChartData: MultiDataSet;
-	public satisfactionChartLabels: Label[];
-	public satisfactionChartLegend: boolean;
-	@Input() public satisfactionChartMiddleText: string;
-	public satisfactionChartOptions: any;
-	public satisfactionChartPlugins: PluginServiceGlobalRegistrationAndOptions[];
-	public satisfactionChartType: ChartType;
+export class SatisfactionCircleChartComponent implements OnInit {
+	@Input() public satisfactionCircleChartData: MultiDataSet;
+	public satisfactionCircleChartLabels: Label[];
+	public satisfactionCircleChartLegend: boolean;
+	@Input() public satisfactionCircleChartMiddleText: string;
+	public satisfactionCircleChartOptions: any;
+	public satisfactionCircleChartPlugins: PluginServiceGlobalRegistrationAndOptions[];
+	public satisfactionCircleChartType: ChartType;
 
 	public ngOnInit(): void {
-		this.satisfactionChartType = 'doughnut';
-		this.satisfactionChartLegend = false;
-		this.satisfactionChartLabels = ['Satisfaction', 'Non satisfaction'];
-		this.satisfactionChartOptions = {
+		this.satisfactionCircleChartType = 'doughnut';
+		this.satisfactionCircleChartLegend = false;
+		this.satisfactionCircleChartLabels = ['satisfactionCircle', 'Non satisfactionCircle'];
+		this.satisfactionCircleChartOptions = {
 			elements: {
 				center: {
-					text: this.satisfactionChartMiddleText,
+					text: this.satisfactionCircleChartMiddleText,
 					fontColor: 'white',
 					fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
 					fontSize: 14,
@@ -31,7 +31,7 @@ export class SatisfactionChartComponent implements OnInit {
 				}
 			}
 		};
-		this.satisfactionChartPlugins = [
+		this.satisfactionCircleChartPlugins = [
 			{
 				afterDraw(chart: Chart): void {
 					// @ts-ignore
