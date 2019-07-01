@@ -14,6 +14,13 @@
 					grid-row-start: 3 !important;
 					grid-row-end: 4 !important;
 				}
+
+				& .overview_mrr {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+					grid-row-start: 3 !important;
+					grid-row-end: 4 !important;
+				}
 			}
 
 			& .projects_body {

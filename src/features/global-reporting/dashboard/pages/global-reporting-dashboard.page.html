@@ -15,6 +15,7 @@
 						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
 										'grid-row-start':'1', 'grid-row-end':'2'}"
 					>
+						<!--
 						<div class="row w-100 h-100">
 							<div class="col-6 h-100">
 								<div
@@ -98,6 +99,15 @@
 									</app-performance-chart>
 								</div>
 							</div>
+						</div>
+					-->
+						<div
+							class="overview_mrr"
+							[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
+									'grid-row-start':'1', 'grid-row-end':'3'}"
+						>
+							<app-mrr-chart [mrrChartLabels]="mrrChartLabels" [mrrChartData]="mrrChartData">
+							</app-mrr-chart>
 						</div>
 					</div>
 					<div

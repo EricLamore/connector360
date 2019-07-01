@@ -26,6 +26,12 @@ export class SignaturesChartComponent implements OnInit {
 						}
 					}
 				]
+			},
+			elements: {
+				line: {
+					tension: 0,
+					fill: false
+				}
 			}
 		};
 	}
