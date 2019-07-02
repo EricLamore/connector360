@@ -6,7 +6,4 @@ import { Label } from 'ng2-charts';
 	selector: 'app-products-chart',
 	template: ''
 })
-export class ProductsChartStubComponent {
-	@Input() public datasets: ChartDataSets[];
-	@Input() public labels: Label[];
-}
+export class ProductsChartStubComponent {}

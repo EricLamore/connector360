@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HttpClient } from '@angular/common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsService } from '@application/services/products.service';
+
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { ChartsModule } from 'ng2-charts';
@@ -26,7 +26,7 @@ describe('Products chart component', () => {
 		component = fixture.debugElement.componentInstance;
 	}));
 
-	test('should create the signatures chart component', async(() => {
+	test('should create the products chart component', async(() => {
 		chai.expect(component).to.be.ok();
 	}));
 });

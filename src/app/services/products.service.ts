@@ -16,16 +16,16 @@ export class ProductsService {
 
 	public constructor(private readonly _HTTP: HttpClient) {}
 
-	public async get(): Promise<IProductsModel> {
+	public async getProducts(): Promise<IProductsModel> {
 		return new Promise<IProductsModel>(
 			(resolve: (products: IProductsModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 				resolve(this.mock);
 			}
 		);
-		/*return new Promise<IMrrModel>((resolve: (mrr: IMrrModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+		/*return new Promise<IProductsModel>((resolve: (mrr: IProductsModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 			this._HTTP.get(`${this._url}`)
-				.subscribe((res: IMrrModel) => {
-					//resolve(new MrrViewModel(res));
+				.subscribe((res: IProductsModel) => {
+					//resolve(new ProductsViewModel(res));
 				}, (error: HttpErrorResponse) => {
 					reject(error);
 				});

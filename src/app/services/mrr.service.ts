@@ -39,7 +39,7 @@ export class MrrService {
 
 	public constructor(private readonly _HTTP: HttpClient) {}
 
-	public async get(): Promise<IMrrModel> {
+	public async getMRR(): Promise<IMrrModel> {
 		return new Promise<IMrrModel>(
 			(resolve: (mrr: IMrrModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 				resolve(this.mock);

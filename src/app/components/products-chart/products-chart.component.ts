@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import UniversignColorStates from '@application/enums/universign-color-states';
 import { IProductsModel } from '@application/models/i-products';
 import { ProductsService } from '@application/services/products.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
 	selector: 'app-products-chart',
@@ -11,6 +12,7 @@ import { Label } from 'ng2-charts';
 export class ProductsChartComponent implements OnInit {
 	public areDataAvailable: boolean;
 	public chartType: string;
+	public colors: Color[];
 	public datasets: ChartDataSets[];
 	public labels: Label[];
 	public legend: boolean;
@@ -21,11 +23,21 @@ export class ProductsChartComponent implements OnInit {
 	public ngOnInit(): void {
 		this.areDataAvailable = false;
 		this._PRODUCTS_SERVICE
-			.get()
+			.getProducts()
 			.then((res: IProductsModel) => {
-				this.labels = res.labels;
-				this.datasets = res.datasets;
 				this.chartType = 'line';
+				this.colors = [
+					{
+						backgroundColor: UniversignColorStates.REALISED,
+						borderColor: UniversignColorStates.REALISED,
+						pointBackgroundColor: UniversignColorStates.REALISED,
+						pointBorderColor: '#ffffff',
+						pointHoverBackgroundColor: '#ffffff',
+						pointHoverBorderColor: 'rgba(77,83,96,1)'
+					}
+				];
+				this.datasets = res.datasets;
+				this.labels = res.labels;
 				this.legend = true;
 				this.options = {
 					responsive: true,

@@ -6,7 +6,4 @@ import { Label } from 'ng2-charts';
 	selector: 'app-mrr-chart',
 	template: ''
 })
-export class MrrChartStubComponent {
-	@Input() public mrrChartData: ChartDataSets[];
-	@Input() public mrrChartLabels: Label[];
-}
+export class MrrChartStubComponent {}

@@ -12,10 +12,10 @@ import { Color, Label } from 'ng2-charts';
 export class MrrChartComponent implements OnInit {
 	public areDataAvailable: boolean;
 	public chartType: string;
-	public legend: boolean;
-	public labels: Label[];
-	public datasets: ChartDataSets[];
 	public colors: Color[];
+	public datasets: ChartDataSets[];
+	public labels: Label[];
+	public legend: boolean;
 	public options: ChartOptions;
 
 	public constructor(private readonly _REF: ChangeDetectorRef, private readonly _MRR_SERVICE: MrrService) {}
@@ -23,12 +23,9 @@ export class MrrChartComponent implements OnInit {
 	public ngOnInit(): void {
 		this.areDataAvailable = false;
 		this._MRR_SERVICE
-			.get()
+			.getMRR()
 			.then((res: IMrrModel) => {
-				this.labels = res.labels;
-				this.datasets = res.datasets;
 				this.chartType = 'line';
-				this.legend = true;
 				this.colors = [
 					{
 						backgroundColor: UniversignColorStates.PLANIFIED,
@@ -47,6 +44,9 @@ export class MrrChartComponent implements OnInit {
 						pointHoverBorderColor: 'rgba(77,83,96,1)'
 					}
 				];
+				this.datasets = res.datasets;
+				this.labels = res.labels;
+				this.legend = true;
 				this.options = {
 					responsive: true,
 					scales: {
