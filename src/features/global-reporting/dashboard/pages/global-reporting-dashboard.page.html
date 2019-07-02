@@ -1,126 +1,20 @@
-<div
-	class="global-reporting w-100 h-100 overflow-hidden"
-	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-gap': '0.5vw'}"
->
-	<div class="overview" [ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3'}">
+<div class="global-reporting w-100 h-100">
+	<div class="consumption">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>Consommation</nb-card-header>
-			<nb-card-body class="overflow-hidden">
-				<div
-					class="overview_body w-100 h-100"
-					[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'50% 50%'}"
-				>
-					<div
-						class="business"
-						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'1', 'grid-row-end':'2'}"
-					>
-						<!--
-						<div class="row w-100 h-100">
-							<div class="col-6 h-100">
-								<div
-									class="w-100 h-100"
-									[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto auto auto'}"
-								>
-									<div
-										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-												'grid-row-start':'1', 'grid-row-end':'2'}"
-									>
-										Consommation
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-												'grid-row-start':'1', 'grid-row-end':'2'}"
-									>
-										300
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-												'grid-row-start':'2', 'grid-row-end':'3'}"
-									>
-										Pack
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-												'grid-row-start':'2', 'grid-row-end':'3'}"
-									>
-										70
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-												'grid-row-start':'3', 'grid-row-end':'4'}"
-									>
-										Special
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-												'grid-row-start':'3', 'grid-row-end':'4'}"
-									>
-										10
-									</div>
-								</div>
-							</div>
-							<div class="col-6 h-100">
-								<div
-									class="w-100 h-100"
-									[ngStyle]="{'display':'grid', 'grid-template-columns':'auto auto', 'grid-template-rows':'auto'}"
-								>
-									<div
-										[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-														'grid-row-start':'1', 'grid-row-end':'2'}"
-									>
-										MRR
-									</div>
-									<div
-										[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-														'grid-row-start':'1', 'grid-row-end':'2'}"
-									>
-										300 000 €
-									</div>
-								</div>
-							</div>
-						</div>
+			<nb-card-body>
+				<div class="consumption_body w-100 h-100">
+					<div class="consumption_mrr">
+						<app-mrr-chart> </app-mrr-chart>
 					</div>
-					<div
-						class="lastMonth"
-						[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'2',
-										'grid-row-start':'2', 'grid-row-end':'3'}"
-					>
-						<div class="col-md-6 offset-md-3 h-100">
-							<div class="row w-100 h-100">
-								<div class="col-6 h-100">
-									<div><span>Par rapport au mois dernier</span></div>
-								</div>
-								<div class="col-6 h-100">
-									<app-performance-chart
-										[performanceChartMiddleText]="performanceChartMiddleText"
-										[performanceChartData]="performanceChartData"
-									>
-									</app-performance-chart>
-								</div>
-							</div>
-						</div>
-					-->
-						<div
-							class="overview_mrr"
-							[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-									'grid-row-start':'1', 'grid-row-end':'3'}"
-						>
-							<app-mrr-chart> </app-mrr-chart>
-						</div>
-					</div>
-					<div
-						class="overview_products"
-						[ngStyle]="{'grid-column-start':'2', 'grid-column-end':'3',
-									'grid-row-start':'1', 'grid-row-end':'3'}"
-					>
+					<div class="consumption_products">
 						<app-products-chart> </app-products-chart>
 					</div>
 				</div>
 			</nb-card-body>
 		</nb-card>
 	</div>
-	<div class="projects" [ngStyle]="{'min-width':'600px', 'grid-column-start':'1', 'grid-column-end':'3'}">
+	<div class="projects">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -136,19 +30,19 @@
 					</div>
 				</div>
 			</nb-card-header>
-			<nb-card-body class="overflow-hidden pt-0 pb-0">
-				<div class="row w-100 h-100 dflex projects_body">
-					<div class="col-6 col-md-4 m-auto">
+			<nb-card-body>
+				<div class="projects_body w-100 h-100 dflex">
+					<div class="projects_overview my-auto">
 						<app-projects-overview-chart> </app-projects-overview-chart>
 					</div>
-					<div class="col-12 col-md-8 h-100">
+					<div class="projects_timeline">
 						<app-projects-timeline-chart> </app-projects-timeline-chart>
 					</div>
 				</div>
 			</nb-card-body>
 		</nb-card>
 	</div>
-	<div class="invoices" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'3'}">
+	<div class="invoices">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -164,14 +58,14 @@
 					</div>
 				</div>
 			</nb-card-header>
-			<nb-card-body class="overflow-hidden p-0">
+			<nb-card-body>
 				<div>
 					<app-invoices-chart> </app-invoices-chart>
 				</div>
 			</nb-card-body>
 		</nb-card>
 	</div>
-	<div class="ticketing" [ngStyle]="{'min-width':'500px', 'grid-column-start':'1', 'grid-column-end':'3'}">
+	<div class="tickets">
 		<nb-card class="w-100 h-100">
 			<nb-card-header>
 				<div class="row">
@@ -187,12 +81,12 @@
 					</div>
 				</div>
 			</nb-card-header>
-			<nb-card-body class="overflow-hidden">
-				<div class="row w-100 h-100 dflex">
-					<div class="col-6 col-md-4 m-auto">
+			<nb-card-body>
+				<div class="tickets_body w-100 h-100 dflex">
+					<div class="tickets_satisfaction my-auto">
 						<app-satisfaction-chart> </app-satisfaction-chart>
 					</div>
-					<div class="col-12 col-md-8 h-100">
+					<div class="tickets_graph">
 						<app-tickets-chart> </app-tickets-chart>
 					</div>
 				</div>

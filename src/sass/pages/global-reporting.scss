@@ -1,45 +1,155 @@
 .global-reporting {
-	@media only screen and (max-width: 1275px) {
-		grid-template-columns: 100% !important;
+	min-width: 500px;
+	& .consumption,
+	& .projects,
+	& .invoices,
+	& .tickets {
+		min-width: 500px;
+	}
+
+	@media only screen and (min-width: 900px) {
+		display: grid !important;
 		grid-template-rows: auto auto auto auto !important;
+		grid-gap: 0.5vh;
 
-		@media only screen and (max-width: 1175px) {
-			& .overview_body {
-				grid-template-columns: 100% !important;
-				grid-template-rows: auto auto auto !important;
+		& .consumption {
+			grid-row-start: 1 !important;
+			grid-row-end: 2 !important;
 
-				& .overview_products {
+			& .consumption_body {
+				display: grid !important;
+				grid-template-columns: 50% 50% !important;
+
+				& .consumption_mrr {
 					grid-column-start: 1 !important;
 					grid-column-end: 2 !important;
-					grid-row-start: 3 !important;
-					grid-row-end: 4 !important;
 				}
 
-				& .overview_mrr {
-					grid-column-start: 1 !important;
-					grid-column-end: 2 !important;
-					grid-row-start: 3 !important;
-					grid-row-end: 4 !important;
+				& .consumption_products {
+					grid-column-start: 2 !important;
+					grid-column-end: 3 !important;
 				}
 			}
+		}
+
+		& .projects {
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
 
 			& .projects_body {
-				display: block !important;
+				display: grid !important;
+				grid-template-columns: 33% 66% !important;
+
+				& .projects_overview {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+				}
+
+				& .projects_timeline {
+					grid-column-start: 2 !important;
+					grid-column-end: 3 !important;
+				}
 			}
 		}
 
 		& .invoices {
-			grid-column-start: 1 !important;
-			grid-column-end: 2 !important;
 			grid-row-start: 3 !important;
 			grid-row-end: 4 !important;
 		}
 
-		& .ticketing {
-			grid-column-start: 1 !important;
-			grid-column-end: 2 !important;
+		& .tickets {
 			grid-row-start: 4 !important;
 			grid-row-end: 5 !important;
+
+			& .tickets_body {
+				display: grid !important;
+				grid-template-columns: 33% 66% !important;
+
+				& .tickets_satisfaction {
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
+				}
+
+				& .tickets_graph {
+					grid-column-start: 2 !important;
+					grid-column-end: 3 !important;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		display: grid !important;
+		grid-template-rows: auto auto auto auto !important;
+		grid-gap: 0.5vh;
+
+		& .consumption {
+			min-width: 500px;
+			grid-row-start: 1 !important;
+			grid-row-end: 2 !important;
+
+			& .consumption_body {
+				display: grid !important;
+				grid-template-rows: 50% 50% !important;
+
+				& .consumption_mrr {
+					grid-row-start: 1 !important;
+					grid-row-end: 2 !important;
+				}
+
+				& .consumption_products {
+					grid-row-start: 2 !important;
+					grid-row-end: 3 !important;
+				}
+			}
+		}
+
+		& .projects {
+			min-width: 500px;
+			grid-row-start: 2 !important;
+			grid-row-end: 3 !important;
+
+			& .projects_body {
+				display: grid !important;
+				grid-template-rows: 33% 66% !important;
+
+				& .projects_overview {
+					grid-row-start: 1 !important;
+					grid-row-end: 2 !important;
+				}
+
+				& .projects_timeline {
+					grid-row-start: 2 !important;
+					grid-row-end: 3 !important;
+				}
+			}
+		}
+
+		& .invoices {
+			min-width: 500px;
+			grid-row-start: 3 !important;
+			grid-row-end: 4 !important;
+		}
+
+		& .tickets {
+			min-width: 500px;
+			grid-row-start: 4 !important;
+			grid-row-end: 5 !important;
+
+			& .tickets_body {
+				display: grid !important;
+				grid-template-rowss: 33% 66% !important;
+
+				& .tickets_satisfaction {
+					grid-row-start: 1 !important;
+					grid-row-end: 2 !important;
+				}
+
+				& .tickets_graph {
+					grid-row-start: 2 !important;
+					grid-row-end: 3 !important;
+				}
+			}
 		}
 	}
 }

@@ -10,3 +10,7 @@
 @include nb-install() {
 	@include nb-theme-global();
 }
+
+.content {
+	min-width: 536px !important;
+}
