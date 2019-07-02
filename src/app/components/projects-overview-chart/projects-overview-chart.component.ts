@@ -31,7 +31,7 @@ export class ProjectsOverviewChartComponent implements OnInit {
 				this.chartType = 'horizontalBar';
 				this.colors = [
 					{
-						backgroundColor: UniversignColorStates.REALISED
+						backgroundColor: UniversignColorStates.INFO
 					}
 				];
 				this.datasets = res.datasets;
@@ -50,8 +50,10 @@ export class ProjectsOverviewChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch((err: Error): void => {
-				throw err;
-			});
+			.catch(
+				(err: Error): void => {
+					throw err;
+				}
+			);
 	}
 }

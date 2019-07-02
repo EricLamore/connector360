@@ -28,10 +28,10 @@ export class TicketsChartComponent implements OnInit {
 				this.chartType = 'bar';
 				this.colors = [
 					{
-						backgroundColor: UniversignColorStates.REALISED
+						backgroundColor: UniversignColorStates.WARNING
 					},
 					{
-						backgroundColor: UniversignColorStates.PLANIFIED
+						backgroundColor: UniversignColorStates.OK
 					}
 				];
 				this.datasets = res.datasets;

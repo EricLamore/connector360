@@ -28,17 +28,17 @@ export class MrrChartComponent implements OnInit {
 				this.chartType = 'line';
 				this.colors = [
 					{
-						backgroundColor: UniversignColorStates.PLANIFIED,
-						borderColor: UniversignColorStates.PLANIFIED,
-						pointBackgroundColor: UniversignColorStates.PLANIFIED,
+						backgroundColor: UniversignColorStates.OK,
+						borderColor: UniversignColorStates.OK,
+						pointBackgroundColor: UniversignColorStates.OK,
 						pointBorderColor: '#ffffff',
 						pointHoverBackgroundColor: '#ffffff',
 						pointHoverBorderColor: 'rgba(148,159,177,0.8)'
 					},
 					{
-						backgroundColor: UniversignColorStates.REALISED,
-						borderColor: UniversignColorStates.REALISED,
-						pointBackgroundColor: UniversignColorStates.REALISED,
+						backgroundColor: UniversignColorStates.INFO,
+						borderColor: UniversignColorStates.INFO,
+						pointBackgroundColor: UniversignColorStates.INFO,
 						pointBorderColor: '#ffffff',
 						pointHoverBackgroundColor: '#ffffff',
 						pointHoverBorderColor: 'rgba(77,83,96,1)'
@@ -68,8 +68,10 @@ export class MrrChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch((err: Error): void => {
-				throw err;
-			});
+			.catch(
+				(err: Error): void => {
+					throw err;
+				}
+			);
 	}
 }

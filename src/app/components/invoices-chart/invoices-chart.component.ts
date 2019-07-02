@@ -50,8 +50,10 @@ export class InvoicesChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch((err: Error): void => {
-				throw err;
-			});
+			.catch(
+				(err: Error): void => {
+					throw err;
+				}
+			);
 	}
 }
