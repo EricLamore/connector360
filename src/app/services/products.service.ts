@@ -22,7 +22,7 @@ export class ProductsService {
 				resolve(this.mock);
 			}
 		);
-		/*return new Promise<IProductsModel>((resolve: (mrr: IProductsModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+		/*return new Promise<IProductsModel>((resolve: (products: IProductsModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 			this._HTTP.get(`${this._url}`)
 				.subscribe((res: IProductsModel) => {
 					//resolve(new ProductsViewModel(res));

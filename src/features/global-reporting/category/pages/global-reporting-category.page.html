@@ -1,9 +1,21 @@
-<ng-container *ngIf="hasClient(); then displayOneClient; else displayAllClients"> </ng-container>
+<ng-container *ngIf="areDataAvailable; then displayData; else noData"> </ng-container>
 
-<ng-template #displayOneClient>
-	<app-customer-category-table [settings]="settings" [data]="data" [client]="client"></app-customer-category-table>
+<ng-template #displayData>
+	<ng-container *ngIf="hasClient(); then displayOneClient; else displayAllClients"> </ng-container>
+
+	<ng-template #displayOneClient>
+		<app-customer-category-table
+			[settings]="settings"
+			[data]="data"
+			[client]="client"
+		></app-customer-category-table>
+	</ng-template>
+
+	<ng-template #displayAllClients>
+		<app-category-table [settings]="settings" [data]="data"></app-category-table>
+	</ng-template>
 </ng-template>
 
-<ng-template #displayAllClients>
-	<app-category-table [settings]="settings" [data]="data"></app-category-table>
+<ng-template #noData>
+	<div class="w-100 h-100"></div>
 </ng-template>

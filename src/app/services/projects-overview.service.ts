@@ -25,7 +25,7 @@ export class ProjectsOverviewService {
 				resolve(this.mock);
 			}
 		);
-		/*return new Promise<IProjectsOverviewModel>((resolve: (mrr: IProjectsOverviewModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+		/*return new Promise<IProjectsOverviewModel>((resolve: (projectsOverview: IProjectsOverviewModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 			this._HTTP.get(`${this._url}`)
 				.subscribe((res: IProjectsOverviewModel) => {
 					//resolve(new ProjectsOverviewViewModel(res));

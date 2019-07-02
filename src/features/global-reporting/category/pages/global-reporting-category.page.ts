@@ -1,22 +1,38 @@
 // tslint:disable:max-file-line-count no-big-function no-duplicate-string
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ICategory } from '@application/models/i-category';
 import { INg2Settings } from '@application/models/i-ng2-st-settings';
+import { IInvoiceModel } from '@features/global-reporting/category/models/i-invoice';
+import { IProjectModel } from '@features/global-reporting/category/models/i-project';
+import { ITicketModel } from '@features/global-reporting/category/models/i-ticket';
+import { ITicketDetailModel } from '@features/global-reporting/category/models/i-ticket-detail';
+import { InvoiceService } from '@features/global-reporting/category/services/invoice.service';
+import { ProjectService } from '@features/global-reporting/category/services/project.service';
+import { TicketService } from '@features/global-reporting/category/services/ticket.service';
 
 @Component({
 	templateUrl: './global-reporting-category.page.html'
 })
 export class GlobalReportingCategoryPage implements OnInit {
+	public areDataAvailable: boolean;
 	public client: string;
 	public readonly dateFormat: string = 'dd/MM/yyyy';
 	public data: ICategory[];
 	public settings: INg2Settings<ICategory>;
 
-	public constructor(private readonly _ROUTE: ActivatedRoute, private readonly _DATEPIPE: DatePipe) {}
+	public constructor(
+		private readonly _REF: ChangeDetectorRef,
+		private readonly _ROUTE: ActivatedRoute,
+		private readonly _DATEPIPE: DatePipe,
+		private readonly _PROJECT_SERVICE: ProjectService,
+		private readonly _INVOICE_SERVICE: InvoiceService,
+		private readonly _TICKET_SERVICE: TicketService
+	) {}
 
 	public ngOnInit(): void {
+		this.areDataAvailable = false;
 		if (this._ROUTE.snapshot.paramMap.get('client') == null) {
 			this.client = '';
 		} else {
@@ -24,18 +40,26 @@ export class GlobalReportingCategoryPage implements OnInit {
 		}
 		switch (this._ROUTE.snapshot.paramMap.get('category')) {
 			case 'invoices': {
-				this.buildInvoices();
+				this.getInvoices().then((invoices: IInvoiceModel[]) => {
+					this.addSettingsToInvoices(invoices);
+				});
 				break;
 			}
 			case 'projects': {
-				this.buildProjects();
+				this.getProjects().then((projects: IProjectModel[]) => {
+					this.addSettingsToProjects(projects);
+				});
 				break;
 			}
 			case 'tickets': {
 				if (!this.hasClient()) {
-					this.buildTickets();
+					this.getTickets().then((tickets: ITicketModel[]) => {
+						this.addSettingsToTickets(tickets);
+					});
 				} else {
-					this.buildClientTickets();
+					this.getTicketsByClient().then((clientTickets: ITicketDetailModel[]) => {
+						this.addSettingsToClientTickets(clientTickets);
+					});
 				}
 				break;
 			}
@@ -45,51 +69,14 @@ export class GlobalReportingCategoryPage implements OnInit {
 		}
 	}
 
-	public buildInvoices(): void {
-		this.data = [
-			{
-				client: 'Mutuelle Bleue',
-				date: new Date('2019-01-20'),
-				name: 'UNV_DEC',
-				price: '500,80€',
-				status: 'En attente'
-			},
-			{
-				client: 'AFTA',
-				date: new Date('2018-12-15'),
-				name: 'UNV_DEC',
-				price: '80000,56€',
-				status: 'Payée'
-			},
-			{
-				client: 'Fin. Brousouf',
-				date: new Date('2018-12-15'),
-				name: 'UNIV_DEC',
-				price: '5589,18€',
-				status: 'Payée'
-			},
-			{
-				client: 'Assurance Rouge',
-				date: new Date('2018-12-10'),
-				name: 'UNIV_NOV',
-				price: '500,72€',
-				status: 'Annulée'
-			},
-			{
-				client: 'xxx',
-				date: new Date('2019-01-01'),
-				name: 'xxx',
-				price: '500€',
-				status: 'Annulée'
-			},
-			{
-				client: 'yyy',
-				date: new Date('2019-01-01'),
-				name: 'yyy',
-				price: '1000€',
-				status: 'Payée'
-			}
-		];
+	public async getInvoices(): Promise<IInvoiceModel[]> {
+		return !this.hasClient()
+			? this._INVOICE_SERVICE.getInvoices()
+			: this._INVOICE_SERVICE.getInvoicesByClient(this.client);
+	}
+
+	public addSettingsToInvoices(invoices: IInvoiceModel[]): void {
+		this.data = invoices;
 		this.settings = {
 			actions: false,
 			columns: {
@@ -118,53 +105,18 @@ export class GlobalReportingCategoryPage implements OnInit {
 			}
 		};
 		if (!this.hasClient()) this.settings.columns = { client: { title: 'Client' }, ...this.settings.columns };
+		this.areDataAvailable = true;
+		this._REF.detectChanges();
 	}
 
-	public buildProjects(): void {
-		this.data = [
-			{
-				client: 'Mutuelle Bleue',
-				date: new Date('2019-01-20'),
-				name: 'Mutuelle_Risk_Business',
-				state: 'OK',
-				status: 'Production'
-			},
-			{
-				client: 'AFTA',
-				date: new Date('2018-12-15'),
-				name: 'AFTA_ITALY',
-				state: 'Warning',
-				status: 'A lancer'
-			},
-			{
-				client: 'Fin. Brousouf',
-				date: new Date('2018-12-15'),
-				name: 'Fin.Brousouf_sous_VIE',
-				state: 'Danger',
-				status: 'Pilote'
-			},
-			{
-				client: 'Assurance Rouge',
-				date: new Date('2018-12-10'),
-				name: 'Assurance_rouge_IARD',
-				state: 'OK',
-				status: 'Recette'
-			},
-			{
-				client: 'xxx',
-				date: new Date('2019-01-01'),
-				name: 'xxx_xx',
-				state: 'OK',
-				status: 'Production'
-			},
-			{
-				client: 'yyy',
-				date: new Date('2019-01-01'),
-				name: 'yyy_yy',
-				state: 'Warning',
-				status: 'Recette'
-			}
-		];
+	public async getProjects(): Promise<IProjectModel[]> {
+		return !this.hasClient()
+			? this._PROJECT_SERVICE.getProjects()
+			: this._PROJECT_SERVICE.getProjectsByClient(this.client);
+	}
+
+	public addSettingsToProjects(projects: IProjectModel[]): void {
+		this.data = projects;
 		this.settings = {
 			actions: false,
 			columns: {
@@ -193,53 +145,16 @@ export class GlobalReportingCategoryPage implements OnInit {
 			}
 		};
 		if (!this.hasClient()) this.settings.columns = { client: { title: 'Client' }, ...this.settings.columns };
+		this.areDataAvailable = true;
+		this._REF.detectChanges();
 	}
 
-	public buildTickets(): void {
-		this.data = [
-			{
-				client: 'Mutuelle Bleue',
-				satisfaction: '75%',
-				ticketsClosed: 19,
-				ticketsNumber: 19,
-				ticketsOpened: 0
-			},
-			{
-				client: 'AFTA',
-				satisfaction: '50%',
-				ticketsClosed: 2,
-				ticketsNumber: 2,
-				ticketsOpened: 0
-			},
-			{
-				client: 'Fin. Brousouf',
-				satisfaction: '90%',
-				ticketsClosed: 42,
-				ticketsNumber: 45,
-				ticketsOpened: 3
-			},
-			{
-				client: 'Assurance Rouge',
-				satisfaction: '78%',
-				ticketsClosed: 17,
-				ticketsNumber: 18,
-				ticketsOpened: 1
-			},
-			{
-				client: 'xxx',
-				satisfaction: '100%',
-				ticketsClosed: 10,
-				ticketsNumber: 10,
-				ticketsOpened: 0
-			},
-			{
-				client: 'yyy',
-				satisfaction: '50%',
-				ticketsClosed: 2,
-				ticketsNumber: 5,
-				ticketsOpened: 3
-			}
-		];
+	public async getTickets(): Promise<ITicketModel[]> {
+		return this._TICKET_SERVICE.getTickets();
+	}
+
+	public addSettingsToTickets(tickets: ITicketModel[]): void {
+		this.data = tickets;
 		this.settings = {
 			actions: false,
 			columns: {
@@ -267,47 +182,16 @@ export class GlobalReportingCategoryPage implements OnInit {
 				perPage: 5
 			}
 		};
+		this.areDataAvailable = true;
+		this._REF.detectChanges();
 	}
 
-	public buildClientTickets(): void {
-		this.data = [
-			{
-				client: 'Mutuelle Bleue',
-				closureDate: new Date('2018-08-12'),
-				creationDate: new Date('2018-08-11'),
-				description: 'On the other hand, [...]',
-				solvingTime: '2 heures',
-				status: 'Clos',
-				topic: `CR-20301 La demande LegalPlace (autonome) vient d'être ajoutée`
-			},
-			{
-				client: 'Mutuelle Bleue',
-				closureDate: new Date(''),
-				creationDate: new Date('2018-09-19'),
-				description: 'and equal blame belongs to those who fail in their duty [...]',
-				solvingTime: 'N/A',
-				status: 'Open',
-				topic: 'Anomalie Page de signature'
-			},
-			{
-				client: 'Mutuelle Bleue',
-				closureDate: new Date(''),
-				creationDate: new Date('2019-06-06'),
-				description: '[...]',
-				solvingTime: 'N/A',
-				status: 'Open',
-				topic: 'Anomalie Page de signature'
-			},
-			{
-				client: 'Mutuelle Bleue',
-				closureDate: new Date('2019-01-02'),
-				creationDate: new Date('2018-12-31'),
-				description: '[...]',
-				solvingTime: '1 heure',
-				status: 'Clos',
-				topic: 'Anomalie Page de signature'
-			}
-		];
+	public async getTicketsByClient(): Promise<ITicketDetailModel[]> {
+		return this._TICKET_SERVICE.getTicketsByClient(this.client);
+	}
+
+	public addSettingsToClientTickets(tickets: ITicketDetailModel[]): void {
+		this.data = tickets;
 		this.settings = {
 			actions: false,
 			columns: {
@@ -344,6 +228,8 @@ export class GlobalReportingCategoryPage implements OnInit {
 				perPage: 5
 			}
 		};
+		this.areDataAvailable = true;
+		this._REF.detectChanges();
 	}
 
 	public hasClient(): boolean {
