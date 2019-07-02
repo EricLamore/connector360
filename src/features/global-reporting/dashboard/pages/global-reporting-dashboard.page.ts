@@ -18,12 +18,8 @@ Timeline(Highcharts);
 export class GlobalReportingDashboardPage implements OnInit {
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
-	public signaturesChartLabels: Label[];
-	public signaturesChartData: ChartDataSets[];
 	public invoicesChartLabels: Label[];
 	public invoicesChartData: ChartDataSets[];
-	public mrrChartLabels: Label[];
-	public mrrChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
 	public projectsOverviewChartData: ChartDataSets[];
@@ -34,17 +30,11 @@ export class GlobalReportingDashboardPage implements OnInit {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
 
-		this.buildSignatures();
 		this.buildProjectsOverview();
 		this.buildInvoices();
 		this.buildProjects();
 		this.buildSatisfactions();
 		this.buildTickets();
-	}
-
-	public buildSignatures(): void {
-		this.signaturesChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
-		this.signaturesChartData = [{ data: [1200000, 1400000, 2200000, 1000000], label: 'Signatures' }];
 	}
 
 	public buildProjectsOverview(): void {

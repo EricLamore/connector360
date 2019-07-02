@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import UniversignColorStates from '@application/enums/universign-color-states';
 import { IMrrModel } from '@application/models/i-mrr';
 import { MrrService } from '@application/services/mrr.service';

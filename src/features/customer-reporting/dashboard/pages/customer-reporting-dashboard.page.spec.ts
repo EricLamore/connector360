@@ -4,8 +4,8 @@ import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
 import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { PerformanceChartStubComponent } from '@application/testing/performance-chart.component.stub';
+import { ProductsChartStubComponent } from '@application/testing/products-chart.component.stub';
 import { SatisfactionCircleChartStubComponent } from '@application/testing/satisfaction-circle-chart.component.stub';
-import { SignaturesChartStubComponent } from '@application/testing/signatures-chart.component.stub';
 import { SmartTableStubComponent } from '@application/testing/smart-table.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
@@ -34,7 +34,7 @@ describe('Customer Reporting - Dashboard page', () => {
 				CustomerReportingDashboardPage,
 				PerformanceChartStubComponent,
 				SatisfactionCircleChartStubComponent,
-				SignaturesChartStubComponent,
+				ProductsChartStubComponent,
 				SmartTableStubComponent,
 				TicketsChartStubComponent
 			],
