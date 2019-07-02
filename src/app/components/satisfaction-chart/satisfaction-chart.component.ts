@@ -4,7 +4,6 @@ import { ISatisfactionModel } from '@application/models/i-satisfaction';
 import { SatisfactionService } from '@application/services/satisfaction.service';
 import * as Highcharts from 'highcharts';
 import factory from 'highcharts/modules/bullet';
-
 factory(Highcharts);
 
 @Component({

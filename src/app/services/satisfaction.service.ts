@@ -40,11 +40,19 @@ export class SatisfactionService {
 	public async getSatisfaction(): Promise<ISatisfactionModel> {
 		return new Promise<ISatisfactionModel>(
 			(
-				resolve: (satisfactions: ISatisfactionModel) => void,
+				resolve: (satisfaction: ISatisfactionModel) => void,
 				reject: (error?: HttpErrorResponse) => void
 			): void => {
 				resolve(this.mock);
 			}
 		);
+		/*return new Promise<ISatisfactionModel>((resolve: (satisfaction: ISatisfactionModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+			this._HTTP.get(`${this._url}`)
+				.subscribe((res: ISatisfactionModel) => {
+					//resolve(new SatisfactionViewModel(res));
+				}, (error: HttpErrorResponse) => {
+					reject(error);
+				});
+		});*/
 	}
 }
