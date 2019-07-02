@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import UniversignColorStates from '@application/enums/universign-color-states';
-import { IProductsModel } from '@application/models/i-products';
+import { ITicketsModel } from '@application/models/i-tickets';
 import { TicketsService } from '@application/services/tickets.service';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
 @Component({
@@ -11,7 +11,7 @@ import { Color, Label } from 'ng2-charts';
 })
 export class TicketsChartComponent implements OnInit {
 	public areDataAvailable: boolean;
-	public chartType: ChartType;
+	public chartType: string;
 	public colors: Color[];
 	public datasets: ChartDataSets[];
 	public labels: Label[];
@@ -24,7 +24,7 @@ export class TicketsChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._TICKETS_SERVICE
 			.getTickets()
-			.then((res: IProductsModel) => {
+			.then((res: ITicketsModel) => {
 				this.chartType = 'bar';
 				this.colors = [
 					{
@@ -39,7 +39,6 @@ export class TicketsChartComponent implements OnInit {
 				this.legend = false;
 				this.options = {
 					responsive: true,
-					// We use these empty structures as placeholders for dynamic theming.
 					scales: { xAxes: [{ stacked: true }], yAxes: [{ stacked: true }] },
 					plugins: {
 						datalabels: {
@@ -51,10 +50,8 @@ export class TicketsChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch(
-				(err: Error): void => {
-					throw err;
-				}
-			);
+			.catch((err: Error): void => {
+				throw err;
+			});
 	}
 }

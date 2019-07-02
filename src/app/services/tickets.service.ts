@@ -25,5 +25,13 @@ export class TicketsService {
 				resolve(this.mock);
 			}
 		);
+		/*return new Promise<ITicketsModel>((resolve: (mrr: ITicketsModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+			this._HTTP.get(`${this._url}`)
+				.subscribe((res: ITicketsModel) => {
+					//resolve(new TicketsViewModel(res));
+				}, (error: HttpErrorResponse) => {
+					reject(error);
+				});
+		});*/
 	}
 }

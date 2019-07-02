@@ -5,6 +5,7 @@ import { PerformanceChartComponent } from '@application/components/performance-c
 import { ProductsChartComponent } from '@application/components/products-chart/products-chart.component';
 import { ProjectsOverviewChartComponent } from '@application/components/projects-overview-chart/projects-overview-chart.component';
 import { ProjectsTimelineChartComponent } from '@application/components/projects-timeline-chart/projects-timeline-chart.component';
+import { SatisfactionChartComponent } from '@application/components/satisfaction-chart/satisfaction-chart.component';
 import { SatisfactionCircleChartComponent } from '@application/components/satisfaction-circle-chart/satisfaction-circle-chart.component';
 import { SmartTableComponent } from '@application/components/smart-table/smart-table.component';
 import { TicketsChartComponent } from '@application/components/tickets-chart/tickets-chart.component';
@@ -20,6 +21,7 @@ import { GlobalModule } from '../utilities/global.module';
 		PerformanceChartComponent,
 		ProjectsOverviewChartComponent,
 		ProjectsTimelineChartComponent,
+		SatisfactionChartComponent,
 		SatisfactionCircleChartComponent,
 		SmartTableComponent,
 		ProductsChartComponent,
@@ -34,6 +36,7 @@ import { GlobalModule } from '../utilities/global.module';
 		PerformanceChartComponent,
 		ProjectsOverviewChartComponent,
 		ProjectsTimelineChartComponent,
+		SatisfactionChartComponent,
 		SatisfactionCircleChartComponent,
 		SmartTableComponent,
 		ProductsChartComponent,

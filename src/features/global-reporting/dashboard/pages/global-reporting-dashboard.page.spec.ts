@@ -9,6 +9,7 @@ import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.
 import { ProductsChartStubComponent } from '@application/testing/products-chart.component.stub';
 import { ProjectsOverviewChartStubComponent } from '@application/testing/projects-overview-chart.component.stub';
 import { ProjectsTimelineChartStubComponent } from '@application/testing/projects-timeline-chart.component.stub';
+import { SatisfactionChartStubComponent } from '@application/testing/satisfaction-chart.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
 import chai from 'chai';
@@ -39,6 +40,7 @@ describe('Global Reporting - Dashboard page', () => {
 				ProductsChartStubComponent,
 				ProjectsOverviewChartStubComponent,
 				ProjectsTimelineChartStubComponent,
+				SatisfactionChartStubComponent,
 				TicketsChartStubComponent
 			],
 			imports: [GlobalModule, RouterTestingModule],
