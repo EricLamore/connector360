@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClient } from '@angular/common/http';
+import { ProjectsOverviewService } from '@application/services/projects-overview.service';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { ChartsModule } from 'ng2-charts';
@@ -13,7 +15,8 @@ describe('Projects overview chart component', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [ProjectsOverviewChartComponent],
-			imports: [ChartsModule]
+			imports: [ChartsModule],
+			providers: [ProjectsOverviewService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {
