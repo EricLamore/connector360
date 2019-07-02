@@ -1,7 +1,7 @@
 // tslint:disable:max-file-line-count no-big-function no-magic-numbers
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import InvoicesBarChartColor from '@features/global-reporting/dashboard/enums/invoices-bar-chart-color';
+import InvoicesBarChartColor from '@application/enums/invoices-bar-chart-color';
 import ProjectsTimelineStates from '@features/global-reporting/dashboard/enums/projects-timeline-states';
 import { ChartDataSets } from 'chart.js';
 import * as Highcharts from 'highcharts';
@@ -18,8 +18,6 @@ Timeline(Highcharts);
 export class GlobalReportingDashboardPage implements OnInit {
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
-	public invoicesChartLabels: Label[];
-	public invoicesChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
 
@@ -29,46 +27,9 @@ export class GlobalReportingDashboardPage implements OnInit {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
 
-		this.buildInvoices();
 		this.buildProjects();
 		this.buildSatisfactions();
 		this.buildTickets();
-	}
-
-	public buildInvoices(): void {
-		this.invoicesChartLabels = ['Décembre 2018'];
-		this.invoicesChartData = [
-			{
-				data: [500.8],
-				backgroundColor: InvoicesBarChartColor.NOTPAID,
-				label: 'Client: Mutuelle Bleue | Nom: UNV_DEC | Date: 20-12-18 | Prix: 500.80 € | Status: En attente'
-			},
-			{
-				data: [10000.56],
-				backgroundColor: InvoicesBarChartColor.PAID,
-				label: 'Client: AFTA | Nom: UNV_DEC | Date: 16-12-18 | Prix: 10000.56 € | Status: Payée'
-			},
-			{
-				data: [5589.18],
-				backgroundColor: InvoicesBarChartColor.PAID,
-				label: 'Client: Fin. Brousouf | Nom: UNV_DEC | Date: 15-12-18 | Prix: 5589.18 € | Status: Payée'
-			},
-			{
-				data: [500.72],
-				backgroundColor: InvoicesBarChartColor.OTHERS,
-				label: 'Assurance Rouge | Nom: UNV_DEC | Date: 10-12-18 | Prix: 500.72 € | Status: Annulée'
-			},
-			{
-				data: [500],
-				backgroundColor: InvoicesBarChartColor.OTHERS,
-				label: 'xxx | Nom: UNV_DEC | Date: 02-12-18 | Prix: 500 € | Status: Annulée'
-			},
-			{
-				data: [1000],
-				backgroundColor: InvoicesBarChartColor.PAID,
-				label: 'yyy | Nom: UNV_DEC | Date: 01-12-18 | Prix: 1000 € | Status: Payée'
-			}
-		];
 	}
 
 	public buildProjects(): void {

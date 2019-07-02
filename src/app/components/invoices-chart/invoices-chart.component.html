@@ -1,12 +1,20 @@
-<div class="w-100 h-100">
-	<canvas
-		baseChart
-		height="50%"
-		[chartType]="invoicesChartType"
-		[legend]="invoicesChartLegend"
-		[labels]="invoicesChartLabels"
-		[datasets]="invoicesChartData"
-		[options]="invoicesChartOptions"
-	>
-	</canvas>
-</div>
+<ng-container *ngIf="areDataAvailable; then displayData; else noData"> </ng-container>
+
+<ng-template #displayData>
+	<div class="w-100 h-100">
+		<canvas
+			baseChart
+			height="50%"
+			[chartType]="chartType"
+			[legend]="legend"
+			[labels]="labels"
+			[datasets]="datasets"
+			[options]="options"
+		>
+		</canvas>
+	</div>
+</ng-template>
+
+<ng-template #noData>
+	<div class="w-100 h-100"></div>
+</ng-template>
