@@ -4,7 +4,6 @@ import { IProjectsTimelineModel } from '@application/models/i-projects-timeline'
 import { ProjectsTimelineService } from '@application/services/projects-timeline.service';
 import * as Highcharts from 'highcharts';
 import Timeline from 'highcharts/modules/timeline';
-
 Timeline(Highcharts);
 
 @Component({
@@ -23,6 +22,8 @@ export class ProjectsTimelineChartComponent implements OnInit {
 		this._PROJECTS_TIMELINE_SERVICE
 			.getProjectsTimeline()
 			.then((res: IProjectsTimelineModel) => {
+				this.areDataAvailable = true;
+				this._REF.detectChanges();
 				Highcharts.chart('projects-timeline-chart', {
 					chart: {
 						zoomType: 'x',
@@ -71,13 +72,9 @@ export class ProjectsTimelineChartComponent implements OnInit {
 						}
 					]
 				});
-				this.areDataAvailable = true;
-				this._REF.detectChanges();
 			})
-			.catch(
-				(err: Error): void => {
-					throw err;
-				}
-			);
+			.catch((err: Error): void => {
+				throw err;
+			});
 	}
 }

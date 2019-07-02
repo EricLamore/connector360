@@ -110,5 +110,13 @@ export class ProjectsTimelineService {
 				resolve(this.mock);
 			}
 		);
+		/*return new Promise<IProjectsTimelineModel>((resolve: (mrr: IProjectsTimelineModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+			this._HTTP.get(`${this._url}`)
+				.subscribe((res: IProjectsTimelineModel) => {
+					//resolve(new ProjectsTimelineViewModel(res));
+				}, (error: HttpErrorResponse) => {
+					reject(error);
+				});
+		});*/
 	}
 }
