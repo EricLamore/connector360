@@ -4,6 +4,7 @@ interface IInvoicesDatasetsModel {
 	data: number[];
 	label: string;
 	backgroundColor: InvoicesBarChartColor;
+	hoverBackgroundColor: InvoicesBarChartColor;
 }
 
 export interface IInvoicesModel {
