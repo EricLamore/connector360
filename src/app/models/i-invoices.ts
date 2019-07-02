@@ -1,10 +1,10 @@
-import InvoicesBarChartColor from '@application/enums/invoices-bar-chart-color';
+import UniversignColorStates from '@application/enums/universign-color-states';
 
 interface IInvoicesDatasetsModel {
 	data: number[];
 	label: string;
-	backgroundColor: InvoicesBarChartColor;
-	hoverBackgroundColor: InvoicesBarChartColor;
+	backgroundColor: UniversignColorStates;
+	hoverBackgroundColor: UniversignColorStates;
 }
 
 export interface IInvoicesModel {
