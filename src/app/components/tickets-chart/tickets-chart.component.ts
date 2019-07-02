@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import UniversignColorStates from '@application/enums/universign-color-states';
 import { IProductsModel } from '@application/models/i-products';
 import { TicketsService } from '@application/services/tickets.service';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import {Color, Label} from 'ng2-charts';
-import UniversignColorStates from '@application/enums/universign-color-states';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
 	selector: 'app-tickets-chart',
