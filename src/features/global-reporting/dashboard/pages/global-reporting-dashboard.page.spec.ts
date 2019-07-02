@@ -3,11 +3,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
-import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
+import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
 import { ProductsChartStubComponent } from '@application/testing/products-chart.component.stub';
 import { ProjectsOverviewChartStubComponent } from '@application/testing/projects-overview-chart.component.stub';
+import { ProjectsTimelineChartStubComponent } from '@application/testing/projects-timeline-chart.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
 import chai from 'chai';
@@ -37,6 +38,7 @@ describe('Global Reporting - Dashboard page', () => {
 				MrrChartStubComponent,
 				ProductsChartStubComponent,
 				ProjectsOverviewChartStubComponent,
+				ProjectsTimelineChartStubComponent,
 				TicketsChartStubComponent
 			],
 			imports: [GlobalModule, RouterTestingModule],

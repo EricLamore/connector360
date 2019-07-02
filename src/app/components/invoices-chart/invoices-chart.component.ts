@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IInvoicesModel } from '@application/models/i-invoices';
 import { InvoicesService } from '@application/services/invoices.service';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 
 @Component({
@@ -10,7 +10,7 @@ import { Label } from 'ng2-charts';
 })
 export class InvoicesChartComponent implements OnInit {
 	public areDataAvailable: boolean;
-	public chartType: ChartType;
+	public chartType: string;
 	public datasets: ChartDataSets[];
 	public labels: Label[];
 	public legend: boolean;
@@ -29,7 +29,6 @@ export class InvoicesChartComponent implements OnInit {
 				this.legend = false;
 				this.options = {
 					responsive: true,
-					// We use these empty structures as placeholders for dynamic theming.
 					scales: {
 						xAxes: [{}],
 						yAxes: [{}]
@@ -51,10 +50,8 @@ export class InvoicesChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch(
-				(err: Error): void => {
-					throw err;
-				}
-			);
+			.catch((err: Error): void => {
+				throw err;
+			});
 	}
 }
