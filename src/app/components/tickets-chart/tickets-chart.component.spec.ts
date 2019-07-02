@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClient } from '@angular/common/http';
+import { TicketsService } from '@application/services/tickets.service';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { ChartsModule } from 'ng2-charts';
@@ -13,7 +15,8 @@ describe('Tickets chart component', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [TicketsChartComponent],
-			imports: [ChartsModule]
+			imports: [ChartsModule],
+			providers: [TicketsService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {

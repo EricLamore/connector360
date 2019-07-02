@@ -1,13 +1,11 @@
 // tslint:disable:max-file-line-count no-big-function no-magic-numbers
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import InvoicesBarChartColor from '@application/enums/invoices-bar-chart-color';
 import ProjectsTimelineStates from '@features/global-reporting/dashboard/enums/projects-timeline-states';
-import { ChartDataSets } from 'chart.js';
 import * as Highcharts from 'highcharts';
 import factory from 'highcharts/modules/bullet';
 import Timeline from 'highcharts/modules/timeline';
-import { Label, MultiDataSet } from 'ng2-charts';
+import { MultiDataSet } from 'ng2-charts';
 
 factory(Highcharts);
 Timeline(Highcharts);
@@ -18,8 +16,6 @@ Timeline(Highcharts);
 export class GlobalReportingDashboardPage implements OnInit {
 	public performanceChartData: MultiDataSet;
 	public performanceChartMiddleText: string;
-	public ticketsChartLabels: Label[];
-	public ticketsChartData: ChartDataSets[];
 
 	public constructor(private readonly _ROUTER: Router) {}
 
@@ -29,7 +25,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 
 		this.buildProjects();
 		this.buildSatisfactions();
-		this.buildTickets();
 	}
 
 	public buildProjects(): void {
@@ -242,14 +237,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 				}
 			]
 		});
-	}
-
-	public buildTickets(): void {
-		this.ticketsChartLabels = ['Sept.', 'Oct.', 'Nov.', 'Déc.', 'Janv.'];
-		this.ticketsChartData = [
-			{ data: [20, 5, 0, 20, 10], label: 'Non résolus' },
-			{ data: [300, 250, 100, 280, 100], label: 'Résolus' }
-		];
 	}
 
 	public goToClientInvoices(client: string): void {
