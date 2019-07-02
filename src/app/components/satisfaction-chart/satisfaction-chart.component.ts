@@ -79,10 +79,8 @@ export class SatisfactionChartComponent implements OnInit {
 					]
 				});
 			})
-			.catch(
-				(err: Error): void => {
-					throw err;
-				}
-			);
+			.catch((err: Error): void => {
+				throw err;
+			});
 	}
 }

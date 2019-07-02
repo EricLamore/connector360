@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
+import { DetailsButtonStubComponent } from '@application/testing/details-button.component.stub';
 import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
 import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
@@ -33,6 +34,7 @@ describe('Global Reporting - Dashboard page', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [
+				DetailsButtonStubComponent,
 				GlobalReportingDashboardPage,
 				InvoicesChartStubComponent,
 				MrrChartStubComponent,
