@@ -22,7 +22,6 @@ export class GlobalReportingDashboardPage implements OnInit {
 	public invoicesChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
-	public projectsOverviewChartData: ChartDataSets[];
 
 	public constructor(private readonly _ROUTER: Router) {}
 
@@ -30,15 +29,10 @@ export class GlobalReportingDashboardPage implements OnInit {
 		this.performanceChartData = [[25, 75]];
 		this.performanceChartMiddleText = '-10%';
 
-		this.buildProjectsOverview();
 		this.buildInvoices();
 		this.buildProjects();
 		this.buildSatisfactions();
 		this.buildTickets();
-	}
-
-	public buildProjectsOverview(): void {
-		this.projectsOverviewChartData = [{ data: [15, 30, 300, 20] }];
 	}
 
 	public buildInvoices(): void {
