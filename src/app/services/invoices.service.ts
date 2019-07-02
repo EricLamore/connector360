@@ -60,5 +60,13 @@ export class InvoicesService {
 				resolve(this.mock);
 			}
 		);
+		/*return new Promise<IInvoicesModel>((resolve: (mrr: IInvoicesModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+			this._HTTP.get(`${this._url}`)
+				.subscribe((res: IInvoicesModel) => {
+					//resolve(new InvoicesViewModel(res));
+				}, (error: HttpErrorResponse) => {
+					reject(error);
+				});
+		});*/
 	}
 }

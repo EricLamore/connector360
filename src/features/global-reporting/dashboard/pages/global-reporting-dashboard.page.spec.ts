@@ -4,12 +4,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
 import { MainStubLayout } from '@application/testing/main.layout.stub';
+import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
+import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
 import { ProductsChartStubComponent } from '@application/testing/products-chart.component.stub';
 import { ProjectsOverviewChartStubComponent } from '@application/testing/projects-overview-chart.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
-import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
-import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { GlobalReportingDashboardPage } from './global-reporting-dashboard.page';
@@ -35,8 +35,8 @@ describe('Global Reporting - Dashboard page', () => {
 				GlobalReportingDashboardPage,
 				InvoicesChartStubComponent,
 				MrrChartStubComponent,
-				ProjectsOverviewChartStubComponent,
 				ProductsChartStubComponent,
+				ProjectsOverviewChartStubComponent,
 				TicketsChartStubComponent
 			],
 			imports: [GlobalModule, RouterTestingModule],

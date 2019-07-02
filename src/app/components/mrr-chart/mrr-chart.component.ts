@@ -69,7 +69,7 @@ export class MrrChartComponent implements OnInit {
 				this._REF.detectChanges();
 			})
 			.catch((err: Error): void => {
-				throw err; }
-			);
+				throw err;
+			});
 	}
 }
