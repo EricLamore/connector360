@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DetailsButttonComponent } from '@application/components/details-button/details-buttton.component';
 import { InvoicesChartComponent } from '@application/components/invoices-chart/invoices-chart.component';
 import { MrrChartComponent } from '@application/components/mrr-chart/mrr-chart.component';
 import { PerformanceChartComponent } from '@application/components/performance-chart/performance-chart.component';
@@ -15,6 +16,7 @@ import { GlobalModule } from '../utilities/global.module';
 @NgModule({
 	declarations: [
 		BlankLayout,
+		DetailsButttonComponent,
 		InvoicesChartComponent,
 		MainLayout,
 		MrrChartComponent,
@@ -29,6 +31,7 @@ import { GlobalModule } from '../utilities/global.module';
 	],
 	exports: [
 		BlankLayout,
+		DetailsButttonComponent,
 		GlobalModule,
 		InvoicesChartComponent,
 		MainLayout,
