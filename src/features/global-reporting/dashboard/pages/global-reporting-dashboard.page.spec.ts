@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GlobalModule } from '@application/modules/utilities/global.module';
 import { MainLayout } from '@application/pages';
-import { DetailsButtonStubComponent } from '@application/testing/details-button.component.stub';
 import { InvoicesChartStubComponent } from '@application/testing/invoices-chart.component.stub';
 import { MainStubLayout } from '@application/testing/main.layout.stub';
 import { MrrChartStubComponent } from '@application/testing/mrr-chart.component.stub';
@@ -11,6 +10,7 @@ import { ProjectsOverviewChartStubComponent } from '@application/testing/project
 import { ProjectsTimelineChartStubComponent } from '@application/testing/projects-timeline-chart.component.stub';
 import { SatisfactionChartStubComponent } from '@application/testing/satisfaction-chart.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
+import { DetailsButtonStubComponent } from '@features/global-reporting/dashboard/testing/details-button.component.stub';
 
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';

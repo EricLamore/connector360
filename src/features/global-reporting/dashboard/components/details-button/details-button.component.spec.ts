@@ -4,23 +4,23 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { GlobalModule } from '@application/modules/utilities/global.module';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
-import { DetailsButttonComponent } from './details-buttton.component';
+import { DetailsButtonComponent } from './details-button.component';
 chai.use(dirtyChai);
 
 describe('Details button component', () => {
-	let component: DetailsButttonComponent;
-	let fixture: ComponentFixture<DetailsButttonComponent>;
+	let component: DetailsButtonComponent;
+	let fixture: ComponentFixture<DetailsButtonComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [DetailsButttonComponent],
+			declarations: [DetailsButtonComponent],
 			imports: [GlobalModule, RouterTestingModule]
 		})
 			.compileComponents()
 			.catch(() => {
 				// err compile
 			});
-		fixture = TestBed.createComponent(DetailsButttonComponent);
+		fixture = TestBed.createComponent(DetailsButtonComponent);
 		component = fixture.debugElement.componentInstance;
 	}));
 
