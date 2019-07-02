@@ -28,9 +28,9 @@ export class ProductsChartComponent implements OnInit {
 				this.chartType = 'line';
 				this.colors = [
 					{
-						backgroundColor: UniversignColorStates.REALISED,
-						borderColor: UniversignColorStates.REALISED,
-						pointBackgroundColor: UniversignColorStates.REALISED,
+						backgroundColor: UniversignColorStates.INFO,
+						borderColor: UniversignColorStates.INFO,
+						pointBackgroundColor: UniversignColorStates.INFO,
 						pointBorderColor: '#ffffff',
 						pointHoverBackgroundColor: '#ffffff',
 						pointHoverBorderColor: 'rgba(77,83,96,1)'
@@ -60,8 +60,10 @@ export class ProductsChartComponent implements OnInit {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 			})
-			.catch((err: Error): void => {
-				throw err;
-			});
+			.catch(
+				(err: Error): void => {
+					throw err;
+				}
+			);
 	}
 }
