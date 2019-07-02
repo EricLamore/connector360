@@ -23,8 +23,6 @@ export class CustomerReportingDashboardPage implements OnInit {
 	public projectSettings: INg2Settings<IProject>;
 	public satisfactionChartData: MultiDataSet;
 	public satisfactionChartMiddleText: string;
-	public productsChartLabels: Label[];
-	public productsChartData: ChartDataSets[];
 	public ticketsChartLabels: Label[];
 	public ticketsChartData: ChartDataSets[];
 
@@ -37,8 +35,6 @@ export class CustomerReportingDashboardPage implements OnInit {
 		this.performanceChartMiddleTextDeployment = '-20%';
 		this.satisfactionChartData = [[90, 10]];
 		this.satisfactionChartMiddleText = '90%';
-		this.productsChartLabels = ['Octobre', 'Novembre', 'Décembre', 'Janvier'];
-		this.productsChartData = [{ data: [1200, 1300, 2200, 1000], label: 'Signatures' }];
 		this.ticketsChartLabels = ['Septembre', 'Octobre', 'Novembre', 'Décembre', 'Janvier'];
 		this.ticketsChartData = [
 			{ data: [0, 0, 0, 0, 1], label: 'Ouvert' },

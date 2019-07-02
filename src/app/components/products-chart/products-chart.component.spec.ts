@@ -1,19 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClient } from '@angular/common/http';
+import { ProductsService } from '@application/services/products.service';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { ChartsModule } from 'ng2-charts';
 import { ProductsChartComponent } from './products-chart.component';
 chai.use(dirtyChai);
 
-describe('Signatures chart component', () => {
+describe('Products chart component', () => {
 	let component: ProductsChartComponent;
 	let fixture: ComponentFixture<ProductsChartComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [ProductsChartComponent],
-			imports: [ChartsModule]
+			imports: [ChartsModule],
+			providers: [ProductsService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {
