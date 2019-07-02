@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import UniversignColorStates from '@application/enums/universign-color-states';
 import { IProjectsOverviewModel } from '@application/models/i-projects-overview';
 import { ProjectsOverviewService } from '@application/services/projects-overview.service';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
 	selector: 'app-projects-overview-chart',
@@ -11,6 +12,7 @@ import { Label } from 'ng2-charts';
 export class ProjectsOverviewChartComponent implements OnInit {
 	public areDataAvailable: boolean;
 	public chartType: ChartType;
+	public colors: Color[];
 	public datasets: ChartDataSets[];
 	public labels: Label[];
 	public legend: boolean;
@@ -30,6 +32,11 @@ export class ProjectsOverviewChartComponent implements OnInit {
 				this.labels = res.labels;
 				this.chartType = 'horizontalBar';
 				this.legend = false;
+				this.colors = [
+					{
+						backgroundColor: UniversignColorStates.REALISED
+					}
+				];
 				this.options = {
 					responsive: true,
 					// We use these empty structures as placeholders for dynamic theming.
