@@ -1,3 +1,9 @@
+<ng-container *ngIf="areDataAvailable; then displayData; else noData"> </ng-container>
+
 <div class="w-100 h-100">
 	<div id="projects-timeline-chart"></div>
 </div>
+
+<ng-template #noData>
+	<div class="w-100 h-100"></div>
+</ng-template>
