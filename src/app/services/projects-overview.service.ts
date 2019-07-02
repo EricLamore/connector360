@@ -16,7 +16,7 @@ export class ProjectsOverviewService {
 
 	public constructor(private readonly _HTTP: HttpClient) {}
 
-	public async get(): Promise<IProjectsOverviewModel> {
+	public async getProjectsOverview(): Promise<IProjectsOverviewModel> {
 		return new Promise<IProjectsOverviewModel>(
 			(
 				resolve: (projectsOverview: IProjectsOverviewModel) => void,
@@ -25,10 +25,10 @@ export class ProjectsOverviewService {
 				resolve(this.mock);
 			}
 		);
-		/*return new Promise<IMrrModel>((resolve: (mrr: IMrrModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
+		/*return new Promise<IProjectsOverviewModel>((resolve: (mrr: IProjectsOverviewModel) => void, reject: (error?: HttpErrorResponse) => void): void => {
 			this._HTTP.get(`${this._url}`)
-				.subscribe((res: IMrrModel) => {
-					//resolve(new MrrViewModel(res));
+				.subscribe((res: IProjectsOverviewModel) => {
+					//resolve(new ProjectsOverviewViewModel(res));
 				}, (error: HttpErrorResponse) => {
 					reject(error);
 				});
