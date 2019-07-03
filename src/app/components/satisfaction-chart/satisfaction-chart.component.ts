@@ -1,5 +1,6 @@
 // tslint:disable:no-big-function no-magic-numbers
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { SATISFACTION_AREA } from '@application/constants/constants';
 import { ISatisfactionModel } from '@application/models/i-satisfaction';
 import { SatisfactionService } from '@application/services/satisfaction.service';
 import * as Highcharts from 'highcharts';
@@ -22,7 +23,7 @@ export class SatisfactionChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._SATISFACTION_SERVICE
 			.getSatisfaction()
-			.then((res: ISatisfactionModel) => {
+			.then((satisfaction: ISatisfactionModel[]) => {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 				Highcharts.chart('satisfaction-chart', {
@@ -54,7 +55,7 @@ export class SatisfactionChartComponent implements OnInit {
 					},
 					yAxis: {
 						gridLineWidth: 1,
-						plotBands: res.plotBands,
+						plotBands: SATISFACTION_AREA,
 						title: {
 							text: 'Satisfaction'
 						}
@@ -68,12 +69,7 @@ export class SatisfactionChartComponent implements OnInit {
 					series: [
 						{
 							type: undefined,
-							data: [
-								{
-									y: 90,
-									target: 95
-								}
-							]
+							data: satisfaction
 						}
 					]
 				});

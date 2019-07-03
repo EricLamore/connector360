@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { InvoicesService } from '@application/services/invoices.service';
+import { InvoiceService } from '@application/services/invoice.service';
 
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
@@ -16,7 +16,7 @@ describe('Invoices chart component', () => {
 		TestBed.configureTestingModule({
 			declarations: [InvoicesChartComponent],
 			imports: [ChartsModule],
-			providers: [InvoicesService, { provide: HttpClient }]
+			providers: [InvoiceService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {

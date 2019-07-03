@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProjectsTimelineService } from '@application/services/projects-timeline.service';
+import { ProjectTimelineService } from '@application/services/project-timeline.service';
 
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
@@ -15,7 +15,7 @@ describe('Projects timeline chart component', () => {
 		TestBed.configureTestingModule({
 			declarations: [ProjectsTimelineChartComponent],
 			imports: [],
-			providers: [ProjectsTimelineService, { provide: HttpClient }]
+			providers: [ProjectTimelineService, { provide: HttpClient }]
 		})
 			.compileComponents()
 			.catch(() => {

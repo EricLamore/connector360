@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import UniversignColorStates from '@application/enums/universign-color-states';
+import { UniversignColorStates } from '@application/enums/universign-color-states';
 import { ITicketsModel } from '@application/models/i-tickets';
 import { TicketsService } from '@application/services/tickets.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
@@ -24,7 +24,7 @@ export class TicketsChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._TICKETS_SERVICE
 			.getTickets()
-			.then((res: ITicketsModel) => {
+			.then((tickets: ITicketsModel) => {
 				this.chartType = 'bar';
 				this.colors = [
 					{
@@ -34,8 +34,8 @@ export class TicketsChartComponent implements OnInit {
 						backgroundColor: UniversignColorStates.OK
 					}
 				];
-				this.datasets = res.datasets;
-				this.labels = res.labels;
+				this.datasets = tickets.datasets;
+				this.labels = tickets.labels;
 				this.legend = false;
 				this.options = {
 					responsive: true,

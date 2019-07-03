@@ -1,7 +1,7 @@
 // tslint:disable:no-big-function no-magic-numbers
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { IProjectsTimelineModel } from '@application/models/i-projects-timeline';
-import { ProjectsTimelineService } from '@application/services/projects-timeline.service';
+import { IProjectTimelineModel } from '@application/models/i-project-timeline';
+import { ProjectTimelineService } from '@application/services/project-timeline.service';
 import * as Highcharts from 'highcharts';
 import Timeline from 'highcharts/modules/timeline';
 Timeline(Highcharts);
@@ -14,14 +14,14 @@ export class ProjectsTimelineChartComponent implements OnInit {
 	public areDataAvailable: boolean;
 	public constructor(
 		private readonly _REF: ChangeDetectorRef,
-		private readonly _PROJECTS_TIMELINE_SERVICE: ProjectsTimelineService
+		private readonly _PROJECT_TIMELINE_SERVICE: ProjectTimelineService
 	) {}
 
 	public ngOnInit(): void {
 		this.areDataAvailable = false;
-		this._PROJECTS_TIMELINE_SERVICE
+		this._PROJECT_TIMELINE_SERVICE
 			.getProjectsTimeline()
-			.then((res: IProjectsTimelineModel) => {
+			.then((projects: IProjectTimelineModel[]) => {
 				this.areDataAvailable = true;
 				this._REF.detectChanges();
 				Highcharts.chart('projects-timeline-chart', {
@@ -68,7 +68,7 @@ export class ProjectsTimelineChartComponent implements OnInit {
 							marker: {
 								symbol: 'circle'
 							},
-							data: res.datasets
+							data: projects
 						}
 					]
 				});

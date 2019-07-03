@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import UniversignColorStates from '@application/enums/universign-color-states';
+import { UniversignColorStates } from '@application/enums/universign-color-states';
 import { IProductsModel } from '@application/models/i-products';
 import { ProductsService } from '@application/services/products.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
@@ -24,7 +24,7 @@ export class ProductsChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._PRODUCTS_SERVICE
 			.getProducts()
-			.then((res: IProductsModel) => {
+			.then((products: IProductsModel) => {
 				this.chartType = 'line';
 				this.colors = [
 					{
@@ -36,8 +36,8 @@ export class ProductsChartComponent implements OnInit {
 						pointHoverBorderColor: 'rgba(77,83,96,1)'
 					}
 				];
-				this.datasets = res.datasets;
-				this.labels = res.labels;
+				this.datasets = products.datasets;
+				this.labels = products.labels;
 				this.legend = true;
 				this.options = {
 					responsive: true,

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { IInvoicesModel } from '@application/models/i-invoices';
-import { InvoicesService } from '@application/services/invoices.service';
+import { IInvoiceModel } from '@application/models/i-invoice';
+import { InvoiceService } from '@application/services/invoice.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 
@@ -16,16 +16,16 @@ export class InvoicesChartComponent implements OnInit {
 	public legend: boolean;
 	public options: ChartOptions;
 
-	public constructor(private readonly _REF: ChangeDetectorRef, private readonly _INVOICES_SERVICE: InvoicesService) {}
+	public constructor(private readonly _REF: ChangeDetectorRef, private readonly _INVOICE_SERVICE: InvoiceService) {}
 
 	public ngOnInit(): void {
 		this.areDataAvailable = false;
-		this._INVOICES_SERVICE
+		this._INVOICE_SERVICE
 			.getInvoices()
-			.then((res: IInvoicesModel) => {
+			.then((invoices: IInvoiceModel[]) => {
 				this.chartType = 'horizontalBar';
-				this.datasets = res.datasets;
-				this.labels = res.labels;
+				this.datasets = invoices;
+				this.labels = ['Décembre 2018'];
 				this.legend = false;
 				this.options = {
 					responsive: true,

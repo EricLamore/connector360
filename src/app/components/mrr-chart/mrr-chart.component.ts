@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import UniversignColorStates from '@application/enums/universign-color-states';
+import { MONTHS } from '@application/constants/constants';
+import { UniversignColorStates } from '@application/enums/universign-color-states';
 import { IMrrModel } from '@application/models/i-mrr';
 import { MrrService } from '@application/services/mrr.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
@@ -24,7 +25,7 @@ export class MrrChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._MRR_SERVICE
 			.getMRR()
-			.then((res: IMrrModel) => {
+			.then((mrr: IMrrModel[]) => {
 				this.chartType = 'line';
 				this.colors = [
 					{
@@ -44,8 +45,8 @@ export class MrrChartComponent implements OnInit {
 						pointHoverBorderColor: 'rgba(77,83,96,1)'
 					}
 				];
-				this.datasets = res.datasets;
-				this.labels = res.labels;
+				this.datasets = mrr;
+				this.labels = MONTHS;
 				this.legend = true;
 				this.options = {
 					responsive: true,

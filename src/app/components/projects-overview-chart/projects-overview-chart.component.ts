@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import UniversignColorStates from '@application/enums/universign-color-states';
+import { UniversignColorStates } from '@application/enums/universign-color-states';
 import { IProjectsOverviewModel } from '@application/models/i-projects-overview';
 import { ProjectsOverviewService } from '@application/services/projects-overview.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
@@ -27,15 +27,15 @@ export class ProjectsOverviewChartComponent implements OnInit {
 		this.areDataAvailable = false;
 		this._PROJECTS_OVERVIEW_SERVICE
 			.getProjectsOverview()
-			.then((res: IProjectsOverviewModel) => {
+			.then((projectsOverview: IProjectsOverviewModel) => {
 				this.chartType = 'horizontalBar';
 				this.colors = [
 					{
 						backgroundColor: UniversignColorStates.INFO
 					}
 				];
-				this.datasets = res.datasets;
-				this.labels = res.labels;
+				this.datasets = projectsOverview.datasets;
+				this.labels = projectsOverview.labels;
 				this.legend = false;
 				this.options = {
 					responsive: true,
