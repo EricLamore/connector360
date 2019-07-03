@@ -39,6 +39,7 @@ export class ProjectsOverviewChartComponent implements OnInit {
 				this.legend = false;
 				this.options = {
 					responsive: true,
+					maintainAspectRatio: false,
 					scales: { xAxes: [{}], yAxes: [{}] },
 					plugins: {
 						datalabels: {
