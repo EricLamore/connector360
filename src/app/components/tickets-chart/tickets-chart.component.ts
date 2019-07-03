@@ -39,6 +39,7 @@ export class TicketsChartComponent implements OnInit {
 				this.legend = false;
 				this.options = {
 					responsive: true,
+					maintainAspectRatio: false,
 					scales: { xAxes: [{ stacked: true }], yAxes: [{ stacked: true }] },
 					plugins: {
 						datalabels: {

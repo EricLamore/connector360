@@ -29,7 +29,7 @@ export class ProjectsTimelineChartComponent implements OnInit {
 						zoomType: 'x',
 						type: 'timeline',
 						scrollablePlotArea: {
-							minWidth: 800,
+							minWidth: projects.length * 100,
 							scrollPositionX: 0
 						},
 						marginRight: 0,

@@ -29,6 +29,7 @@ export class InvoicesChartComponent implements OnInit {
 				this.legend = false;
 				this.options = {
 					responsive: true,
+					maintainAspectRatio: false,
 					scales: {
 						xAxes: [{}],
 						yAxes: [{}]
