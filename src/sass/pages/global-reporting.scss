@@ -84,7 +84,6 @@
 		grid-gap: 0.5vh;
 
 		& .consumption {
-			min-width: 500px;
 			grid-row-start: 1 !important;
 			grid-row-end: 2 !important;
 
@@ -105,34 +104,36 @@
 		}
 
 		& .projects {
-			min-width: 500px;
 			grid-row-start: 2 !important;
 			grid-row-end: 3 !important;
 
 			& .projects_body {
 				display: grid !important;
+				grid-template-columns: 100% !important;
 				grid-template-rows: 33% 66% !important;
 
 				& .projects_overview {
 					grid-row-start: 1 !important;
 					grid-row-end: 2 !important;
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
 				}
 
 				& .projects_timeline {
 					grid-row-start: 2 !important;
 					grid-row-end: 3 !important;
+					grid-column-start: 1 !important;
+					grid-column-end: 2 !important;
 				}
 			}
 		}
 
 		& .invoices {
-			min-width: 500px;
 			grid-row-start: 3 !important;
 			grid-row-end: 4 !important;
 		}
 
 		& .tickets {
-			min-width: 500px;
 			grid-row-start: 4 !important;
 			grid-row-end: 5 !important;
 
