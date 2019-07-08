@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; // we also need angular router for Nebular to function properly
+import { AuthComponent } from '@application/components/auth/auth.component';
 import { AuthGuard } from '@application/guards/auth-guard.service';
 import { AuthPagesAccessGuard } from '@application/guards/auth-pages-access-guard.service';
 import { MainLayout } from '@application/pages/layouts/main/main.layout';
@@ -15,7 +16,7 @@ import {
 const ROUTES: Routes = [
 	{
 		path: 'auth',
-		component: NbAuthComponent,
+		component: AuthComponent,
 		children: [
 			{
 				path: '',

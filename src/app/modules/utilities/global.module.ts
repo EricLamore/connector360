@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NbAuthModule } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import {
@@ -29,6 +30,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 		CommonModule,
 		FlexLayoutModule,
 		HttpClientModule,
+		NbAuthModule,
 		NbButtonModule,
 		NbCardModule,
 		NbDatepickerModule,
