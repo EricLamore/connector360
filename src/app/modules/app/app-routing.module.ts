@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; // we also need angular router for Nebular to function properly
 import { AuthGuard } from '@application/guards/auth-guard.service';
+import { AuthPagesAccessGuard } from '@application/guards/auth-pages-access-guard.service';
 import { MainLayout } from '@application/pages/layouts/main/main.layout';
 import {
 	NbAuthComponent,
@@ -18,26 +19,32 @@ const ROUTES: Routes = [
 		children: [
 			{
 				path: '',
+				canActivate: [AuthPagesAccessGuard],
 				component: NbLoginComponent
 			},
 			{
 				path: 'login',
+				canActivate: [AuthPagesAccessGuard],
 				component: NbLoginComponent
 			},
 			{
 				path: 'register',
+				canActivate: [AuthPagesAccessGuard],
 				component: NbRegisterComponent
 			},
 			{
 				path: 'logout',
+				canActivate: [AuthGuard],
 				component: NbLogoutComponent
 			},
 			{
 				path: 'request-password',
+				canActivate: [AuthPagesAccessGuard],
 				component: NbRequestPasswordComponent
 			},
 			{
 				path: 'reset-password',
+				canActivate: [AuthPagesAccessGuard],
 				component: NbResetPasswordComponent
 			}
 		]

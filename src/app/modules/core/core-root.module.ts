@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from '@application/guards/auth-guard.service';
+import { AuthPagesAccessGuard } from '@application/guards/auth-pages-access-guard.service';
 import {
 	NbAuthJWTToken,
 	NbAuthModule,
@@ -53,6 +54,6 @@ import { CorePublicModule } from './core-public.module';
 		NbSidebarModule.forRoot(),
 		NbThemeModule.forRoot({ name: 'universign' })
 	],
-	providers: [AuthGuard]
+	providers: [AuthGuard, AuthPagesAccessGuard]
 })
 export class CoreRootModule {}
