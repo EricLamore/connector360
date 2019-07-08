@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AuthComponent } from '@application/components/auth/auth.component';
 import { InvoicesChartComponent } from '@application/components/invoices-chart/invoices-chart.component';
 import { MrrChartComponent } from '@application/components/mrr-chart/mrr-chart.component';
 import { PerformanceChartComponent } from '@application/components/performance-chart/performance-chart.component';
@@ -26,8 +25,7 @@ import { GlobalModule } from '../utilities/global.module';
 		SatisfactionCircleChartComponent,
 		SmartTableComponent,
 		ProductsChartComponent,
-		TicketsChartComponent,
-		AuthComponent
+		TicketsChartComponent
 	],
 	exports: [
 		BlankLayout,
@@ -42,8 +40,7 @@ import { GlobalModule } from '../utilities/global.module';
 		SatisfactionCircleChartComponent,
 		SmartTableComponent,
 		ProductsChartComponent,
-		TicketsChartComponent,
-		AuthComponent
+		TicketsChartComponent
 	],
 	imports: [GlobalModule]
 })
