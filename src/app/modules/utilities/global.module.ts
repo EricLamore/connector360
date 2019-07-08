@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+
 import {
 	NbButtonModule,
 	NbCardModule,
@@ -30,6 +32,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 		NbButtonModule,
 		NbCardModule,
 		NbDatepickerModule,
+		NbEvaIconsModule,
 		NbInputModule,
 		NbLayoutModule,
 		NbMenuModule,
