@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; // we also need angular router for Nebular to function properly
+import { AuthGuard } from '@application/guards/auth-guard.service';
 import { MainLayout } from '@application/pages/layouts/main/main.layout';
 import {
 	NbAuthComponent,
@@ -60,6 +61,7 @@ const ROUTES: Routes = [
 			}
 		],
 		component: MainLayout,
+		canActivate: [AuthGuard],
 		path: ''
 	}
 ];

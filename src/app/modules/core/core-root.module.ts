@@ -1,9 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from '@application/guards/auth-guard.service';
 import {
+	NbAuthJWTToken,
 	NbAuthModule,
-	/*NbDummyAuthStrategy, NbDummyAuthStrategyOptions,*/ NbPasswordAuthStrategy
+	NbDummyAuthStrategy,
+	NbDummyAuthStrategyOptions,
+	NbPasswordAuthStrategy
 } from '@nebular/auth';
 import { NbDatepickerModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { CorePublicModule } from './core-public.module';
@@ -16,13 +20,14 @@ import { CorePublicModule } from './core-public.module';
 		HttpClientModule,
 		NbAuthModule.forRoot({
 			strategies: [
-				/*
 				NbDummyAuthStrategy.setup({
 					name: 'email'
 				})
-				 */
-				NbPasswordAuthStrategy.setup({
+				/*NbPasswordAuthStrategy.setup({
 					name: 'email',
+					token: {
+						class: NbAuthJWTToken
+					},
 					baseEndpoint: '',
 					login: {
 						endpoint: '/api/auth/login'
@@ -39,7 +44,7 @@ import { CorePublicModule } from './core-public.module';
 					resetPass: {
 						endpoint: '/api/auth/reset-pass'
 					}
-				})
+				})*/
 			],
 			forms: {}
 		}),
@@ -48,6 +53,6 @@ import { CorePublicModule } from './core-public.module';
 		NbSidebarModule.forRoot(),
 		NbThemeModule.forRoot({ name: 'universign' })
 	],
-	providers: []
+	providers: [AuthGuard]
 })
 export class CoreRootModule {}
