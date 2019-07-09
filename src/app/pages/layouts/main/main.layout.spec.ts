@@ -10,6 +10,7 @@ import {
 	NbSidebarService,
 	NbThemeModule
 } from '@nebular/theme';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 chai.use(dirtyChai);
@@ -30,6 +31,7 @@ describe('Main layout', () => {
 				NbMenuModule.forRoot(),
 				NbSidebarModule.forRoot(),
 				NbThemeModule.forRoot({ name: 'corporate' }),
+				NgbTypeaheadModule,
 				RouterTestingModule
 			],
 			providers: [{ provide: NbSidebarService }]
@@ -44,9 +46,5 @@ describe('Main layout', () => {
 
 	test('should create the main layout', async(() => {
 		chai.expect(component).to.be.ok();
-	}));
-
-	test(`should have as title 'VISION360'`, async(() => {
-		chai.expect(component.title).to.equal('VISION360');
 	}));
 });
