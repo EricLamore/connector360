@@ -1,5 +1,5 @@
+<img class="logo" src="assets/pictures/universign-logo.png" />
 <h1 id="title" class="title">Login</h1>
-<p class="sub-title">Hello! Log in with your email.</p>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
 	<p class="alert-title"><b>Oh snap!</b></p>
@@ -27,7 +27,7 @@
 			id="input-email"
 			pattern=".+@.+\..+"
 			placeholder="Email address"
-			fieldSize="large"
+			fieldSize="small"
 			autofocus
 			[status]="email.dirty ? (email.invalid ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.email.required')"
@@ -57,7 +57,7 @@
 			type="password"
 			id="input-password"
 			placeholder="Password"
-			fieldSize="large"
+			fieldSize="small"
 			[status]="password.dirty ? (password.invalid ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.password.required')"
 			[minlength]="getConfigValue('forms.validation.password.minLength')"

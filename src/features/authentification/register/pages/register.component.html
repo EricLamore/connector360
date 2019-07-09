@@ -1,3 +1,4 @@
+<img class="logo" src="assets/pictures/universign-logo.png" />
 <h1 id="title" class="title">Register</h1>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
@@ -26,7 +27,7 @@
 			placeholder="Full name"
 			autofocus
 			fullWidth
-			fieldSize="large"
+			fieldSize="small"
 			[status]="fullName.dirty ? (fullName.invalid ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.fullName.required')"
 			[minlength]="getConfigValue('forms.validation.fullName.minLength')"
@@ -56,7 +57,7 @@
 			pattern=".+@.+..+"
 			placeholder="Email address"
 			fullWidth
-			fieldSize="large"
+			fieldSize="small"
 			[status]="email.dirty ? (email.invalid ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.email.required')"
 			[attr.aria-invalid]="email.invalid && email.touched ? true : null"
@@ -82,7 +83,7 @@
 			name="password"
 			placeholder="Password"
 			fullWidth
-			fieldSize="large"
+			fieldSize="small"
 			[status]="password.dirty ? (password.invalid ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.password.required')"
 			[minlength]="getConfigValue('forms.validation.password.minLength')"
@@ -112,7 +113,7 @@
 			name="rePass"
 			placeholder="Confirm Password"
 			fullWidth
-			fieldSize="large"
+			fieldSize="small"
 			[status]="rePass.dirty ? (rePass.invalid || password.value != rePass.value ? 'danger' : 'success') : ''"
 			[required]="getConfigValue('forms.validation.password.required')"
 			[attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null"

@@ -47,7 +47,11 @@ import { CorePublicModule } from './core-public.module';
 					}
 				})*/
 			],
-			forms: {}
+			forms: {
+				login: {
+					rememberMe: false
+				}
+			}
 		}),
 		NbDatepickerModule.forRoot(),
 		NbMenuModule.forRoot(),
