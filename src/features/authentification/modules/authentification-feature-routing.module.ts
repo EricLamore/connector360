@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@application/guards/auth-guard.service';
-import { AuthComponent } from '@features/authentification/auth/pages/auth.component';
 import { AuthPagesAccessGuard } from '@features/authentification/guards/auth-pages-access-guard.service';
 import { LoginComponent } from '@features/authentification/login/pages/login.component';
 import { LogoutComponent } from '@features/authentification/logout/pages/logout.component';
+import { AuthComponent } from '@features/authentification/pages/auth.component';
 import { RegisterComponent } from '@features/authentification/register/pages/register.component';
 import { RequestPasswordComponent } from '@features/authentification/request-password/pages/request-password.component';
 import { ResetPasswordComponent } from '@features/authentification/reset-password/pages/reset-password.component';
