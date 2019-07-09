@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from '@application/guards/auth-guard.service';
-import { AuthPagesAccessGuard } from '@features/auth/guards/auth-pages-access-guard.service';
+import { AuthPagesAccessGuard } from '@features/authentification/guards/auth-pages-access-guard.service';
 import {
 	NbAuthJWTToken,
 	NbAuthModule,

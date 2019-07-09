@@ -6,14 +6,10 @@ import { MainLayout } from '@application/pages/layouts/main/main.layout';
 const ROUTES: Routes = [
 	{
 		path: 'auth',
-		loadChildren: '@features/auth/modules/auth-feature.module#AuthFeatureModule'
+		loadChildren: '@features/authentification/modules/authentification-feature.module#AuthentificationFeatureModule'
 	},
 	{
 		children: [
-			{
-				loadChildren: '@features/auth/modules/auth-feature.module#AuthFeatureModule',
-				path: 'auth'
-			},
 			{
 				loadChildren:
 					'@features/global-reporting/modules/global-reporting-feature.module#GlobalReportingFeatureModule',
