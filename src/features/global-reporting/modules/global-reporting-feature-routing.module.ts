@@ -5,16 +5,16 @@ import { GlobalReportingDashboardPage } from '@features/global-reporting/dashboa
 
 const GLOBAL_REPORTING_ROUTES: Routes = [
 	{
-		component: GlobalReportingDashboardPage,
-		path: ''
+		path: '',
+		component: GlobalReportingDashboardPage
 	},
 	{
-		component: GlobalReportingCategoryPage,
-		path: ':category'
+		path: ':category',
+		component: GlobalReportingCategoryPage
 	},
 	{
-		component: GlobalReportingCategoryPage,
-		path: ':category/:client'
+		path: ':category/:client',
+		component: GlobalReportingCategoryPage
 	}
 ];
 

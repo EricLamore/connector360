@@ -1,15 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthGuard } from '@application/guards/auth-guard.service';
-import { AuthPagesAccessGuard } from '@features/authentification/guards/auth-pages-access-guard.service';
-import {
-	NbAuthJWTToken,
-	NbAuthModule,
-	NbDummyAuthStrategy,
-	NbDummyAuthStrategyOptions,
-	NbPasswordAuthStrategy
-} from '@nebular/auth';
+import { AuthenticationGuard } from '@application/guards/authentication-guard.service';
+import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbDatepickerModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { CorePublicModule } from './core-public.module';
 
@@ -58,6 +51,6 @@ import { CorePublicModule } from './core-public.module';
 		NbSidebarModule.forRoot(),
 		NbThemeModule.forRoot({ name: 'universign' })
 	],
-	providers: [AuthGuard]
+	providers: [AuthenticationGuard]
 })
 export class CoreRootModule {}

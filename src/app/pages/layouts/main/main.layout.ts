@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/internal/Observable';
@@ -7,6 +6,7 @@ import { merge } from 'rxjs/internal/observable/merge';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
+// From API call
 const CLIENTS: string[] = [
 	'Mutuelle Bleue',
 	'AFTA',
@@ -32,8 +32,8 @@ const CLIENTS: string[] = [
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	templateUrl: './main.layout.html'
 })
-export class MainLayout {
-	public items: { link: string[]; title: string }[] = [
+export class MainLayout implements OnInit {
+	/*public navBar: { link: string[]; title: string }[] = [
 		{
 			link: ['/customer-reporting/Mutuelle Bleue'],
 			title: 'Reporting client'
@@ -41,28 +41,31 @@ export class MainLayout {
 		{
 			link: ['/global-reporting'],
 			title: 'Reporting global'
-		},
+		}
 		{
 			link: ['/search-customers'],
 			title: 'Rechercher'
 		}
-	];
-	public title: string = 'VISION360';
+	];*/
 
-	public currentSearch: string = '';
-	public minLengthSearch: number = 2;
-	public maxResults: number = 10;
-	public debounceTime: number = 200;
-
-	public model: string;
-
-	@ViewChild('instance', { static: true }) public instance: NgbTypeahead;
-	public focus$: Subject<string> = new Subject<string>();
 	public click$: Subject<string> = new Subject<string>();
+	public debounceTime: number = 200;
+	public focus$: Subject<string> = new Subject<string>();
+	@ViewChild('instance', { static: true }) public instance: NgbTypeahead;
+	public maxResults: number = 10;
+	public model: string;
 
 	public constructor(private readonly _ROUTER: Router) {}
 
-	public search = (text$: Observable<string>): Observable<string[]> => {
+	public ngOnInit(): void {
+		this._ROUTER.navigate(['/global-reporting/']);
+	}
+
+	public goToHome = (): void => {
+		this._ROUTER.navigate(['/global-reporting/']);
+	};
+
+	public onSearch = (text$: Observable<string>): Observable<string[]> => {
 		const DEBOUNCETEXT$: Observable<string> = text$.pipe(
 			debounceTime(this.debounceTime),
 			distinctUntilChanged()
@@ -83,7 +86,6 @@ export class MainLayout {
 	};
 
 	public onSubmitGlobalSearch = (value: string): void => {
-		const URL_CUSTOMER_PAGE: string = '/customer-reporting/'.concat(value);
-		this._ROUTER.navigateByUrl(URL_CUSTOMER_PAGE);
+		this._ROUTER.navigate(['/customer-reporting/', value]);
 	};
 }
