@@ -24,6 +24,7 @@ export class AuthenticationGuard implements CanActivate, CanActivateChild {
 			.toPromise()
 			.then();
 		if (IS_AUTHENTIFICATED) {
+			this._ROUTER.navigate(['/']);
 			return Promise.resolve(false);
 		}
 		return Promise.resolve(true);
