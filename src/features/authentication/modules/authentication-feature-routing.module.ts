@@ -25,12 +25,13 @@ const AUTH_ROUTES: Routes = [
 			{
 				path: 'request-password',
 				component: RequestPasswordComponent
-			},
-			{
-				path: 'reset-password',
-				component: ResetPasswordComponent
 			}
 		]
+	},
+	{
+		path: 'reset-password',
+		canActivate: [AuthenticationGuard],
+		component: ResetPasswordComponent
 	},
 	{
 		path: 'logout',
