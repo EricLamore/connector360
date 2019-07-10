@@ -41,6 +41,7 @@
 		"chart.js": "^2.8.0",
 		"core-js": "^2.6.9",
 		"eva-icons": "^1.1.1",
+		"font-awesome": "^4.7.0",
 		"highcharts": "^7.1.2",
 		"nebular-icons": "^1.1.0",
 		"ng2-charts": "^2.3.0",

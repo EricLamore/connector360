@@ -1,7 +1,32 @@
-<nb-layout>
+<nb-layout class="main-layout">
 	<nb-layout-header fixed>
 		<a href="/">
 			<img src="assets/pictures/universign-logo.png" />
+		</a>
+		<div class="input-group global-search-bar">
+			<input
+				id="typeahead-focus"
+				name="search"
+				class="form-control border-secondary py-2"
+				placeholder="search"
+				type="text"
+				class="form-control"
+				[(ngModel)]="model"
+				[ngbTypeahead]="search"
+				(focus)="focus$.next($event.target.value)"
+				(click)="click$.next($event.target.value)"
+				#instance="ngbTypeahead"
+				(keyup.enter)="onSubmitGlobalSearch(model)"
+			/>
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" (click)="onSubmitGlobalSearch(model)">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</div>
+		<a href="auth/logout">
+			<i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
+			<span>Logout</span>
 		</a>
 	</nb-layout-header>
 	<nb-sidebar responsive compactedBreakpoints="['xs', 'is', 'sm']">

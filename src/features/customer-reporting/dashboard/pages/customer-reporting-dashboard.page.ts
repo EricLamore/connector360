@@ -1,11 +1,12 @@
 // tslint:disable:no-big-function no-magic-numbers
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { INg2Settings } from '@application/models/i-ng2-st-settings';
 import { IInvoice } from '@features/customer-reporting/dashboard/models/i-invoice';
 import { IProject } from '@features/customer-reporting/dashboard/models/i-project';
-import { Chart, ChartColor, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label, MultiDataSet, PluginServiceGlobalRegistrationAndOptions } from 'ng2-charts';
+import { Chart } from 'chart.js';
+import { MultiDataSet } from 'ng2-charts';
 
 @Component({
 	templateUrl: './customer-reporting-dashboard.page.html'
@@ -24,18 +25,23 @@ export class CustomerReportingDashboardPage implements OnInit {
 	public satisfactionChartData: MultiDataSet;
 	public satisfactionChartMiddleText: string;
 
-	public constructor(private readonly _DATEPIPE: DatePipe) {}
+	public customerName: string;
+
+	public constructor(private readonly _DATEPIPE: DatePipe, private readonly _ROUTE: ActivatedRoute) {}
 
 	public ngOnInit(): void {
-		this.performanceChartDataLastMonth = [[25, 75]];
-		this.performanceChartMiddleTextLastMonth = '-10%';
-		this.performanceChartDataDeployment = [[25, 75]];
-		this.performanceChartMiddleTextDeployment = '-20%';
-		this.satisfactionChartData = [[90, 10]];
-		this.satisfactionChartMiddleText = '90%';
+		this._ROUTE.paramMap.subscribe((params: ParamMap) => {
+			this.customerName = params.get('customerName');
+			this.performanceChartDataLastMonth = [[25, 75]];
+			this.performanceChartMiddleTextLastMonth = '-10%';
+			this.performanceChartDataDeployment = [[25, 75]];
+			this.performanceChartMiddleTextDeployment = '-20%';
+			this.satisfactionChartData = [[90, 10]];
+			this.satisfactionChartMiddleText = '90%';
 
-		this.fetchInvoices();
-		this.fetchProjects();
+			this.fetchInvoices();
+			this.fetchProjects();
+		});
 	}
 
 	public fetchInvoices(): void {
