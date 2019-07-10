@@ -35,7 +35,7 @@ const CLIENTS: string[] = [
 export class MainLayout {
 	public items: { link: string[]; title: string }[] = [
 		{
-			link: ['/customer-reporting'],
+			link: ['/customer-reporting/Mutuelle Bleue'],
 			title: 'Reporting client'
 		},
 		{
@@ -83,7 +83,7 @@ export class MainLayout {
 	};
 
 	public onSubmitGlobalSearch = (value: string): void => {
-		const URL_CUSTOMER_PAGE: string = '/customer-reporting';
+		const URL_CUSTOMER_PAGE: string = '/customer-reporting/'.concat(value);
 		this._ROUTER.navigateByUrl(URL_CUSTOMER_PAGE);
 	};
 }

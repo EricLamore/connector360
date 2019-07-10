@@ -18,7 +18,7 @@ const ROUTES: Routes = [
 			{
 				loadChildren:
 					'@features/customer-reporting/modules/customer-reporting-feature.module#CustomerReportingFeatureModule',
-				path: 'customer-reporting'
+				path: 'customer-reporting/:customerName'
 			},
 			{
 				loadChildren:
