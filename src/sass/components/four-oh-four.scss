@@ -1,0 +1,27 @@
+html,
+body {
+	height: 100%;
+}
+
+.four-oh-four {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& .flex-row {
+		width: auto;
+
+		& .flex-item {
+			width: auto;
+			height: auto;
+			margin: 50px;
+			color: black;
+			font-weight: bold;
+			font-size: 2em;
+			text-align: center;
+		}
+	}
+}

@@ -1,5 +1,5 @@
 <div
-	class="customer-reporting w-100 h-100 overflow-hidden"
+	class="customer-reporting-dashboard w-100 h-100 overflow-hidden"
 	[ngStyle]="{'display':'grid', 'grid-template-columns':'50% 50%', 'grid-template-rows':'7% 45% 15% 30%', 'grid-gap': '0.5vh 0.5vw'}"
 >
 	<div
@@ -7,7 +7,7 @@
 		[ngStyle]="{'grid-column-start':'1', 'grid-column-end':'3',
 						'grid-row-start':'1', 'grid-row-end':'2'}"
 	>
-		header
+		{{this.customerName}}
 	</div>
 
 	<div
@@ -277,7 +277,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-md-8 h-100">
-						<app-tickets-chart>	</app-tickets-chart>
+						<app-tickets-chart> </app-tickets-chart>
 					</div>
 				</div>
 			</nb-card-body>

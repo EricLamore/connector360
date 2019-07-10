@@ -9,6 +9,7 @@ import { SatisfactionCircleChartStubComponent } from '@application/testing/satis
 import { SmartTableStubComponent } from '@application/testing/smart-table.component.stub';
 import { TicketsChartStubComponent } from '@application/testing/tickets-chart.component.stub';
 
+import { RouterTestingModule } from '@angular/router/testing';
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
 import { CustomerReportingDashboardPage } from './customer-reporting-dashboard.page';
@@ -38,7 +39,7 @@ describe('Customer Reporting - Dashboard page', () => {
 				SmartTableStubComponent,
 				TicketsChartStubComponent
 			],
-			imports: [GlobalModule],
+			imports: [GlobalModule, RouterTestingModule],
 			providers: [{ provide: MainLayout, useClass: MainStubLayout }, DatePipe]
 		})
 			.compileComponents()

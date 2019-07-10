@@ -4,8 +4,8 @@ import { CustomerReportingDashboardPage } from '@features/customer-reporting/das
 
 const CUSTOMER_REPORTING_ROUTES: Routes = [
 	{
-		component: CustomerReportingDashboardPage,
-		path: ''
+		path: '',
+		component: CustomerReportingDashboardPage
 	}
 ];
 

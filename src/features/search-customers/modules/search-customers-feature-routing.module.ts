@@ -4,8 +4,8 @@ import { SearchCustomersPage } from '@features/search-customers/pages/search-cus
 
 const SEARCH_CUSTOMERS_ROUTES: Routes = [
 	{
-		component: SearchCustomersPage,
-		path: ''
+		path: '',
+		component: SearchCustomersPage
 	}
 ];
 
